@@ -50,7 +50,7 @@ I build responsive, user-friendly, and scalable web applications with strong kno
 
 - 📧 Email: [kamrankhanma7@gmail.com](mailto:kamranofficail7212@gmail.com)
 - 📱 Phone: +92 330 7162505
-- 🔗 LinkedIn: [kamran-khan-930273197](https://linkedin.com/in/kamran-khan-930273197)
+- 🔗 LinkedIn: [kamran-khan-930273197](https://www.linkedin.com/in/kamran-khan-4477a3383/)
 - 💻 GitHub: [yourgithub](https://github.com/kamran1272)
 
 ---
