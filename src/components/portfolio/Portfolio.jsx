@@ -2,6 +2,9 @@ import Projects from "./Projects";
 import card1 from "../../assets/images/portfolio-images/card-1.png";
 import card2 from "../../assets/images/portfolio-images/card-2.png";
 import card3 from "../../assets/images/portfolio-images/card-3.png";
+import card4 from "../../assets/images/portfolio-images/card-4.png";
+import card5 from "../../assets/images/portfolio-images/card-5.png";
+import card6 from "../../assets/images/portfolio-images/card-6.png";
 
 const projectData = [
   {
@@ -11,7 +14,7 @@ const projectData = [
     title: "KickZone – Sports Management System",
     description:
       "Developed a role-based sports management platform for teams, events, and scheduling with authentication and access control.",
-    link: "https://github.com/yourgithub/kickzone", // Replace with real link
+    link: "https://github.com/yourgithub/kickzone", 
   },
   {
     id: 2,
@@ -20,7 +23,7 @@ const projectData = [
     title: "Hospital Management System",
     description:
       "Built a single-page application to manage patient records, staff, and appointments with React Hooks and dynamic routing.",
-    link: "https://github.com/yourgithub/hms", // Replace with real link
+    link: "https://github.com/yourgithub/hms", 
   },
   {
     id: 3,
@@ -29,12 +32,12 @@ const projectData = [
     title: "Pharmacy Management System",
     description:
       "Inventory and sales tracking system with secure role-based authentication, CRUD operations, and optimized database queries.",
-    link: "https://github.com/yourgithub/pharmacy", // Replace with real link
+    link: "https://github.com/yourgithub/pharmacy", 
   },
-  // Future placeholders
+  
   {
     id: 4,
-    image: card1,
+    image: card4,
     category: "COMING SOON",
     title: "Next Project",
     description: "A new project is under development — stay tuned for updates!",
@@ -42,7 +45,7 @@ const projectData = [
   },
   {
     id: 5,
-    image: card2,
+    image: card5,
     category: "COMING SOON",
     title: "Portfolio Expansion",
     description: "Additional work will be showcased here in the near future.",
@@ -50,7 +53,7 @@ const projectData = [
   },
   {
     id: 6,
-    image: card3,
+    image: card6,
     category: "COMING SOON",
     title: "Open Source Contributions",
     description: "Highlighting open-source and freelance projects soon.",
