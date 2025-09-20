@@ -24,7 +24,11 @@ const Footer = () => {
           duration={900}
           className="flex items-center gap-3 border-0 cursor-pointer"
         >
-          <img src={logo} className="h-8 sm:h-12 rounded-lg" alt="Portfolio Logo" />
+          <img
+            src={logo}
+            alt="Kamran Khan"
+            className="h-14 w-14 rounded-full border-2 border-black hover:border-blue-500 transition-all duration-300 object-contain"
+          />
           <p className="text-2xl sm:text-[28px] font-semibold tracking-wide">
             Portfolio
           </p>

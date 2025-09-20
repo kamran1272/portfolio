@@ -45,7 +45,6 @@ const NavBar = () => {
       } z-50 transition-all duration-500`}
     >
       <div className="navbar flex justify-between mx-auto content">
-     
         <div className="flex items-center justify-between">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -78,7 +77,11 @@ const NavBar = () => {
             duration={900}
             className="flex items-center border-0 lg:max-xxl:ps-5 cursor-pointer"
           >
-            <img src={logo} className="h-8 sm:h-14 rounded-2xl" alt="logo" />
+            <img
+              src={logo}
+              alt="Kamran Khan"
+              className="h-14 w-14 rounded-full border-2 border-black hover:border-blue-500 transition-all duration-300 object-contain"
+            />
             <p className="text-2xl sm:text-[32px] my-auto ms-[12px] font-semibold">
               Kamran Khan
             </p>

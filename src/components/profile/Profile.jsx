@@ -12,9 +12,9 @@ const Profile = () => {
       <div className="flex max-md:flex-col justify-between items-center gap-6">
         {/* Profile image */}
         <div className="xxl:max-w-106 w-auto h-auto xxl:max-h-126">
-          <div className="max-w-106 h-117 object-fill overflow-hidden rounded-xl">
+          <div className="w-90 h-90 mx-auto overflow-hidden rounded-full border-4 border-gray-200 shadow-lg">
             <img
-              className="bg-soft-white h-[120%] object-contain"
+              className="w-full h-full object-contain hover:scale-105 duration-300"
               src={person}
               alt="Kamran Khan"
             />
@@ -40,14 +40,18 @@ const Profile = () => {
             className={`text-xs xs:text-[16px] lg:text-lg font-normal max-md:text-center text-gray-600`}
           >
             <p>
-              I specialize in building <span className="bg-highlight">responsive and scalable web applications</span> 
-              using <strong>React.js</strong> and <strong>Laravel</strong>. With expertise in REST APIs, 
-              modern UI frameworks, and clean coding practices, I deliver solutions that combine 
-              functionality with user-friendly design.
+              I specialize in building{" "}
+              <span className="bg-highlight">
+                responsive and scalable web applications
+              </span>
+              using <strong>React.js</strong> and <strong>Laravel</strong>. With
+              expertise in REST APIs, modern UI frameworks, and clean coding
+              practices, I deliver solutions that combine functionality with
+              user-friendly design.
             </p>
             <p className="mt-3">
-              My passion is to create impactful web applications and contribute 
-              to dynamic development teams by solving real-world problems 
+              My passion is to create impactful web applications and contribute
+              to dynamic development teams by solving real-world problems
               through technology.
             </p>
           </div>
@@ -59,8 +63,8 @@ const Profile = () => {
               My Projects
             </a>
             <a
-              className={`btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 hover:border-picto-primary bg-white duration-300 transition-all hover:text-picto-primary ms-4 text-xs xxs:text-[14px] sm:text-[16px]`}
-              href="/Kamran_Khan_CV.pdf" 
+              className="btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 hover:border-picto-primary bg-white duration-300 transition-all hover:text-picto-primary ms-4 text-xs xxs:text-[14px] sm:text-[16px]"
+              href={`${import.meta.env.BASE_URL}Kamran_Khan_CV.pdf`}
               download="Kamran_Khan_CV.pdf"
             >
               <FontAwesomeIcon icon={faDownload} /> Download CV

@@ -6,7 +6,7 @@ const informationSummaryData = [
   {
     id: 1,
     title: "Experience",
-    description: "4+ Years", 
+    description: "2+ Years",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const informationSummaryData = [
   {
     id: 3,
     title: "Happy Clients",
-    description: "5+", 
+    description: "5+",
   },
 ];
 
@@ -35,20 +35,19 @@ const Introduction = () => {
             </span>
           </p>
           <p className="text-xs xxs:text-lg lg:text-[18px] my-6">
-            I’m a <span className="bg-highlight">Frontend & Full-Stack Web Developer</span> 
-            specializing in <span className="bg-highlight">React.js</span> and 
-            <span className="bg-highlight"> Laravel</span>. I build responsive, 
-            scalable, and user-friendly web applications with modern UI frameworks 
-            and REST API integrations.
+            I’m a <span className="bg-highlight">Full-Stack Web Developer</span>
+            specializing in <span className="bg-highlight">React.js</span> and
+            <span className="bg-highlight"> Laravel</span>. I build responsive,
+            scalable, and user-friendly web applications with modern UI
+            frameworks and REST API integrations.
           </p>
           <p className="text-center lg:text-start">
             <a
-               className="btn-primary btn btn-xs xxs:btn-lg text-white"
-               href="mailto:kamranofficial7212@gmail.com?subject=Hello Kamran&body=Hi, I want to discuss a project with you."
-                     >
-                     Say Hello!
-             </a>
-
+              className="btn-primary btn btn-xs xxs:btn-lg text-white"
+              href="mailto:kamranofficial7212@gmail.com?subject=Hello Kamran&body=Hi, I want to discuss a project with you."
+            >
+              Say Hello!
+            </a>
           </p>
         </div>
         <div className="mx-auto lg:mx-0 relative">

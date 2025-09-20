@@ -78,9 +78,9 @@ const Portfolio = () => {
       </div>
       <div className="mx-auto flex justify-center">
         <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
-          {projectData.map((data, index) => (
-            <Projects data={data} key={index} />
-          ))}
+          {projectData.map((data) => (
+  <Projects data={data} key={data.id} />
+))}
         </div>
       </div>
       <div className="text-center">
