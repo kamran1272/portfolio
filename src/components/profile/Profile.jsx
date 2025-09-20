@@ -13,7 +13,7 @@ const Profile = () => {
         {/* Profile image */}
         <div className="xxl:max-w-106 w-auto h-auto xxl:max-h-126">
           <div className="w-90 h-90 mx-auto overflow-hidden rounded-full border-4 border-gray-200 shadow-lg">
-            <img
+           <img
               className="w-full h-full object-contain hover:scale-105 duration-300"
               src={person}
               alt="Kamran Khan"
