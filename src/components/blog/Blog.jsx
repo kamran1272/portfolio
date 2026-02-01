@@ -9,19 +9,23 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./blog.css";
 
-// Breakpoints for swiperJS
+// SwiperJS breakpoints for responsive carousel
 const custom_breakpoints = {
   640: {
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 15,
   },
   768: {
-    slidesPerView: 3,
-    spaceBetween: 15,
+    slidesPerView: 2,
+    spaceBetween: 20,
   },
-  1220: {
-    slidesPerView: 4,
+  1024: {
+    slidesPerView: 3,
     spaceBetween: 24,
+  },
+  1400: {
+    slidesPerView: 4,
+    spaceBetween: 30,
   },
 };
 
@@ -78,13 +82,18 @@ const blogData = [
 
 const Blog = () => {
   return (
-    <div className="content py-25 px-2 relative" id="blog">
+    <section
+      className="content max-w-[1300px] mx-auto py-24 px-4"
+      id="blog"
+    >
       {/* Section Heading */}
-      <div className="max-w-135 text-center mx-auto pb-17.5">
-        <p className="section-title pb-6">Blog</p>
-        <p className="text-xs xs:text-[16px] md:text-lg text-gray-400">
-          Check out my recent blog posts where I share insights on design,
-          development, and the latest industry trends.
+      <div className="text-center mb-16">
+        <p className="section-title text-3xl md:text-4xl font-semibold mb-4">
+          Blog & Insights
+        </p>
+        <p className="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto">
+          Explore my latest articles on Full-Stack development, Local SEO strategies, and web design best practices.
+          Gain insights on building scalable applications and improving online visibility for businesses.
         </p>
       </div>
 
@@ -94,18 +103,15 @@ const Blog = () => {
         breakpoints={custom_breakpoints}
         pagination={{ clickable: true }}
         modules={[Pagination]}
+        className="blog-swiper"
       >
         {blogData.map((data) => (
-          <SwiperSlide
-            key={data.id}
-            className="mb-10"
-            style={{ backgroundColor: "rgba(0,0,0,0)" }}
-          >
+          <SwiperSlide key={data.id} className="mb-8">
             <MonoBlog data={data} />
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </section>
   );
 };
 

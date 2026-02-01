@@ -1,18 +1,18 @@
 const TestimonialTemplate = ({ testimonial }) => {
   return (
-    <div className="flex flex-col items-center h-full text-center px-4">
+    <div className="flex flex-col items-center justify-center h-full text-center px-4">
       {/* Testimonial message */}
-      <p className="text-xs sm:text-[14px] md:text-[18px] pb-5 sm:pb-8 md:pb-10 max-w-144.25 text-gray-600 italic">
+      <p className="text-sm sm:text-base md:text-lg text-gray-600 italic mb-6 sm:mb-8 max-w-[36rem] mx-auto">
         {testimonial?.message}
       </p>
 
       {/* Quote */}
-      <p className="text-[14px] sm:text-lg font-medium text-gray-800 pb-6 leading-relaxed">
+      <p className="text-base sm:text-lg md:text-xl font-medium text-gray-800 leading-relaxed mb-8 max-w-[36rem] mx-auto">
         “{testimonial?.quote}”
       </p>
 
       {/* Client Info */}
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center">
         {/* Optional Avatar */}
         {testimonial?.avatar && (
           <img
@@ -22,10 +22,10 @@ const TestimonialTemplate = ({ testimonial }) => {
           />
         )}
 
-        <p className="text-[14px] sm:text-[16px] md:text-lg font-semibold text-gray-900">
+        <p className="text-lg sm:text-xl font-semibold text-gray-900">
           {testimonial?.name}
         </p>
-        <p className="text-[13px] sm:text-[15px] text-gray-500">
+        <p className="text-sm sm:text-base text-gray-500">
           {testimonial?.designation}
         </p>
       </div>

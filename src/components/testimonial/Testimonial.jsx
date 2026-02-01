@@ -1,11 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { EffectFade, Navigation, Pagination } from "swiper/modules";
+import { EffectFade, Pagination, Autoplay } from "swiper/modules";
 import TestimonialTemplate from "./TestimonialTemplate";
-import "./testimonial.css";
 
 const testimonialData = [
   {
@@ -33,24 +31,46 @@ const testimonialData = [
 
 const Testimonial = () => {
   return (
-    <div className="flex mx-auto justify-center px-2 max-w-218 pb-10 md:pb-25">
-      <div className="w-full h-full cursor-grab">
-        <p className="section-title mb-6 text-center">Testimonials</p>
+    <section
+      id="testimonials"
+      className="bg-[#f9f9f9] py-20 px-4 md:px-8"
+    >
+      {/* Section Title */}
+      <div className="max-w-3xl mx-auto text-center mb-14">
+        <h2 className="section-title text-3xl sm:text-4xl font-semibold">
+          Testimonials
+        </h2>
+        <p className="text-gray-500 text-sm sm:text-base mt-2">
+          Hear from clients and collaborators about their experience working with me.
+        </p>
+      </div>
+
+      {/* Swiper Carousel */}
+      <div className="max-w-5xl mx-auto">
         <Swiper
-          id="testimonialSwiper"
-          spaceBetween={30}
-          navigation={false}
+          modules={[EffectFade, Pagination, Autoplay]}
+          effect="fade"
+          slidesPerView={1}
+          centeredSlides={true}   // <-- Center slides
+          spaceBetween={40}
           pagination={{ clickable: true }}
-          modules={[EffectFade, Navigation, Pagination]}
+          loop={true}
+          grabCursor={true}
+          autoplay={{
+            delay: 5000, // 5 seconds
+            disableOnInteraction: false,
+          }}
         >
           {testimonialData.map((testimonial, index) => (
-            <SwiperSlide key={index}>
-              <TestimonialTemplate testimonial={testimonial} />
+            <SwiperSlide key={index} className="flex justify-center">
+              <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-xl text-center transition-transform duration-300 hover:scale-[1.02]">
+                <TestimonialTemplate testimonial={testimonial} />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-    </div>
+    </section>
   );
 };
 

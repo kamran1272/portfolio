@@ -43,14 +43,15 @@ const Introduction = () => {
             businesses improve their online visibility and attract local
             customers.
           </p>
-          <p className="text-center lg:text-start">
-            <a
-              className="btn-primary btn btn-xs xxs:btn-lg text-white"
-              href="mailto:kamranofficial7212@gmail.com?subject=Hello Kamran&body=Hi, I want to discuss a project with you."
-            >
-              Say Hello!
-            </a>
-          </p>
+          <a
+            className="btn-primary btn btn-xs xxs:btn-lg text-white"
+            href="https://wa.me/923307162505?text=Hi%2C%20I%20want%20to%20discuss%20a%20project%20with%20you."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Say Hello on WhatsApp
+          </a>
+
         </div>
         <div className="mx-auto lg:mx-0 relative">
           <div className="grid max-xxs:grid-flow-col grid-cols-3 w-fit mt-10 gap-1">

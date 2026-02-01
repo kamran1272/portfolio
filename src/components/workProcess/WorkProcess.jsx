@@ -1,6 +1,6 @@
 import WorkSteps from "./WorkSteps";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faProjectDiagram, faCode, faBug, faRocket } from "@fortawesome/free-solid-svg-icons";
+import { faProjectDiagram, faCode, faBug, faRocket, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const workStepData = [
   {
@@ -19,61 +19,65 @@ const workStepData = [
   },
   {
     id: 3,
-    title: "Testing",
+    title: "SEO & Local Optimization",
     description:
-      "Debug, optimize, and ensure seamless performance across devices and browsers.",
-    icon: faBug,
+      "Optimize websites for search engines, improve local visibility, and increase organic traffic for businesses.",
+    icon: faSearch,
   },
   {
     id: 4,
+    title: "Testing & Optimization",
+    description:
+      "Debug, optimize, and ensure seamless performance across devices, browsers, and SEO metrics.",
+    icon: faBug,
+  },
+  {
+    id: 5,
     title: "Deployment",
     description:
-      "Deploy applications on servers or cloud platforms, ensuring scalability and security.",
+      "Deploy applications on servers or cloud platforms, ensuring scalability, security, and SEO readiness.",
     icon: faRocket,
   },
 ];
 
 const WorkProcess = () => {
   return (
-    <div
-      className="content grid xl:grid-cols-2 xl:items-center px-2 py-5 md:py-10 lg:py-25 xl:py-35 max-xxl:px-4"
+    <section
       id="work-process"
+      className="max-w-[1200px] mx-auto px-4 py-16 md:py-24"
     >
-      <div className="lg:pe-10 xl:pe-35.75 max-xs:mb-3 max-xl:mb-8">
-        <p className="section-title max-xl:text-center">Work Process</p>
-        <p className="mt-6 mb-4 md:text-[18px] text-sm font-normal max-xl:text-center text-gray-500">
-          From planning to deployment, I follow a structured workflow that ensures 
-          every project is delivered with quality and precision.
+      {/* Section Title */}
+      <div className="text-center mb-12">
+        <p className="section-title text-3xl md:text-4xl font-semibold">
+          Work Process
         </p>
-        <p className="mt-6 md:text-[18px] text-sm font-normal max-xl:text-center text-gray-500">
-          My process blends clean design, modern development practices, and 
-          rigorous testing to build applications that are both robust and 
-          user-friendly.
+        <p className="mt-4 text-gray-500 text-sm md:text-base max-w-xl mx-auto">
+          From planning to deployment, I follow a structured workflow that ensures every project is delivered
+          with quality, precision, and search engine readiness. My process blends clean design, modern development
+          practices, rigorous testing, and Local SEO strategies to build applications that are robust, user-friendly,
+          and visible online.
         </p>
       </div>
 
-      <div className="grid xs:grid-cols-2 justify-end my-2 w-fit mx-auto ">
-        {workStepData.map((data, index) => {
-          return (
-            <WorkSteps
-              data={{
-                ...data,
-                svgPath: (
-                  <FontAwesomeIcon
-                    icon={data.icon}
-                    className="text-picto-primary text-3xl mb-3"
-                  />
-                ),
-              }}
-              style={`max-xs:mt-3 p-4 sm:p-8 bg-white aspect-auto sm:max-w-78 ${
-                index % 2 === 1 ? "xs:ms-3 xs:mt-6 " : "xs:mb-6"
-              }`}
-              key={index}
-            />
-          );
-        })}
+      {/* Work Steps */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {workStepData.map((step, index) => (
+          <WorkSteps
+            key={step.id}
+            data={{
+              ...step,
+              svgPath: (
+                <FontAwesomeIcon
+                  icon={step.icon}
+                  className="text-picto-primary text-3xl mb-3"
+                />
+              ),
+            }}
+            style="bg-white p-6 md:p-8 rounded-2xl shadow-lg transition-transform hover:shadow-xl hover:scale-[1.03]"
+          />
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 

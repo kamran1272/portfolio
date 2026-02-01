@@ -13,7 +13,7 @@ const Profile = () => {
         {/* Profile image */}
         <div className="xxl:max-w-106 w-auto h-auto xxl:max-h-126">
           <div className="w-90 h-90 mx-auto overflow-hidden rounded-full border-4 border-gray-200 shadow-lg">
-            <img
+           <img
               className="w-full h-full object-contain hover:scale-105 duration-300"
               src={person}
               alt="Kamran Khan"
@@ -34,7 +34,7 @@ const Profile = () => {
           <h2
             className={`text-2xl xxs:text-3xl sm:text-4xl lg:text-[38px] text-[min(24px,38px)] max-md:text-center font-semibold mb-8`}
           >
-            Full-Stack Web Developer & Local SEO Specialist
+            I am a Frontend & Full-Stack Web Developer
           </h2>
           <div
             className={`text-xs xs:text-[16px] lg:text-lg font-normal max-md:text-center text-gray-600`}

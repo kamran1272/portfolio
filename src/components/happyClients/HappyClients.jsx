@@ -5,19 +5,19 @@ import { SiTailwindcss, SiMysql, SiFigma, SiJavascript, SiMongodb, SiPostgresql 
 const iconClass = "h-8 w-8 sm:h-12 sm:w-12 md:h-14 md:w-14 text-gray-500";
 
 const techLogos = [
-  <FaHtml5 className={`${iconClass} text-orange-500`} />,    
-  <FaCss3Alt className={`${iconClass} text-blue-500`} />,       
-  <SiJavascript className={`${iconClass} text-yellow-400`} />,  
-  <FaReact className={`${iconClass} text-cyan-400`} />,       
-  <FaLaravel className={`${iconClass} text-red-500`} />,       
-  <SiTailwindcss className={`${iconClass} text-sky-400`} />,  
-  <FaBootstrap className={`${iconClass} text-purple-600`} />,  
-  <SiMysql className={`${iconClass} text-blue-700`} />,       
-  <SiMongodb className={`${iconClass} text-green-600`} />,   
-  <FaNodeJs className={`${iconClass} text-green-500`} />,     
-  <FaDocker className={`${iconClass} text-blue-400`} />,      
-  <FaGithub className={`${iconClass}`} />,                      
-  <SiFigma className={`${iconClass} text-pink-500`} />,      
+  <FaHtml5 className={`${iconClass} text-orange-500`} />,
+  <FaCss3Alt className={`${iconClass} text-blue-500`} />,
+  <SiJavascript className={`${iconClass} text-yellow-400`} />,
+  <FaReact className={`${iconClass} text-cyan-400`} />,
+  <FaLaravel className={`${iconClass} text-red-500`} />,
+  <SiTailwindcss className={`${iconClass} text-sky-400`} />,
+  <FaBootstrap className={`${iconClass} text-purple-600`} />,
+  <SiMysql className={`${iconClass} text-blue-700`} />,
+  <SiMongodb className={`${iconClass} text-green-600`} />,
+  <FaNodeJs className={`${iconClass} text-green-500`} />,
+  <FaDocker className={`${iconClass} text-blue-400`} />,
+  <FaGithub className={`${iconClass}`} />,
+  <SiFigma className={`${iconClass} text-pink-500`} />,
 ];
 
 const SkillsShowcase = () => {
