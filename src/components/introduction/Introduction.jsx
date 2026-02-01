@@ -35,11 +35,13 @@ const Introduction = () => {
             </span>
           </p>
           <p className="text-xs xxs:text-lg lg:text-[18px] my-6">
-            I’m a <span className="bg-highlight">Full-Stack Web Developer</span>
-            specializing in <span className="bg-highlight">React.js</span> and
-            <span className="bg-highlight"> Laravel</span>. I build responsive,
-            scalable, and user-friendly web applications with modern UI
-            frameworks and REST API integrations.
+            I’m a <span className="bg-highlight">Full-Stack Web Developer</span>{" "}
+            specializing in <span className="bg-highlight">React.js</span> and{" "}
+            <span className="bg-highlight">Laravel</span>. I build responsive,
+            scalable, and user-friendly web applications. Additionally, I now
+            focus on <span className="bg-highlight">Local SEO</span> to help
+            businesses improve their online visibility and attract local
+            customers.
           </p>
           <p className="text-center lg:text-start">
             <a

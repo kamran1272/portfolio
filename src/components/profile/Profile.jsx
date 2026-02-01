@@ -34,7 +34,7 @@ const Profile = () => {
           <h2
             className={`text-2xl xxs:text-3xl sm:text-4xl lg:text-[38px] text-[min(24px,38px)] max-md:text-center font-semibold mb-8`}
           >
-            I am a Frontend & Full-Stack Web Developer
+            Full-Stack Web Developer & Local SEO Specialist
           </h2>
           <div
             className={`text-xs xs:text-[16px] lg:text-lg font-normal max-md:text-center text-gray-600`}
@@ -43,16 +43,18 @@ const Profile = () => {
               I specialize in building{" "}
               <span className="bg-highlight">
                 responsive and scalable web applications
-              </span>
-              using <strong>React.js</strong> and <strong>Laravel</strong>. With
-              expertise in REST APIs, modern UI frameworks, and clean coding
-              practices, I deliver solutions that combine functionality with
-              user-friendly design.
+              </span>{" "}
+              using <strong>React.js</strong> and <strong>Laravel</strong>. I
+              now also help businesses grow online with{" "}
+              <span className="bg-highlight">Local SEO optimization</span>, 
+              improving their visibility in search engines and attracting 
+              local customers.
             </p>
             <p className="mt-3">
               My passion is to create impactful web applications and contribute
-              to dynamic development teams by solving real-world problems
-              through technology.
+              to dynamic development teams, while also helping businesses
+              achieve success in the digital landscape through SEO and
+              technology.
             </p>
           </div>
           <div className="mt-8 flex max-md:justify-center">
