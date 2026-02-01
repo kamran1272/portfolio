@@ -2,7 +2,7 @@
     "name": "portfolio",
     "private": true,
     "version": "1.0.0",
-    "homepage": "https://<your-username>.github.io/portfolio",
+    "homepage": "https://kamrankhan.github.io/portfolio",
     "description": "My personal portfolio website",
     "type": "module",
     "scripts": {
