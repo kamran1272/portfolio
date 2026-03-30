@@ -181,6 +181,8 @@ export const projects = [
     link: "https://kamran1272.github.io/my-ecommerce-app/",
     linkLabel: "View live project",
     external: true,
+    imageClass: "object-contain",
+    imageWrapperClass: "bg-white",
   },
   {
     id: 3,
@@ -329,4 +331,3 @@ export const techStack = [
   "Responsive Design",
   "Local SEO",
 ];
-
