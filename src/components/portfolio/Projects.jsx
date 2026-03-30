@@ -3,23 +3,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Projects = ({ data }) => {
   return (
-    <div className="max-w-106 rounded-lg outline-[#FFFFFF] hover:shadow-2xl duration-300 transition-all shadow-gray-300 border border-gray-200">
+    <article className="flex h-full w-full max-w-106 flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       {/* Project Image */}
-      <img src={data?.image} alt={`${data?.title} image`} className="rounded-t-lg" />
+      <div
+        className={`flex h-56 items-center justify-center overflow-hidden border-b border-gray-100 bg-slate-50 p-4 md:h-60 ${
+          data?.imageWrapperClass || ""
+        }`}
+      >
+        <img
+          src={data?.image}
+          alt={`${data?.title} image`}
+          className={`h-full w-full ${
+            data?.imageClass || "object-cover object-top"
+          }`}
+        />
+      </div>
 
-      <div className="p-4 xs:p-8">
+      <div className="flex flex-1 flex-col p-5 xs:p-8">
         {/* Category */}
-        <p className="text-gray-400 text-xs font-medium">{data?.category}</p>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400">
+          {data?.category}
+        </p>
 
         {/* Title */}
-        <p className="text-gray-900 text-md xxs:text-lg font-semibold pt-1 mb-3">
+        <h3 className="pt-2 text-md font-semibold text-gray-900 xxs:text-lg">
           {data?.title}
-        </p>
+        </h3>
 
         {/* Description */}
         <p
           style={{ lineHeight: "20px", letterSpacing: "0%" }}
-          className="text-gray-600 text-xs xxs:text-[14px] text-wrap"
+          className="mt-3 flex-1 text-wrap text-xs text-gray-600 xxs:text-[14px]"
         >
           {data?.description}
         </p>
@@ -43,7 +57,7 @@ const Projects = ({ data }) => {
           href={data?.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn hover:border-picto-primary hover:text-picto-primary bg-white text-sm xs:text-[16px] font-semibold hover:gap-3 xs:hover:gap-4 transition-all duration-300 mt-5 xs:py-5.75 px-6 max-sm:w-full"
+          className="btn mt-6 self-start border border-gray-200 bg-white px-6 text-sm font-semibold transition-all duration-300 hover:gap-3 hover:border-picto-primary hover:text-picto-primary max-sm:w-full xs:text-[16px] xs:hover:gap-4"
         >
           Case Study
           <span className="ms-1 xs:ms-3">
@@ -51,7 +65,7 @@ const Projects = ({ data }) => {
           </span>
         </a>
       </div>
-    </div>
+    </article>
   );
 };
 

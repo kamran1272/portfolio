@@ -25,6 +25,8 @@ const projectData = [
     description:
       "Built a responsive ecommerce application focused on smooth product browsing, shopping flow, and an engaging storefront experience.",
     link: "https://kamran1272.github.io/my-ecommerce-app/",
+    imageClass: "object-contain",
+    imageWrapperClass: "bg-white",
   },
   {
     id: 3,
@@ -86,7 +88,7 @@ const Portfolio = () => {
         </div>
       </div>
       <div className="mx-auto flex justify-center">
-        <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
+        <div className="grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projectData.map((data) => (
             <Projects data={data} key={data.id} />
           ))}
