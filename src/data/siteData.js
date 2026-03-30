@@ -186,6 +186,18 @@ export const projects = [
   },
   {
     id: 3,
+    image: "https://kamran1272.github.io/restaurant-website/img/f9.jpg",
+    category: "Restaurant / Business Website",
+    title: "Baloch Restaurant",
+    description:
+      "A restaurant platform built around menu browsing, delivery orders, table reservations, and a polished customer-facing experience.",
+    tech: ["Online ordering", "Table reservations", "Responsive UI"],
+    link: "https://kamran1272.github.io/restaurant-website/",
+    linkLabel: "View live project",
+    external: true,
+  },
+  {
+    id: 4,
     image: card2,
     category: "React / Single-Page App",
     title: "Hospital Management Dashboard",
@@ -197,7 +209,7 @@ export const projects = [
     external: false,
   },
   {
-    id: 4,
+    id: 5,
     image: card3,
     category: "Laravel / Business System",
     title: "Pharmacy Management System",
@@ -209,7 +221,7 @@ export const projects = [
     external: false,
   },
   {
-    id: 5,
+    id: 6,
     image: card4,
     category: "Website Optimization",
     title: "SEO-Focused Portfolio Refresh",
@@ -221,7 +233,7 @@ export const projects = [
     external: false,
   },
   {
-    id: 6,
+    id: 7,
     image: card5,
     category: "Frontend Systems",
     title: "Responsive UI Components Library",
@@ -233,7 +245,7 @@ export const projects = [
     external: false,
   },
   {
-    id: 7,
+    id: 8,
     image: card6,
     category: "Freelance Delivery",
     title: "Custom Business Website Builds",
