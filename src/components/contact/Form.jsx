@@ -1,6 +1,13 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 
+const EMAILJS_SERVICE_ID =
+  import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_uvqydzq";
+const EMAILJS_TEMPLATE_ID =
+  import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_gzhfrul";
+const EMAILJS_PUBLIC_KEY =
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "PZspQQvmIpVme-Uwb";
+
 const telegramSVG = (
   <svg
     className="w-4 md:w-6 aspect-square"
@@ -25,22 +32,23 @@ const Form = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
+    setStatus("");
 
     emailjs
       .sendForm(
-        "service_uvqydzq",  
-        "template_gzhfrul", 
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         e.target,
-        "PZspQQvmIpVme-Uwb"
+        EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
-          setStatus("✅ Message sent successfully!");
+          setStatus("Message sent successfully. I will get back to you soon.");
           setLoading(false);
           e.target.reset();
         },
         () => {
-          setStatus("❌ Failed to send message. Try again.");
+          setStatus("Message could not be sent right now. Please try again.");
           setLoading(false);
         }
       );
@@ -49,21 +57,80 @@ const Form = () => {
   return (
     <div>
       <p className="text-[12px] xs:text-[14px] max-lg:text-center sm:text-lg font-normal text-soft-dark">
-        I'm always open to discussing product design work or partnership
-        opportunities.
+        Share a short brief and I will reply with the best next step for your
+        project.
       </p>
       <div className="mx-2">
         <form onSubmit={sendEmail} className="flex flex-col gap-4 mt-4">
-          <input type="text" name="name" placeholder="Name*" className={commonClass} required />
-          <input type="email" name="email" placeholder="Email*" className={commonClass} required />
-          <input type="text" name="location" placeholder="Location*" className={commonClass} required />
+          <label className="text-sm font-medium text-[#132238]">
+            Name
+            <input
+              type="text"
+              name="name"
+              placeholder="Your name"
+              className={commonClass}
+              autoComplete="name"
+              required
+            />
+          </label>
+
+          <label className="text-sm font-medium text-[#132238]">
+            Email
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email address"
+              className={commonClass}
+              autoComplete="email"
+              required
+            />
+          </label>
+
+          <label className="text-sm font-medium text-[#132238]">
+            Location
+            <input
+              type="text"
+              name="location"
+              placeholder="City or country"
+              className={commonClass}
+              autoComplete="address-level2"
+              required
+            />
+          </label>
 
           <div className="flex max-xs:flex-col max-xs:gap-4">
-            <input type="text" name="budget" placeholder="Budget*" className={`${commonClass} xs:w-[50%] me-5`} required />
-            <input type="text" name="subject" placeholder="Subject*" className={commonClass} required />
+            <label className="text-sm font-medium text-[#132238] xs:w-[50%] me-5">
+              Budget
+              <input
+                type="text"
+                name="budget"
+                placeholder="Estimated budget"
+                className={commonClass}
+                required
+              />
+            </label>
+            <label className="text-sm font-medium text-[#132238] w-full">
+              Subject
+              <input
+                type="text"
+                name="subject"
+                placeholder="What do you need help with?"
+                className={commonClass}
+                required
+              />
+            </label>
           </div>
 
-          <textarea name="message" placeholder="Message*" rows="4" className={`${commonClass}`} required />
+          <label className="text-sm font-medium text-[#132238]">
+            Message
+            <textarea
+              name="message"
+              placeholder="Tell me about your project, goals, and timeline"
+              rows="4"
+              className={`${commonClass}`}
+              required
+            />
+          </label>
 
           <button
             type="submit"
@@ -75,7 +142,10 @@ const Form = () => {
         </form>
 
         {status && (
-          <p className="mt-4 text-center text-sm font-medium text-gray-600">
+          <p
+            className="mt-4 text-center text-sm font-medium text-gray-600"
+            aria-live="polite"
+          >
             {status}
           </p>
         )}

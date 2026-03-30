@@ -12,7 +12,8 @@ const Projects = ({ data }) => {
       >
         <img
           src={data?.image}
-          alt={`${data?.title} image`}
+          alt={`${data?.title} preview`}
+          loading="lazy"
           className={`h-full w-full ${
             data?.imageClass || "object-cover object-top"
           }`}
@@ -55,11 +56,11 @@ const Projects = ({ data }) => {
         {/* Button */}
         <a
           href={data?.link}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={data?.external ? "_blank" : undefined}
+          rel={data?.external ? "noopener noreferrer" : undefined}
           className="btn mt-6 self-start border border-gray-200 bg-white px-6 text-sm font-semibold transition-all duration-300 hover:gap-3 hover:border-picto-primary hover:text-picto-primary max-sm:w-full xs:text-[16px] xs:hover:gap-4"
         >
-          Case Study
+          {data?.linkLabel || "View project"}
           <span className="ms-1 xs:ms-3">
             <FontAwesomeIcon icon={faArrowRight} size="l" />
           </span>

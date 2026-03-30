@@ -5,7 +5,7 @@ const WorkSteps = ({ data, style }) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <div
+    <li
       className={`rounded-xl hover:drop-shadow-2xl shadow-gray-300 ease-out duration-1000 ${
         style && style
       }`}
@@ -24,12 +24,12 @@ const WorkSteps = ({ data, style }) => {
       </div>
 
       <div className="mt-3 xs:mt-4 sm:mt-8">
-        <p className="font-semibold sm:text-xl">{`${data?.id}. ${data?.title}`}</p>
+        <h3 className="font-semibold sm:text-xl">{`${data?.id}. ${data?.title}`}</h3>
         <p className="mt-3 text-[13px] sm:text-[16px] text-[#697482]">
           {data?.description}
         </p>
       </div>
-    </div>
+    </li>
   );
 };
 

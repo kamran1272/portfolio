@@ -4,6 +4,11 @@
   themes: light --default, dark --prefersdark, cupcake;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
 * {
   transition-property: all;
   transition-timing-function: var(
@@ -30,6 +35,8 @@
 }
 body {
   font-family: "Work Sans", sans-serif;
+  color: #132238;
+  background-color: #ffffff;
 }
 
 .content {
@@ -42,6 +49,10 @@ body {
 
 .center {
   @apply flex justify-center items-center;
+}
+
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-[#132238] focus:px-4 focus:py-3 focus:text-white;
 }
 
 .introduction-profile-background {

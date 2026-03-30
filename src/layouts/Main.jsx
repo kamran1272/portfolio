@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/common/navbar/NavBar";
 import Footer from "../components/common/footer/Footer";
@@ -8,10 +8,15 @@ import Loading from "../components/common/loading/Loading";
 const Main = () => {
   return (
     <div data-theme={"light"} className="relative">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       <NavBar />
-      <Suspense fallback={<Loading />}>
-        <Outlet />
-      </Suspense>
+      <main id="main-content">
+        <Suspense fallback={<Loading />}>
+          <Outlet />
+        </Suspense>
+      </main>
       <div className="bg-[#2A374A]">
         <Footer />
       </div>

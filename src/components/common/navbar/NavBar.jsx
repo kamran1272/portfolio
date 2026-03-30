@@ -1,15 +1,6 @@
 import { useEffect, useState } from "react";
 import logo from "../../../assets/logo.jpg";
-import { Link } from "react-scroll";
-
-const navItems = [
-  { id: 1, name: "Home", url: "introduction" },
-  { id: 2, name: "About", url: "profile" },
-  { id: 3, name: "Process", url: "work-process" },
-  { id: 4, name: "Portfolio", url: "portfolio" },
-  { id: 5, name: "Blog", url: "blog" },
-  { id: 6, name: "Services", url: "services" },
-];
+import { siteConfig } from "../../../data/siteData";
 
 const NavBar = () => {
   const [position, setPosition] = useState(0);
@@ -20,34 +11,34 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menu = navItems.map((item) => (
-    <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
-      <Link
-        to={item.url}
-        smooth={true}
-        duration={900}
-        spy={true}
-        offset={-140}
-        activeClass="bg-picto-primary text-white rounded-md"
-        className="hover:text-picto-primary px-5 py-3 mx-1 cursor-pointer"
+  const menu = siteConfig.navigation.map((item) => (
+    <li key={item.href}>
+      <a
+        href={item.href}
+        className="rounded-md px-5 py-3 mx-1 hover:text-picto-primary focus:outline-none focus:text-picto-primary"
       >
-        {item.name}
-      </Link>
+        {item.label}
+      </a>
     </li>
   ));
 
   return (
-    <div
+    <header
       className={`sticky top-0 ${
         position > 50
-          ? "bg-soft-white border-b border-gray-300 shadow-md"
-          : "bg-white border-white"
+          ? "bg-soft-white/95 border-b border-gray-300 shadow-md backdrop-blur"
+          : "bg-white/95 border-white"
       } z-50 transition-all duration-500`}
     >
       <div className="navbar flex justify-between mx-auto content">
         <div className="flex items-center justify-between">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <button
+              type="button"
+              tabIndex={0}
+              aria-label="Open navigation menu"
+              className="btn btn-ghost lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -62,7 +53,7 @@ const NavBar = () => {
                   d="M4 6h16M4 12h8m-8 6h16"
                 />
               </svg>
-            </div>
+            </button>
             <ul
               tabIndex={0}
               className="menu menu-lg dropdown-content rounded-box z-10 mt-3 w-52 p-2 shadow font-semibold bg-white text-black"
@@ -71,38 +62,40 @@ const NavBar = () => {
             </ul>
           </div>
 
-          <Link
-            to="introduction"
-            smooth={true}
-            duration={900}
-            className="flex items-center border-0 lg:max-xxl:ps-5 cursor-pointer"
+          <a
+            href="#introduction"
+            className="flex items-center border-0 lg:max-xxl:ps-5"
+            aria-label="Go to homepage section"
           >
             <img
               src={logo}
               alt="Kamran Khan"
               className="h-14 w-14 rounded-full border-2 border-black hover:border-blue-500 transition-all duration-300 object-contain"
             />
-            <p className="text-2xl sm:text-[32px] my-auto ms-[12px] font-semibold">
-              Kamran Khan
-            </p>
-          </Link>
+            <div className="ms-[12px]">
+              <p className="text-2xl sm:text-[32px] font-semibold">
+                {siteConfig.personName}
+              </p>
+              <p className="hidden sm:block text-sm text-gray-500">
+                {siteConfig.shortTitle}
+              </p>
+            </div>
+          </a>
         </div>
 
-        <div className="lg:flex items-center">
+        <nav aria-label="Primary navigation" className="lg:flex items-center">
           <ul className="hidden lg:flex menu menu-horizontal text-[16px] font-medium">
             {menu}
           </ul>
-          <Link
-            to="contact"
-            smooth={true}
-            duration={900}
-            className="btn btn-sm xs:btn-md sm:btn-lg btn-primary ml-4 cursor-pointer"
+          <a
+            href="#contact"
+            className="btn btn-sm xs:btn-md sm:btn-lg btn-primary ml-4"
           >
             Contact
-          </Link>
-        </div>
+          </a>
+        </nav>
       </div>
-    </div>
+    </header>
   );
 };
 

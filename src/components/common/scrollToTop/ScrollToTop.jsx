@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import { animateScroll } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ScrollToTop = () => {
@@ -15,10 +14,7 @@ const ScrollToTop = () => {
   }, []);
 
   const scrollToTop = () => {
-    animateScroll.scrollToTop({
-      duration: 600,
-      smooth: "easeInOutQuad",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

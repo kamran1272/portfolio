@@ -1,0 +1,21 @@
+{
+  "name": "Kamran Khan Portfolio",
+  "short_name": "Kamran Khan",
+  "start_url": "/portfolio/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#132238",
+  "description": "Portfolio website for Kamran Khan, full-stack web developer and local SEO specialist.",
+  "icons": [
+    {
+      "src": "/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
