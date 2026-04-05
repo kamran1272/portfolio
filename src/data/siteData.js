@@ -5,6 +5,7 @@ import card4 from "../assets/images/portfolio-images/card-4.png";
 import card5 from "../assets/images/portfolio-images/card-5.png";
 import card6 from "../assets/images/portfolio-images/card-6.png";
 import card7 from "../assets/images/portfolio-images/card-7.png";
+import spotlessGutterCare from "../assets/images/portfolio-images/spotless-gutter-care.png";
 import blog1 from "../assets/images/blog/blog-1.jpg";
 import blog2 from "../assets/images/blog/blog-2.jpg";
 import blog3 from "../assets/images/blog/blog-3.jpg";
@@ -198,6 +199,20 @@ export const projects = [
   },
   {
     id: 4,
+    image: spotlessGutterCare,
+    category: "WordPress / Local SEO",
+    title: "Spotless Gutter Care",
+    description:
+      "A Canadian client project delivered through Upwork, focused on a clean WordPress build, local SEO targeting Kelowna, BC, and strong quote-driven service pages.",
+    tech: ["WordPress", "Local SEO", "Lead generation"],
+    link: "https://spotlessguttercare.com/",
+    linkLabel: "View live project",
+    external: true,
+    imageClass: "object-contain object-top",
+    imageWrapperClass: "bg-[#0d4f82]",
+  },
+  {
+    id: 5,
     image: card2,
     category: "React / Single-Page App",
     title: "Hospital Management Dashboard",
@@ -209,7 +224,7 @@ export const projects = [
     external: false,
   },
   {
-    id: 5,
+    id: 6,
     image: card3,
     category: "Laravel / Business System",
     title: "Pharmacy Management System",
@@ -221,7 +236,7 @@ export const projects = [
     external: false,
   },
   {
-    id: 6,
+    id: 7,
     image: card4,
     category: "Website Optimization",
     title: "SEO-Focused Portfolio Refresh",
@@ -233,7 +248,7 @@ export const projects = [
     external: false,
   },
   {
-    id: 7,
+    id: 8,
     image: card5,
     category: "Frontend Systems",
     title: "Responsive UI Components Library",
@@ -245,7 +260,7 @@ export const projects = [
     external: false,
   },
   {
-    id: 8,
+    id: 9,
     image: card6,
     category: "Freelance Delivery",
     title: "Custom Business Website Builds",
