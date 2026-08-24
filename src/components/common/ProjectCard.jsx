@@ -24,9 +24,10 @@ const ProjectCard = ({ project, number }) => (
 						{String(number).padStart(2, "0")}
 					</span>
 				)}
-				<span className="ml-auto text-right text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-text">
-					{project.category}
-				</span>
+				<div className="ml-auto flex flex-wrap justify-end gap-2 text-right text-[10px] font-semibold uppercase tracking-[0.16em]">
+					{project.type && <span className="text-primary">{project.type}</span>}
+					<span className="text-muted-text">{project.category}</span>
+				</div>
 			</div>
 			<h3 className="mt-5 text-xl font-semibold text-white sm:text-2xl">
 				{project.title}

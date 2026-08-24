@@ -5,6 +5,7 @@ import MainLayout from "../layouts/MainLayout";
 import NotFound from "../pages/NotFound";
 
 const Home = lazy(() => import("../pages/Home"));
+const ProjectsPage = lazy(() => import("../pages/ProjectsPage"));
 const basename = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
 
 export const router = createBrowserRouter(
@@ -18,6 +19,7 @@ export const router = createBrowserRouter(
       ),
       children: [
         { index: true, element: <Home /> },
+        { path: "projects", element: <ProjectsPage /> },
         { path: "*", element: <NotFound /> },
       ],
     },

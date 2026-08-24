@@ -19,7 +19,7 @@ const StarField = () => (
     {stars.map(([left, top, size], index) => (
       <span
         key={index}
-        className="absolute animate-pulse rounded-full bg-slate-300/40"
+        className="absolute rounded-full bg-slate-200/25"
         style={{
           left: `${left}%`,
           top: `${top}%`,
