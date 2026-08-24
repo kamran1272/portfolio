@@ -17,10 +17,18 @@ const Navbar = () => {
 			.filter(Boolean);
 		const observer = new IntersectionObserver(
 			(entries) => {
-				const visibleSection = entries.find((entry) => entry.isIntersecting);
-				if (visibleSection) setActiveSection(visibleSection.target.id);
+				const visibleSections = entries
+					.filter((entry) => entry.isIntersecting)
+					.sort(
+						(a, b) =>
+							Math.abs(a.boundingClientRect.top) -
+							Math.abs(b.boundingClientRect.top)
+					);
+				if (visibleSections.length > 0) {
+					setActiveSection(visibleSections[0].target.id);
+				}
 			},
-			{ rootMargin: "-30% 0px -60%" }
+			{ rootMargin: "-20% 0px -65% 0px", threshold: 0 }
 		);
 		sections.forEach((section) => observer.observe(section));
 
@@ -30,7 +38,10 @@ const Navbar = () => {
 		};
 	}, []);
 
-	const closeMenu = () => setMenuOpen(false);
+	const handleNavigation = (sectionId) => {
+		setActiveSection(sectionId);
+		setMenuOpen(false);
+	};
 
 	return (
 		<header
@@ -43,7 +54,7 @@ const Navbar = () => {
 			<div className="content flex min-h-20 items-center justify-between gap-6 px-4 py-3 lg:px-8">
 				<a
 					href="#introduction"
-					onClick={closeMenu}
+					onClick={() => handleNavigation("introduction")}
 					className="flex shrink-0 items-center gap-2 text-white"
 					aria-label="Go to homepage"
 				>
@@ -64,6 +75,7 @@ const Navbar = () => {
 											className={`relative rounded-md px-3 py-2 text-sm font-medium transition-colors duration-200 ${
 											isActive ? "text-primary" : "text-slate-300 hover:text-white"
 										}`}
+											onClick={() => handleNavigation(sectionId)}
 									>
 											{item.label}
 											{isActive && (
@@ -89,7 +101,7 @@ const Navbar = () => {
 						type="button"
 						aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
 						aria-expanded={menuOpen}
-						onClick={() => setMenuOpen((open) => !open)}
+							onClick={() => setMenuOpen((open) => !open)}
 						className="rounded-md border border-slate-700 p-2 text-slate-200 transition-colors duration-200 hover:border-primary hover:text-primary lg:hidden"
 					>
 						<span className="text-xl leading-none" aria-hidden="true">
@@ -103,7 +115,7 @@ const Navbar = () => {
 				<MobileMenu
 					items={siteConfig.navigation}
 					activeSection={activeSection}
-					onNavigate={closeMenu}
+					onNavigate={handleNavigation}
 				/>
 			)}
 		</header>

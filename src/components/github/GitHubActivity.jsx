@@ -1,7 +1,7 @@
 import { githubConfig, githubRepositories } from "../../data/githubData";
 
 const GitHubActivity = () => (
-  <section id="github-activity" className="content px-4 py-24 lg:px-8 lg:py-32">
+  <section id="github" className="content px-4 py-24 lg:px-8 lg:py-32">
     <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
       <div className="max-w-xl">
         <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">

@@ -6,7 +6,7 @@ import QuickStats from "./QuickStats";
 import personProfile from "../../assets/images/person2.jpg";
 
 const About = () => (
-	<section id="profile" className="content px-4 py-24 lg:px-8 lg:py-32">
+	<section id="about" className="content px-4 py-24 lg:px-8 lg:py-32">
 		<div className="grid items-center gap-12 lg:grid-cols-[1fr_minmax(220px,300px)_minmax(180px,0.7fr)] lg:gap-16">
 			<div>
 				<p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">

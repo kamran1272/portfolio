@@ -44,9 +44,10 @@ export const siteConfig = {
   navigation: [
     { label: "Home", href: "#introduction" },
     { label: "Work", href: "#portfolio" },
-    { label: "About", href: "#profile" },
+    { label: "Services", href: "#services" },
     { label: "Skills", href: "#skills" },
-    { label: "Experience", href: "#github-activity" },
+    { label: "About", href: "#about" },
+    { label: "GitHub", href: "#github" },
     { label: "Contact", href: "#contact" },
   ],
 };
