@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
-  const repoName = env.VITE_REPO_NAME ?? "";
+  const repoName = env.VITE_REPO_NAME ?? "portfolio";
 
   return {
     base: repoName ? `/${repoName}/` : "/",
