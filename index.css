@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, cupcake;
+  themes: dark --default;
 }
 
 html {
@@ -9,34 +9,33 @@ html {
   scroll-padding-top: 7rem;
 }
 
-* {
-  transition-property: all;
-  transition-timing-function: var(
-    --tw-ease,
-    var(--default-transition-timing-function)
-  );
-  transition-duration: var(--tw-duration, var(--default-transition-duration));
-  --tw-duration: 200ms;
-  transition-duration: 200ms;
-}
-
 @theme {
   --breakpoint-xxs: 21.25rem; /* COMMENT: 340px */
   --breakpoint-xs: 23.125rem; /* COMMENT: 363px */
   --breakpoint-xxl: 82.5rem; /* COMMENT: 1320px */
-  --color-picto-primary: #9929fb;
-  --color-picto-primary-dark: #650fa0;
-  --color-soft-white: #f0f1f3;
-  --color-soft-dark: #87909d;
+  --color-background: #07111f;
+  --color-surface: #0b1626;
+  --color-surface-light: #101e31;
+  --color-border: rgba(148, 163, 184, 0.16);
+  --color-primary: #2dd4bf;
+  --color-primary-glow: rgba(45, 212, 191, 0.15);
+  --color-secondary: #818cf8;
+  --color-text: #f8fafc;
+  --color-muted-text: #94a3b8;
+  --color-picto-primary: #2dd4bf;
+  --color-picto-primary-dark: #14b8a6;
+  --color-picto-secondary: #818cf8;
+  --color-soft-white: #07111f;
+  --color-soft-dark: #94a3b8;
 }
 
 .btn-primary {
-  @apply bg-picto-primary border-0 text-white hover:scale-[102%] hover:bg-picto-primary-dark transition-all duration-500;
+  @apply border border-primary bg-primary text-[#07111F] transition-colors duration-200 hover:bg-primary/85;
 }
 body {
   font-family: "Work Sans", sans-serif;
-  color: #132238;
-  background-color: #ffffff;
+  color: #f8fafc;
+  background-color: #07111f;
 }
 
 .content {
@@ -44,7 +43,7 @@ body {
 }
 
 .section-title {
-  @apply md:font-semibold text-3xl sm:text-4xl md:text-5xl font-medium;
+  @apply text-3xl font-semibold text-white sm:text-4xl;
 }
 
 .center {
@@ -58,15 +57,13 @@ body {
 .introduction-profile-background {
   background: radial-gradient(
       circle at 12% 100%,
-      #ffe2b0f5 1% 5px,
-      transparent 15%
+      rgba(45, 212, 191, 0.15),
+      transparent 30%
     ),
-    /* bottom left */
-      radial-gradient(circle at 95% -15%, #da4df166 5%, transparent 30%),
-    /* top right */
-      radial-gradient(circle at center right, #c4f5e9b2 2%, transparent 35%); /* center right */
+    radial-gradient(circle at 95% -15%, rgba(129, 140, 248, 0.15), transparent 35%),
+    radial-gradient(circle at center right, rgba(45, 212, 191, 0.08), transparent 40%);
 }
 .blog-background {
-  background: radial-gradient(circle at -10% 0%, #da4df166 1%, transparent 25%),
-    radial-gradient(circle at 110% 30%, #c4f5e9b2 5%, transparent 25%);
+  background: radial-gradient(circle at -10% 0%, rgba(129, 140, 248, 0.15), transparent 30%),
+    radial-gradient(circle at 110% 30%, rgba(45, 212, 191, 0.1), transparent 30%);
 }

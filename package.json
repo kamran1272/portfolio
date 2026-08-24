@@ -31,7 +31,7 @@
         "react-scroll": "^1.9.3",
         "react-spinners": "^0.17.0",
         "sort-by": "^0.0.2",
-        "swiper": "^11.2.8",
+        "swiper": "^14.1.0",
         "tailwindcss": "^4.0.14"
     },
     "devDependencies": {

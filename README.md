@@ -20,6 +20,14 @@ This portfolio highlights:
 - React Router
 - Font Awesome
 
+## Project Structure
+
+- `src/components`: reusable UI grouped by feature and responsibility
+- `src/data`: site, project, capability, technology, and GitHub configuration
+- `src/layouts` and `src/routes`: application shell and route configuration
+- `src/assets`: imported images and icons
+- `public`: static SEO files, CV, and public assets
+
 ## Development
 
 ```bash
@@ -31,6 +39,12 @@ npm run dev
 
 ```bash
 npm run build
+```
+
+## Preview
+
+```bash
+npm run preview
 ```
 
 ## Deployment URL

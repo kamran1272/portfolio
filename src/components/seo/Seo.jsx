@@ -53,7 +53,7 @@ const Seo = () => {
       socialLinks,
       keywords,
     } = siteConfig;
-    const imageUrl = `${siteUrl}logo.jpg`;
+    const imageUrl = `${siteUrl}images/og/portfolio-cover.webp`;
 
     document.title = title;
 
@@ -61,7 +61,7 @@ const Seo = () => {
     setMetaTag("name", "keywords", keywords.join(", "));
     setMetaTag("name", "author", personName);
     setMetaTag("name", "robots", "index, follow");
-    setMetaTag("name", "theme-color", "#132238");
+    setMetaTag("name", "theme-color", "#07111F");
 
     setMetaTag("property", "og:type", "website");
     setMetaTag("property", "og:title", title);
@@ -89,7 +89,7 @@ const Seo = () => {
       telephone: phoneDisplay,
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Lahore",
+        addressLocality: location,
         addressCountry: "PK",
       },
       knowsAbout: [
