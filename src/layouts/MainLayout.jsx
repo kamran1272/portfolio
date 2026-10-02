@@ -6,7 +6,9 @@ import ScrollToTop from "../components/common/scrollToTop/ScrollToTop";
 import Loading from "../components/common/loading/Loading";
 
 const MainLayout = () => (
-  <div data-theme="dark" className="relative">
+  <div className="relative">
+    {/* No data-theme here: DaisyUI paints [data-theme] wrappers with its dark
+        base color, which would cover the light body background in light mode. */}
     <a href="#main-content" className="skip-link">
       Skip to content
     </a>
