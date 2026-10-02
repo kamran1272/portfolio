@@ -43,7 +43,7 @@ body {
 }
 
 .section-title {
-  @apply text-3xl font-semibold text-white sm:text-4xl;
+  @apply text-3xl font-semibold text-text sm:text-4xl;
 }
 
 .center {
@@ -51,7 +51,7 @@ body {
 }
 
 .skip-link {
-  @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-[#132238] focus:px-4 focus:py-3 focus:text-white;
+  @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-[#132238] focus:px-4 focus:py-3 focus:text-text;
 }
 
 .introduction-profile-background {
@@ -106,5 +106,99 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- light theme ---- */
+/* Tokens and the slate scale are remapped under html.light so every
+   token-based utility flips automatically. Hardcoded dark surfaces that
+   must stay dark (footer, code previews, brand buttons) are guarded below. */
+html.light {
+  color-scheme: light;
+
+  --color-background: #edf1f7;
+  --color-surface: #ffffff;
+  --color-surface-light: #f1f5f9;
+  --color-border: rgba(15, 23, 42, 0.14);
+  --color-text: #0f172a;
+  --color-muted-text: #475569;
+  --color-primary: #14b8a6;
+  --color-secondary: #6366f1;
+  --color-picto-primary: #0d9488;
+  --color-soft-dark: #475569;
+
+  /* Remap the slate scale: dark-mode slate utilities become light-mode ink/wash */
+  --color-slate-200: #1e293b;
+  --color-slate-300: #334155;
+  --color-slate-400: #475569;
+  --color-slate-500: #64748b;
+  --color-slate-600: #94a3b8;
+  --color-slate-700: #cbd5e1;
+  --color-slate-800: #e2e8f0;
+  --color-slate-900: #f1f5f9;
+}
+
+html.light body {
+  background-color: #edf1f7;
+  color: #0f172a;
+}
+
+/* Plain white text becomes ink — except on brand colors, the dark footer,
+   and inside code previews which keep their dark look. */
+html.light .text-white {
+  color: #0f172a;
+}
+html.light footer .text-white,
+html.light .bg-primary.text-white,
+html.light .bg-picto-primary.text-white,
+html.light .code-window .text-white {
+  color: #fff;
+}
+
+/* Hover-variant white text (nav links, back link) */
+html.light .hover\:text-white:hover {
+  color: #0f172a;
+}
+/* ...but keep white icons on teal hover buttons */
+html.light a.hover\:bg-picto-primary.hover\:text-white:hover {
+  color: #fff;
+}
+
+/* Code editor previews keep their dark look in light mode */
+html.light .code-window {
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+}
+
+html.light ::selection {
+  background: rgba(13, 148, 136, 0.25);
+  color: #0f172a;
+}
+html.light ::-webkit-scrollbar-track {
+  background: #edf1f7;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border: 2px solid #edf1f7;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #0d9488;
+}
+
+/* Theme toggle icon swap animation */
+.theme-toggle-icon {
+  animation: theme-pop 0.35s ease;
+}
+@keyframes theme-pop {
+  0% {
+    transform: scale(0.6) rotate(-30deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
   }
 }

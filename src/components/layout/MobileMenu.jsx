@@ -1,5 +1,5 @@
 const MobileMenu = ({ items, activeSection, onNavigate }) => (
-	<div className="border-t border-slate-700/40 bg-[#0B1626] lg:hidden">
+	<div className="border-t border-slate-700/40 bg-surface lg:hidden">
 		<nav aria-label="Mobile navigation" className="content px-4 py-4">
 			<ul className="flex flex-col gap-1">
 				{items.map((item) => {

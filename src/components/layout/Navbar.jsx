@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { siteConfig } from "../../data/siteData";
 import { useSectionNavigation } from "../../hooks/useSectionNavigation";
+import ThemeToggle from "../common/ThemeToggle";
 import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
@@ -65,7 +66,7 @@ const Navbar = () => {
     <header
       className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
         scrolled
-          ? "border-slate-700/50 bg-[#07111F]/80 shadow-lg shadow-black/10 backdrop-blur-xl"
+          ? "border-slate-700/50 bg-background/80 shadow-lg shadow-black/10 backdrop-blur-xl"
           : "border-transparent bg-transparent"
       }`}
     >
@@ -73,7 +74,7 @@ const Navbar = () => {
         <a
           href="#introduction"
           onClick={handleLogoClick}
-          className="flex shrink-0 items-center gap-2 text-white"
+          className="flex shrink-0 items-center gap-2 text-text"
           aria-label="Go to homepage"
         >
           <span className="font-mono text-xl font-bold text-primary">&lt;/&gt;</span>
@@ -113,6 +114,7 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <a
             href={siteConfig.resumePath}
             download="Kamran_Khan_CV.pdf"

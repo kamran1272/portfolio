@@ -40,7 +40,7 @@ const highlightLine = (line, lineIndex) => {
 
 export const CodePreview = ({ project, large = false }) => (
   <div
-    className="flex h-full flex-col bg-[#0a1424]"
+    className="code-window flex h-full flex-col bg-[#0a1424]"
     aria-label={`Code preview for ${project.title}`}
   >
     <div className="flex items-center gap-1.5 border-b border-slate-700/60 bg-[#0d1929] px-3 py-2">

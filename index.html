@@ -4,6 +4,24 @@
 <head>
     <meta charset="UTF-8" />
     <script>
+      // Apply the saved (or preferred) color theme before first paint to
+      // avoid a dark/light flash. Mirrors src/hooks/useTheme.js.
+      (function () {
+        try {
+          var t = localStorage.getItem("kamran-portfolio-theme");
+          if (t !== "light" && t !== "dark") {
+            t = window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          }
+          if (t === "light") document.documentElement.classList.add("light");
+          document.documentElement.style.colorScheme = t;
+        } catch (e) {
+          /* storage unavailable — default dark theme applies */
+        }
+      })();
+    </script>
+    <script>
       // Restore the route saved by 404.html when GitHub Pages serves this
       // file for a deep link (e.g. /portfolio/projects). Runs before the
       // router starts so BrowserRouter picks up the correct path.
