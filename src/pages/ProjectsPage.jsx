@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Container from "../components/common/Container";
 import ProjectGrid from "../components/projects/ProjectGrid";
+import ProjectModal from "../components/projects/ProjectModal";
 import SectionHeading from "../components/common/SectionHeading";
 import { projects } from "../data/projectsData";
 
@@ -9,14 +10,19 @@ const filters = ["All", "Full-Stack", "Frontend", "Business", "SEO"];
 
 const ProjectsPage = () => {
   const [activeFilter, setActiveFilter] = useState("All");
-  const visibleProjects = activeFilter === "All"
-    ? projects
-    : projects.filter((project) => project.filters.includes(activeFilter));
+  const [selectedProject, setSelectedProject] = useState(null);
+  const visibleProjects =
+    activeFilter === "All"
+      ? projects
+      : projects.filter((project) => project.filters.includes(activeFilter));
 
   return (
     <section className="min-h-screen py-24 lg:py-32">
       <Container>
-        <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-white">
+        <Link
+          to="/"
+          className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-white"
+        >
           <span aria-hidden="true">&lt;-</span> Back to home
         </Link>
         <SectionHeading
@@ -32,15 +38,32 @@ const ProjectsPage = () => {
               type="button"
               onClick={() => setActiveFilter(filter)}
               aria-pressed={activeFilter === filter}
-              className={`rounded-md border px-4 py-2 text-sm font-semibold transition-colors ${activeFilter === filter ? "border-primary bg-primary text-[#07111F]" : "border-slate-600 text-slate-300 hover:border-primary hover:text-primary"}`}
+              className={`rounded-md border px-4 py-2 text-sm font-semibold transition-colors ${
+                activeFilter === filter
+                  ? "border-primary bg-primary text-[#07111F]"
+                  : "border-slate-600 text-slate-300 hover:border-primary hover:text-primary"
+              }`}
             >
               {filter}
             </button>
           ))}
         </div>
-        <p className="mb-6 text-sm text-muted-text" aria-live="polite">Showing {visibleProjects.length} {visibleProjects.length === 1 ? "project" : "projects"}</p>
-        <ProjectGrid projects={visibleProjects} />
+        <p
+          className="mb-6 text-sm text-muted-text"
+          aria-live="polite"
+        >
+          Showing {visibleProjects.length}{" "}
+          {visibleProjects.length === 1 ? "project" : "projects"}
+        </p>
+        <ProjectGrid projects={visibleProjects} onSelect={setSelectedProject} />
       </Container>
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 };

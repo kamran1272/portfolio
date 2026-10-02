@@ -67,3 +67,44 @@ body {
   background: radial-gradient(circle at -10% 0%, rgba(129, 140, 248, 0.15), transparent 30%),
     radial-gradient(circle at 110% 30%, rgba(45, 212, 191, 0.1), transparent 30%);
 }
+
+/* ---- polish: selection, focus, scrollbar, motion ---- */
+
+::selection {
+  background: rgba(45, 212, 191, 0.28);
+  color: #f8fafc;
+}
+
+:focus-visible {
+  outline: 2px solid #2dd4bf;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #07111f;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2f47;
+  border-radius: 8px;
+  border: 2px solid #07111f;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2dd4bf;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

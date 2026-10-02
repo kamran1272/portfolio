@@ -7,10 +7,10 @@ const HeroContent = () => (
 			Hi, I&apos;m
 		</p>
 		<h1 className="mt-3 text-5xl font-bold tracking-tight text-white sm:text-6xl xl:text-7xl">
-			Kamran
+			Kamran Khan
 		</h1>
 		<p className="mt-4 text-sm font-semibold uppercase tracking-[0.2em] text-secondary sm:text-base">
-			Full-Stack Software Developer
+			{siteConfig.jobTitle}
 		</p>
 		<p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
 			I build fast, practical web applications and business-focused digital

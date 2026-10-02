@@ -3,10 +3,11 @@ import CodeCard from "./CodeCard";
 import HeroStats from "./HeroStats";
 import HeroRings from "../background/HeroRings";
 import personHero from "../../assets/images/person.jpg";
+import { projects } from "../../data/projectsData";
 
 const heroStats = [
 	{ id: "experience", title: "Years of Experience", description: "2+" },
-	{ id: "projects", title: "Projects Built", description: "10+" },
+	{ id: "projects", title: "Projects Built", description: String(projects.length) },
 	{ id: "focus", title: "Core Focus Areas", description: "3" },
 ];
 

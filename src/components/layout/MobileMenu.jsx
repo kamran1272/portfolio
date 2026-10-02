@@ -10,7 +10,10 @@ const MobileMenu = ({ items, activeSection, onNavigate }) => (
 						<li key={item.href}>
 							<a
 								href={item.href}
-								onClick={() => onNavigate(sectionId)}
+								onClick={(event) => {
+									event.preventDefault();
+									onNavigate(sectionId);
+								}}
 								className={`block rounded-md px-4 py-3 text-sm font-medium transition-colors duration-200 ${
 									isActive
 										? "bg-primary/10 text-primary"

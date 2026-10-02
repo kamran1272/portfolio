@@ -1,7 +1,7 @@
 export const siteConfig = {
   personName: "Kamran Khan",
   jobTitle: "Full-Stack Web Developer",
-  shortTitle: "Software Developer",
+  shortTitle: "Full-Stack Web Developer",
   siteUrl: "https://kamran1272.github.io/portfolio/",
   email: "kamranofficial7212@gmail.com",
   githubUrl: "https://github.com/kamran1272",

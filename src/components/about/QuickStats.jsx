@@ -1,8 +1,9 @@
 import { techStackGroups } from "../../data/techStackData";
+import { projects } from "../../data/projectsData";
 import StatCard from "../common/StatCard";
 
 const quickStats = [
-  { value: "10+", label: "Projects built" },
+  { value: String(projects.length), label: "Projects built" },
   { value: "2+", label: "Years of experience" },
   {
     value: `${techStackGroups.reduce((total, group) => total + group.technologies.length, 0)}+`,

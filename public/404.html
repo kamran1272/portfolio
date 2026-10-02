@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+    <script>
+      // GitHub Pages serves this file for unknown routes (e.g. a refresh on
+      // /portfolio/projects). Remember the requested path and hand control
+      // back to index.html, which restores it before the router starts.
+      (function () {
+        var segments = location.pathname.split("/").filter(Boolean);
+        var appRoot = segments.length > 0 ? "/" + segments[0] + "/" : "/";
+        try {
+          // Store the full requested path; index.html restores it verbatim.
+          sessionStorage.setItem(
+            "spa-redirect",
+            location.pathname + location.search + location.hash
+          );
+        } catch (e) {
+          /* storage unavailable — fall through to the app root */
+        }
+        location.replace(appRoot);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

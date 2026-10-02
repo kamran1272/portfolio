@@ -20,7 +20,6 @@
         "@fortawesome/free-solid-svg-icons": "^6.7.2",
         "@fortawesome/react-fontawesome": "^0.2.2",
         "@tailwindcss/vite": "^4.0.14",
-        "emailjs-com": "^3.2.0",
         "localforage": "^1.10.0",
         "match-sorter": "^8.0.0",
         "react": "^19.0.0",
@@ -32,7 +31,8 @@
         "react-spinners": "^0.17.0",
         "sort-by": "^0.0.2",
         "swiper": "^14.1.0",
-        "tailwindcss": "^4.0.14"
+        "tailwindcss": "^4.0.14",
+        "@emailjs/browser": "^4.4.1"
     },
     "devDependencies": {
         "@eslint/js": "^9.21.0",
