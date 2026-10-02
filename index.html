@@ -3,6 +3,26 @@
 
 <head>
     <meta charset="UTF-8" />
+    <script>
+      // Restore the route saved by 404.html when GitHub Pages serves this
+      // file for a deep link (e.g. /portfolio/projects). Runs before the
+      // router starts so BrowserRouter picks up the correct path.
+      (function () {
+        try {
+          var redirect = sessionStorage.getItem("spa-redirect");
+          sessionStorage.removeItem("spa-redirect");
+          if (
+            redirect &&
+            redirect.charAt(0) === "/" &&
+            redirect !== location.pathname + location.search + location.hash
+          ) {
+            history.replaceState(null, "", redirect);
+          }
+        } catch (e) {
+          /* storage unavailable — load the app root */
+        }
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
     <link rel="apple-touch-icon" href="/portfolio/logo.jpg" />
     <link rel="manifest" href="/portfolio/site.webmanifest" />
@@ -37,12 +57,12 @@
         rel="stylesheet">
 
     <title>Kamran Khan | Full-Stack Web Developer & Local SEO Specialist</title>
-  <script type="module" crossorigin src="/portfolio/assets/index-qIX8tLPr.js"></script>
-  <link rel="stylesheet" crossorigin href="/portfolio/assets/index-E0zSIGF1.css">
+  <script type="module" crossorigin src="/portfolio/assets/index-BZpvt7RM.js"></script>
+  <link rel="stylesheet" crossorigin href="/portfolio/assets/index-DJgnIrmw.css">
 </head>
 
 <body>
-    <div id="root"></div>
+    <div id="root"></div>
 </body>
 
 </html>
