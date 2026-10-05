@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="">
+
+    <title>Hospital Management</title>
+
+    <link href="http://localhost/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost/icons/bootstrap-icons.css" rel="stylesheet">
+    <script src="http://localhost/js/bootstrap.bundle.js"></script>
+
+    <style>
+        body { background-color: #f4f6fb; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        .sidebar { min-height: calc(100vh - 56px); background: linear-gradient(180deg, #1d4ed8 0%, #1e40af 100%); }
+        .sidebar .nav-link { color: rgba(255,255,255,.85); border-radius: .5rem; margin: .15rem .75rem; padding: .6rem 1rem; }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active { background: rgba(255,255,255,.15); color: #fff; }
+        .sidebar .nav-link i { margin-right: .6rem; }
+        .stat-card { border: none; border-radius: 1rem; box-shadow: 0 .25rem 1rem rgba(0,0,0,.06); border-left: 4px solid; }
+        .stat-card .stat-icon { font-size: 2.2rem; opacity: .25; }
+        .content-card { border: none; border-radius: 1rem; box-shadow: 0 .25rem 1rem rgba(0,0,0,.06); }
+        .avatar-circle { width: 38px; height: 38px; border-radius: 50%; background: #dbeafe; color: #1d4ed8;
+                        display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+        .navbar-brand i { margin-right: .5rem; }
+        footer { background: #111827; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand text-uppercase fw-bold" href="http://localhost/home">
+                    <i class="bi bi-heart-pulse-fill"></i>Hospital Management
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Clients</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Companies</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="demo.html">Request For Demo</a></li>
+                    </ul>
+
+                    <ul class="navbar-nav ms-auto">
+                                                                                    <li class="nav-item"><a class="nav-link text-white" href="http://localhost/login">Login</a></li>
+                                                                                        <li class="nav-item"><a class="nav-link text-white" href="http://localhost/register">Register</a></li>
+                                                                        </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <aside class="col-md-2 d-none d-md-block sidebar py-3 px-0">
+                    <h6 class="text-white-50 text-uppercase px-4 mt-2 mb-3" style="font-size:.75rem; letter-spacing:.08em;">System Menu</h6>
+                    <nav class="nav flex-column">
+                        <a class="nav-link " href="dashboard.html"><i class="bi bi-speedometer2"></i>Dashboard</a>
+                        <a class="nav-link " href="appointment-schedule.html"><i class="bi bi-calendar-check"></i>Appointments</a>
+                        <a class="nav-link " href="patient-list.html"><i class="bi bi-people"></i>Patients</a>
+                        <a class="nav-link " href="beds.html"><i class="bi bi-hospital"></i>Bed Management</a>
+                        <a class="nav-link " href="billing.html"><i class="bi bi-receipt"></i>Billing</a>
+                        <a class="nav-link " href="pharmacy.html"><i class="bi bi-capsule"></i>Pharmacy</a>
+                        <a class="nav-link " href="prescriptions.html"><i class="bi bi-prescription2"></i>Prescriptions</a>
+                        <a class="nav-link " href="laboratory.html"><i class="bi bi-clipboard2-pulse"></i>Laboratory</a>
+                        <a class="nav-link " href="services.html"><i class="bi bi-bag-plus"></i>Services</a>
+                        <a class="nav-link " href="demo.html"><i class="bi bi-send"></i>Request Demo</a>
+                    </nav>
+                </aside>
+
+                <!-- Main content -->
+                <main class="col-md-10 py-4 px-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="h3 fw-bold mb-1">Dashboard</h1>
+        <p class="text-muted mb-0">Welcome back — here's what's happening today.</p>
+    </div>
+    <span class="text-muted small">Monday, October 5, 2026</span>
+</div>
+
+<!-- Stat cards -->
+<div class="row g-3 mb-4">
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card p-3" style="border-left-color:#3b82f6;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="text-muted small text-uppercase fw-semibold">Total Patients</div>
+                    <div class="h2 fw-bold mb-0">24</div>
+                </div>
+                <i class="bi bi-people stat-icon text-primary"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card p-3" style="border-left-color:#22c55e;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="text-muted small text-uppercase fw-semibold">Active Patients</div>
+                    <div class="h2 fw-bold mb-0">16</div>
+                </div>
+                <i class="bi bi-person-check stat-icon text-success"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card p-3" style="border-left-color:#f59e0b;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="text-muted small text-uppercase fw-semibold">Today's Appointments</div>
+                    <div class="h2 fw-bold mb-0">6</div>
+                </div>
+                <i class="bi bi-calendar-check stat-icon text-warning"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card p-3" style="border-left-color:#8b5cf6;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="text-muted small text-uppercase fw-semibold">Doctors On Duty</div>
+                    <div class="h2 fw-bold mb-0">6</div>
+                </div>
+                <i class="bi bi-heart-pulse stat-icon" style="color:#8b5cf6;"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Second row: operations -->
+<div class="row g-3 mb-4">
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card p-3" style="border-left-color:#0ea5e9;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="text-muted small text-uppercase fw-semibold">Bed Occupancy</div>
+                    <div class="h2 fw-bold mb-0">12/30</div>
+                </div>
+                <i class="bi bi-hospital stat-icon text-info"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card p-3" style="border-left-color:#f43f5e;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="text-muted small text-uppercase fw-semibold">Pending Lab Tests</div>
+                    <div class="h2 fw-bold mb-0">6</div>
+                </div>
+                <i class="bi bi-clipboard2-pulse stat-icon text-danger"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card p-3" style="border-left-color:#eab308;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="text-muted small text-uppercase fw-semibold">Outstanding Bills</div>
+                    <div class="h2 fw-bold mb-0">7</div>
+                </div>
+                <i class="bi bi-receipt stat-icon text-warning"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card p-3" style="border-left-color:#10b981;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="text-muted small text-uppercase fw-semibold">Revenue (Month)</div>
+                    <div class="h2 fw-bold mb-0">$0</div>
+                </div>
+                <i class="bi bi-cash-coin stat-icon text-success"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3">
+    <!-- Today's appointments -->
+    <div class="col-lg-7">
+        <div class="card content-card p-4 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="h5 fw-bold mb-0">Today's Appointments</h2>
+                <a href="http://localhost/appointment-schedule" class="small text-decoration-none">View all</a>
+            </div>
+                        <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr><th>Time</th><th>Patient</th><th>Doctor</th><th>Status</th></tr>
+                    </thead>
+                    <tbody>
+                                                <tr>
+                            <td class="fw-semibold">03:00 PM</td>
+                            <td>Henry Young</td>
+                            <td class="text-muted">Dr. James Carter</td>
+                            <td>
+                                <span class="badge bg-primary">
+                                    Scheduled
+                                </span>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td class="fw-semibold">03:30 PM</td>
+                            <td>Olivia Bennett</td>
+                            <td class="text-muted">Dr. James Carter</td>
+                            <td>
+                                <span class="badge bg-danger">
+                                    Cancelled
+                                </span>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td class="fw-semibold">04:00 PM</td>
+                            <td>Liam Anderson</td>
+                            <td class="text-muted">Dr. Fatima Noor</td>
+                            <td>
+                                <span class="badge bg-success">
+                                    Completed
+                                </span>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td class="fw-semibold">09:30 AM</td>
+                            <td>Alexander Lee</td>
+                            <td class="text-muted">Dr. Ayesha Khan</td>
+                            <td>
+                                <span class="badge bg-primary">
+                                    Scheduled
+                                </span>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td class="fw-semibold">11:30 AM</td>
+                            <td>Noah Williams</td>
+                            <td class="text-muted">Dr. Michael Chen</td>
+                            <td>
+                                <span class="badge bg-success">
+                                    Completed
+                                </span>
+                            </td>
+                        </tr>
+                                                <tr>
+                            <td class="fw-semibold">11:30 AM</td>
+                            <td>Henry Young</td>
+                            <td class="text-muted">Dr. Sarah Mitchell</td>
+                            <td>
+                                <span class="badge bg-danger">
+                                    Cancelled
+                                </span>
+                            </td>
+                        </tr>
+                                            </tbody>
+                </table>
+            </div>
+                    </div>
+    </div>
+
+    <!-- Recent patients -->
+    <div class="col-lg-5">
+        <div class="card content-card p-4 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="h5 fw-bold mb-0">Recent Patients</h2>
+                <a href="http://localhost/patient-list" class="small text-decoration-none">View all</a>
+            </div>
+                        <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="avatar-circle">O</span>
+                    <div>
+                        <div class="fw-semibold">Owen King</div>
+                        <div class="text-muted small">51 yrs · Male · A+</div>
+                    </div>
+                </div>
+                <span class="badge bg-success">
+                    Active
+                </span>
+            </div>
+                        <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="avatar-circle">Z</span>
+                    <div>
+                        <div class="fw-semibold">Zoe Wright</div>
+                        <div class="text-muted small">27 yrs · Female · B-</div>
+                    </div>
+                </div>
+                <span class="badge bg-success">
+                    Active
+                </span>
+            </div>
+                        <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="avatar-circle">J</span>
+                    <div>
+                        <div class="fw-semibold">Jack Scott</div>
+                        <div class="text-muted small">44 yrs · Male · O+</div>
+                    </div>
+                </div>
+                <span class="badge bg-success">
+                    Active
+                </span>
+            </div>
+                        <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="avatar-circle">N</span>
+                    <div>
+                        <div class="fw-semibold">Nora Green</div>
+                        <div class="text-muted small">32 yrs · Female · A+</div>
+                    </div>
+                </div>
+                <span class="badge bg-secondary">
+                    Discharged
+                </span>
+            </div>
+                        <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="avatar-circle">L</span>
+                    <div>
+                        <div class="fw-semibold">Leo Adams</div>
+                        <div class="text-muted small">57 yrs · Male · AB-</div>
+                    </div>
+                </div>
+                <span class="badge bg-danger">
+                    Critical
+                </span>
+            </div>
+                    </div>
+    </div>
+</div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-4 py-4">
+        <div class="container text-center">
+            <p class="text-white mb-2">&copy; 2026 Hospital Management. All rights reserved.</p>
+            <a href="services.html" class="text-white-50 me-3 text-decoration-none">Services</a>
+            <a href="demo.html" class="text-white-50 text-decoration-none">Request Demo</a>
+        </div>
+    </footer>
+<script src="assets/js/demo.js"></script>
+</body>
+</html>
