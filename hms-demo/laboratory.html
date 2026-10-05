@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="3kOb1mFM7gWoSucuKSrsJHNuy8o21STWYcQeUxmX">
+
+    <title>Hospital Management</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/icons/bootstrap-icons.css" rel="stylesheet">
+    <script src="assets/js/bootstrap.bundle.js"></script>
+
+    <style>
+        body { background-color: #f4f6fb; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        .sidebar { min-height: calc(100vh - 56px); background: linear-gradient(180deg, #1d4ed8 0%, #1e40af 100%); }
+        .sidebar .nav-link { color: rgba(255,255,255,.85); border-radius: .5rem; margin: .15rem .75rem; padding: .6rem 1rem; }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active { background: rgba(255,255,255,.15); color: #fff; }
+        .sidebar .nav-link i { margin-right: .6rem; }
+        .stat-card { border: none; border-radius: 1rem; box-shadow: 0 .25rem 1rem rgba(0,0,0,.06); border-left: 4px solid; }
+        .stat-card .stat-icon { font-size: 2.2rem; opacity: .25; }
+        .content-card { border: none; border-radius: 1rem; box-shadow: 0 .25rem 1rem rgba(0,0,0,.06); }
+        .avatar-circle { width: 38px; height: 38px; border-radius: 50%; background: #dbeafe; color: #1d4ed8;
+                        display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+        .navbar-brand i { margin-right: .5rem; }
+        footer { background: #111827; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand text-uppercase fw-bold" href="home">
+                    <i class="bi bi-heart-pulse-fill"></i>Hospital Management
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Clients</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Companies</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="demo.html">Request For Demo</a></li>
+                    </ul>
+
+                    <ul class="navbar-nav ms-auto">
+                                                                                    <li class="nav-item"><a class="nav-link text-white" href="login">Login</a></li>
+                                                                                        <li class="nav-item"><a class="nav-link text-white" href="register">Register</a></li>
+                                                                        </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <aside class="col-md-2 d-none d-md-block sidebar py-3 px-0">
+                    <h6 class="text-white-50 text-uppercase px-4 mt-2 mb-3" style="font-size:.75rem; letter-spacing:.08em;">System Menu</h6>
+                    <nav class="nav flex-column">
+                        <a class="nav-link " href="dashboard.html"><i class="bi bi-speedometer2"></i>Dashboard</a>
+                        <a class="nav-link " href="appointment-schedule.html"><i class="bi bi-calendar-check"></i>Appointments</a>
+                        <a class="nav-link " href="patient-list.html"><i class="bi bi-people"></i>Patients</a>
+                        <a class="nav-link " href="beds.html"><i class="bi bi-hospital"></i>Bed Management</a>
+                        <a class="nav-link " href="billing.html"><i class="bi bi-receipt"></i>Billing</a>
+                        <a class="nav-link " href="pharmacy.html"><i class="bi bi-capsule"></i>Pharmacy</a>
+                        <a class="nav-link " href="prescriptions.html"><i class="bi bi-prescription2"></i>Prescriptions</a>
+                        <a class="nav-link active" href="laboratory.html"><i class="bi bi-clipboard2-pulse"></i>Laboratory</a>
+                        <a class="nav-link " href="services.html"><i class="bi bi-bag-plus"></i>Services</a>
+                        <a class="nav-link " href="demo.html"><i class="bi bi-send"></i>Request Demo</a>
+                    </nav>
+                </aside>
+
+                <!-- Main content -->
+                <main class="col-md-10 py-4 px-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="h3 fw-bold mb-1">Laboratory</h1>
+        <p class="text-muted mb-0">12 test orders ·
+                        <span class="text-warning fw-semibold">6 pending</span>
+                    </p>
+    </div>
+</div>
+
+<form method="GET" action="laboratory" class="card content-card p-3 mb-4">
+    <div class="row g-2">
+        <div class="col-md-8">
+            <select name="status" class="form-select" onchange="this.form.submit()">
+                <option value="">All statuses</option>
+                <option value="ordered" >Ordered</option>
+                <option value="in_progress" >In progress</option>
+                <option value="completed" >Completed</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+                    </div>
+    </div>
+</form>
+
+<div class="card content-card overflow-hidden">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light"><tr><th>Test</th><th>Patient</th><th>Ordered By</th><th>Ordered</th><th>Status</th><th>Result</th></tr></thead>
+            <tbody>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>HbA1c</td>
+                    <td><a href="patients/4" class="text-decoration-none">Noah Williams</a></td>
+                    <td class="text-muted small">Dr. Michael Chen</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-warning text-dark">
+                            In progress
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    <span class="text-muted">—</span>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>HbA1c</td>
+                    <td><a href="patients/5" class="text-decoration-none">Ava Thompson</a></td>
+                    <td class="text-muted small">Dr. David Okafor</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-warning text-dark">
+                            In progress
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    <span class="text-muted">—</span>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>Vitamin D Level</td>
+                    <td><a href="patients/6" class="text-decoration-none">Ethan Martinez</a></td>
+                    <td class="text-muted small">Dr. Fatima Noor</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-secondary">
+                            Ordered
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    <span class="text-muted">—</span>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>Complete Blood Count (CBC)</td>
+                    <td><a href="patients/7" class="text-decoration-none">Mia Johnson</a></td>
+                    <td class="text-muted small">Dr. Ayesha Khan</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-secondary">
+                            Ordered
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    <span class="text-muted">—</span>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>Chest X-Ray</td>
+                    <td><a href="patients/8" class="text-decoration-none">Lucas Brown</a></td>
+                    <td class="text-muted small">Dr. Michael Chen</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    Creatinine 1.0 mg/dL, eGFR &gt; 60.
+                                                                        </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>Urine Analysis</td>
+                    <td><a href="patients/11" class="text-decoration-none">Harper Moore</a></td>
+                    <td class="text-muted small">Dr. James Carter</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    HbA1c 6.8% — slightly above target.
+                                                        <span class="badge bg-warning text-dark ms-1">Abnormal</span>
+                                                                        </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>HbA1c</td>
+                    <td><a href="patients/12" class="text-decoration-none">Elijah Taylor</a></td>
+                    <td class="text-muted small">Dr. David Okafor</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    ALT 32 U/L, AST 28 U/L — normal.
+                                                        <span class="badge bg-warning text-dark ms-1">Abnormal</span>
+                                                                        </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>Thyroid Panel (T3/T4/TSH)</td>
+                    <td><a href="patients/14" class="text-decoration-none">Alexander Lee</a></td>
+                    <td class="text-muted small">Dr. Hina Shahid</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    HbA1c 6.8% — slightly above target.
+                                                                        </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>Urine Analysis</td>
+                    <td><a href="patients/15" class="text-decoration-none">Charlotte Walker</a></td>
+                    <td class="text-muted small">Dr. Fatima Noor</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    Creatinine 1.0 mg/dL, eGFR &gt; 60.
+                                                                        </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>Lipid Profile</td>
+                    <td><a href="patients/17" class="text-decoration-none">Grace Allen</a></td>
+                    <td class="text-muted small">Dr. Michael Chen</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-secondary">
+                            Ordered
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    <span class="text-muted">—</span>
+                                            </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>Thyroid Panel (T3/T4/TSH)</td>
+                    <td><a href="patients/23" class="text-decoration-none">Nora Green</a></td>
+                    <td class="text-muted small">Dr. Hina Shahid</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    Creatinine 1.0 mg/dL, eGFR &gt; 60.
+                                                                        </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold"><i class="bi bi-clipboard2-pulse text-primary me-2"></i>Chest X-Ray</td>
+                    <td><a href="patients/3" class="text-decoration-none">Sofia Rodriguez</a></td>
+                    <td class="text-muted small">Dr. Michael Chen</td>
+                    <td class="text-muted small">Oct 5, 2026</td>
+                    <td>
+                        <span class="badge bg-warning text-dark">
+                            In progress
+                        </span>
+                    </td>
+                    <td class="small" style="max-width:280px;">
+                                                    <span class="text-muted">—</span>
+                                            </td>
+                </tr>
+                            </tbody>
+        </table>
+    </div>
+    <div class="p-3 border-top"></div>
+</div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-4 py-4">
+        <div class="container text-center">
+            <p class="text-white mb-2">&copy; 2026 Hospital Management. All rights reserved.</p>
+            <a href="services.html" class="text-white-50 me-3 text-decoration-none">Services</a>
+            <a href="demo.html" class="text-white-50 text-decoration-none">Request Demo</a>
+        </div>
+    </footer>
+<script src="assets/js/demo.js"></script>
+</body>
+</html>
