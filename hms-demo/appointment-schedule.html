@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="0SVrNAWZ3Xc8ZfePb5CzPNYHKVWKKZGF6DDVreBS">
+
+    <title>Hospital Management</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/icons/bootstrap-icons.css" rel="stylesheet">
+    <script src="assets/js/bootstrap.bundle.js"></script>
+
+    <style>
+        body { background-color: #f4f6fb; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        .sidebar { min-height: calc(100vh - 56px); background: linear-gradient(180deg, #1d4ed8 0%, #1e40af 100%); }
+        .sidebar .nav-link { color: rgba(255,255,255,.85); border-radius: .5rem; margin: .15rem .75rem; padding: .6rem 1rem; }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active { background: rgba(255,255,255,.15); color: #fff; }
+        .sidebar .nav-link i { margin-right: .6rem; }
+        .stat-card { border: none; border-radius: 1rem; box-shadow: 0 .25rem 1rem rgba(0,0,0,.06); border-left: 4px solid; }
+        .stat-card .stat-icon { font-size: 2.2rem; opacity: .25; }
+        .content-card { border: none; border-radius: 1rem; box-shadow: 0 .25rem 1rem rgba(0,0,0,.06); }
+        .avatar-circle { width: 38px; height: 38px; border-radius: 50%; background: #dbeafe; color: #1d4ed8;
+                        display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+        .navbar-brand i { margin-right: .5rem; }
+        footer { background: #111827; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand text-uppercase fw-bold" href="home">
+                    <i class="bi bi-heart-pulse-fill"></i>Hospital Management
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Clients</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Companies</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="demo.html">Request For Demo</a></li>
+                    </ul>
+
+                    <ul class="navbar-nav ms-auto">
+                                                                                    <li class="nav-item"><a class="nav-link text-white" href="login">Login</a></li>
+                                                                                        <li class="nav-item"><a class="nav-link text-white" href="register">Register</a></li>
+                                                                        </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <aside class="col-md-2 d-none d-md-block sidebar py-3 px-0">
+                    <h6 class="text-white-50 text-uppercase px-4 mt-2 mb-3" style="font-size:.75rem; letter-spacing:.08em;">System Menu</h6>
+                    <nav class="nav flex-column">
+                        <a class="nav-link " href="dashboard.html"><i class="bi bi-speedometer2"></i>Dashboard</a>
+                        <a class="nav-link active" href="appointment-schedule.html"><i class="bi bi-calendar-check"></i>Appointments</a>
+                        <a class="nav-link " href="patient-list.html"><i class="bi bi-people"></i>Patients</a>
+                        <a class="nav-link " href="beds.html"><i class="bi bi-hospital"></i>Bed Management</a>
+                        <a class="nav-link " href="billing.html"><i class="bi bi-receipt"></i>Billing</a>
+                        <a class="nav-link " href="pharmacy.html"><i class="bi bi-capsule"></i>Pharmacy</a>
+                        <a class="nav-link " href="prescriptions.html"><i class="bi bi-prescription2"></i>Prescriptions</a>
+                        <a class="nav-link " href="laboratory.html"><i class="bi bi-clipboard2-pulse"></i>Laboratory</a>
+                        <a class="nav-link " href="services.html"><i class="bi bi-bag-plus"></i>Services</a>
+                        <a class="nav-link " href="demo.html"><i class="bi bi-send"></i>Request Demo</a>
+                    </nav>
+                </aside>
+
+                <!-- Main content -->
+                <main class="col-md-10 py-4 px-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="h3 fw-bold mb-1">Appointment Schedule</h1>
+        <p class="text-muted mb-0">32 appointments</p>
+    </div>
+</div>
+
+<!-- Filters -->
+<form method="GET" action="appointment-schedule" class="card content-card p-3 mb-4">
+    <div class="row g-2">
+        <div class="col-md-4">
+            <input type="date" name="date" value="" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <select name="status" class="form-select">
+                <option value="">All statuses</option>
+                <option value="scheduled" >Scheduled</option>
+                <option value="completed" >Completed</option>
+                <option value="cancelled" >Cancelled</option>
+            </select>
+        </div>
+        <div class="col-md-4 d-flex gap-2">
+            <button type="submit" class="btn btn-primary flex-grow-1">Filter</button>
+                    </div>
+    </div>
+</form>
+
+<!-- Schedule -->
+<div class="card content-card overflow-hidden">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr><th>Date</th><th>Time</th><th>Patient</th><th>Doctor</th><th>Department</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+                                <tr>
+                    <td class="fw-semibold">Oct 3, 2026</td>
+                    <td class="text-muted">03:30 PM</td>
+                    <td class="fw-semibold">Alexander Lee</td>
+                    <td class="text-muted">Dr. Ahmed Raza</td>
+                    <td class="text-muted">Pediatrics</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold">Oct 3, 2026</td>
+                    <td class="text-muted">10:30 AM</td>
+                    <td class="fw-semibold">Ava Thompson</td>
+                    <td class="text-muted">Dr. Fatima Noor</td>
+                    <td class="text-muted">Pediatrics</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold">Oct 3, 2026</td>
+                    <td class="text-muted">11:00 AM</td>
+                    <td class="fw-semibold">Henry Young</td>
+                    <td class="text-muted">Dr. Hina Shahid</td>
+                    <td class="text-muted">Emergency</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold">Oct 4, 2026</td>
+                    <td class="text-muted">02:30 PM</td>
+                    <td class="fw-semibold">Ava Thompson</td>
+                    <td class="text-muted">Dr. Fatima Noor</td>
+                    <td class="text-muted">Neurology</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold">Oct 4, 2026</td>
+                    <td class="text-muted">02:30 PM</td>
+                    <td class="fw-semibold">Elijah Taylor</td>
+                    <td class="text-muted">Dr. Fatima Noor</td>
+                    <td class="text-muted">Cardiology</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold">Oct 4, 2026</td>
+                    <td class="text-muted">02:30 PM</td>
+                    <td class="fw-semibold">Daniel Hall</td>
+                    <td class="text-muted">Dr. Ahmed Raza</td>
+                    <td class="text-muted">Pediatrics</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold">Oct 4, 2026</td>
+                    <td class="text-muted">03:30 PM</td>
+                    <td class="fw-semibold">Leo Adams</td>
+                    <td class="text-muted">Dr. Ahmed Raza</td>
+                    <td class="text-muted">Pediatrics</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold">Oct 5, 2026</td>
+                    <td class="text-muted">03:00 PM</td>
+                    <td class="fw-semibold">Henry Young</td>
+                    <td class="text-muted">Dr. James Carter</td>
+                    <td class="text-muted">Gynecology</td>
+                    <td>
+                        <span class="badge bg-primary">
+                            Scheduled
+                        </span>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold">Oct 5, 2026</td>
+                    <td class="text-muted">03:30 PM</td>
+                    <td class="fw-semibold">Olivia Bennett</td>
+                    <td class="text-muted">Dr. James Carter</td>
+                    <td class="text-muted">Orthopedics</td>
+                    <td>
+                        <span class="badge bg-danger">
+                            Cancelled
+                        </span>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold">Oct 5, 2026</td>
+                    <td class="text-muted">04:00 PM</td>
+                    <td class="fw-semibold">Liam Anderson</td>
+                    <td class="text-muted">Dr. Fatima Noor</td>
+                    <td class="text-muted">General Surgery</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold">Oct 5, 2026</td>
+                    <td class="text-muted">09:30 AM</td>
+                    <td class="fw-semibold">Alexander Lee</td>
+                    <td class="text-muted">Dr. Ayesha Khan</td>
+                    <td class="text-muted">Cardiology</td>
+                    <td>
+                        <span class="badge bg-primary">
+                            Scheduled
+                        </span>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="fw-semibold">Oct 5, 2026</td>
+                    <td class="text-muted">11:30 AM</td>
+                    <td class="fw-semibold">Noah Williams</td>
+                    <td class="text-muted">Dr. Michael Chen</td>
+                    <td class="text-muted">Cardiology</td>
+                    <td>
+                        <span class="badge bg-success">
+                            Completed
+                        </span>
+                    </td>
+                </tr>
+                            </tbody>
+        </table>
+    </div>
+    <div class="p-3 border-top">
+        <nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between">
+        <div class="flex justify-between flex-1 sm:hidden">
+                            <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md dark:text-gray-600 dark:bg-gray-800 dark:border-gray-600">
+                    &laquo; Previous
+                </span>
+            
+                            <a href="appointment-schedule?page=2" class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:focus:border-blue-700 dark:active:bg-gray-700 dark:active:text-gray-300">
+                    Next &raquo;
+                </a>
+                    </div>
+
+        <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+            <div>
+                <p class="text-sm text-gray-700 leading-5 dark:text-gray-400">
+                    Showing
+                                            <span class="font-medium">1</span>
+                        to
+                        <span class="font-medium">12</span>
+                                        of
+                    <span class="font-medium">32</span>
+                    results
+                </p>
+            </div>
+
+            <div>
+                <span class="relative z-0 inline-flex rtl:flex-row-reverse shadow-sm rounded-md">
+                    
+                                            <span aria-disabled="true" aria-label="&amp;laquo; Previous">
+                            <span class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default rounded-l-md leading-5 dark:bg-gray-800 dark:border-gray-600" aria-hidden="true">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </span>
+                    
+                    
+                                            
+                        
+                        
+                                                                                                                        <span aria-current="page">
+                                        <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 dark:bg-gray-800 dark:border-gray-600">1</span>
+                                    </span>
+                                                                                                                                <a href="appointment-schedule?page=2" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Go to page 2">
+                                        2
+                                    </a>
+                                                                                                                                <a href="appointment-schedule?page=3" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Go to page 3">
+                                        3
+                                    </a>
+                                                                                                        
+                    
+                                            <a href="appointment-schedule?page=2" rel="next" class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Next &amp;raquo;">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                                    </span>
+            </div>
+        </div>
+    </nav>
+
+    </div>
+</div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-4 py-4">
+        <div class="container text-center">
+            <p class="text-white mb-2">&copy; 2026 Hospital Management. All rights reserved.</p>
+            <a href="services.html" class="text-white-50 me-3 text-decoration-none">Services</a>
+            <a href="demo.html" class="text-white-50 text-decoration-none">Request Demo</a>
+        </div>
+    </footer>
+<script src="assets/js/demo.js"></script>
+</body>
+</html>
