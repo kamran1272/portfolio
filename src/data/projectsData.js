@@ -153,7 +153,7 @@ export const projects = [
       "Ward-wise bed management matrix with live occupancy",
     ],
     tech: ["Laravel", "MySQL", "Eloquent", "Blade", "Bootstrap"],
-    liveUrl: null,
+    liveUrl: "https://kamran1272.github.io/portfolio/hms-demo/",
     codeUrl: "https://github.com/kamran1272/hospital-management-dashboard",
     screenshot: "hospital-dashboard.png",
     codeFile: "app/Http/Controllers/HospitalController.php",
