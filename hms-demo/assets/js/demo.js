@@ -2,6 +2,14 @@
 (function () {
   'use strict';
 
+  /* ---------- layout fixes: sticky header & sidebar, hide broken pagination ---------- */
+  var style = document.createElement('style');
+  style.textContent =
+    'nav.navbar { position: sticky !important; top: 0; z-index: 1030; }' +
+    'aside.sidebar { position: sticky !important; top: 56px; height: calc(100vh - 56px); overflow-y: auto; }' +
+    'nav[aria-label="Pagination Navigation"] { display: none !important; }';
+  document.head.appendChild(style);
+
   /* ---------- demo banner ---------- */
   var banner = document.createElement('div');
   banner.innerHTML =
@@ -75,7 +83,7 @@
     }
   });
 
-  /* ---------- login form -> dashboard ---------- */
+  /* ---------- login & register forms -> dashboard ---------- */
   document.querySelectorAll('form[method="POST"]').forEach(function (form) {
     var action = (form.getAttribute('action') || '').toLowerCase();
     if (action.indexOf('login') !== -1) {
@@ -87,6 +95,18 @@
       note.className = 'text-muted small mt-2';
       note.textContent = 'Demo mode: any credentials will sign you in.';
       form.appendChild(note);
+    } else if (action.indexOf('register') !== -1) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var nameInput = form.querySelector('input[name="name"]');
+        var name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'there';
+        try { sessionStorage.setItem('hms_demo_user', name); } catch (err) {}
+        location.href = 'dashboard.html?welcome=1';
+      });
+      var rnote = document.createElement('p');
+      rnote.className = 'text-muted small mt-2';
+      rnote.textContent = 'Demo mode: registration is instant, no email needed.';
+      form.appendChild(rnote);
     } else {
       // demo request + other POST forms: fake success
       form.addEventListener('submit', function (e) {
@@ -98,6 +118,22 @@
       });
     }
   });
+
+  /* ---------- welcome message after register ---------- */
+  try {
+    var params = new URLSearchParams(location.search);
+    if (params.get('welcome') === '1') {
+      var who = '';
+      try { who = sessionStorage.getItem('hms_demo_user') || ''; } catch (err) {}
+      var bar = document.createElement('div');
+      bar.className = 'alert alert-success alert-dismissible fade show m-3';
+      bar.setAttribute('role', 'alert');
+      bar.innerHTML = '<strong>Welcome' + (who ? ', ' + who : '') +
+        '!</strong> Your demo account is ready.' +
+        '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+      document.body.insertBefore(bar, document.body.firstChild);
+    }
+  } catch (err) {}
 
   /* ---------- patient row links: point to available EHR pages ---------- */
   // links to /patients/N for N not exported -> map to patients-1.html
