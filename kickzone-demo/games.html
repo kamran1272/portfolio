@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="xBItbMEdHCVt0u0Z5WXMwOs8zqYVGWXTbauLcM9J">
+
+    <title>Laravel</title>
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1:8001/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://127.0.0.1:8001/css/custom.css">
+
+    <!-- Scripts -->
+    <link rel="preload" as="style" href="http://127.0.0.1:8001/build/assets/app-BTfBdD0h.css" /><link rel="modulepreload" href="http://127.0.0.1:8001/build/assets/app-Bf4POITK.js" /><link rel="stylesheet" href="http://127.0.0.1:8001/build/assets/app-BTfBdD0h.css" /><script type="module" src="http://127.0.0.1:8001/build/assets/app-Bf4POITK.js"></script>
+
+    <style>
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+            <div class="container-fluid px-4">
+                <!-- Logo -->
+                <a class="navbar-brand py-2" href="#">
+                    <img src="http://127.0.0.1:8001/images/logo1.png" alt="KickZone Logo" class="rounded-circle me-2"
+                        style="width: 40px; height: 40px;">
+                    <span class="align-middle">KickZone</span>
+                </a>
+
+                <!-- Hamburger Menu for Mobile -->
+                <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-1">
+                            <a class="nav-link px-3 py-2 "
+                                href="http://127.0.0.1:8001/about">
+                                <i class="bi bi-info-circle me-2"></i>About
+                            </a>
+                        </li>
+
+                        <li class="nav-item mx-1">
+                            <a class="nav-link px-3 py-2 "
+                                href="http://127.0.0.1:8001/contact">
+                                <i class="bi bi-envelope me-2"></i>Contact
+                            </a>
+                        </li>
+
+                        <!-- Admin Links -->
+                                                    <li class="nav-item mx-1">
+                                <a class="nav-link px-3 py-2 "
+                                    href="http://127.0.0.1:8001/admin/dashboard">
+                                    <i class="bi bi-shield-lock me-2"></i>Admin Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item mx-1">
+                                <a class="nav-link px-3 py-2 "
+                                    href="http://127.0.0.1:8001/admin/sports">
+                                    <i class="bi bi-trophy me-2"></i>Manage Sports
+                                </a>
+                            </li>
+                        
+                        <!-- Profile Dropdown -->
+                                                    <li class="nav-item dropdown mx-1">
+                                <a class="nav-link px-3 py-2 dropdown-toggle" href="#" id="navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle me-2"></i>Admin User
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item px-3 py-2" href="http://127.0.0.1:8001/user/profile">
+                                            <i class="bi bi-person-lines-fill me-2"></i>Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <form method="POST" action="http://127.0.0.1:8001/logout">
+                                            <input type="hidden" name="_token" value="demo" autocomplete="off">                                            <button type="submit" class="dropdown-item px-3 py-2 w-100 text-start">
+                                                <i class="bi bi-box-arrow-right me-2"></i>Log Out
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Heading -->
+        
+        <!-- Page Content -->
+        <main>
+                <div class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h1 class="display-5 fw-bold mb-3">Upcoming Games</h1>
+                <p class="lead text-muted">Check out the schedule of upcoming matches</p>
+            </div>
+
+            <div class="row g-4">
+                                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Lahore Lions vs Karachi Kings XI</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-calendar-date fs-4 text-primary me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Date & Time</h6>
+                                        <p class="mb-0">
+                                            Oct 11, 2026 at 6:00 PM
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-geo-alt fs-4 text-primary me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Venue</h6>
+                                        <p class="mb-0">Gaddafi Stadium, Lahore</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-trophy fs-4 text-primary me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Competition</h6>
+                                        <p class="mb-0">National League</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <button class="btn btn-outline-primary w-100" data-bs-toggle="modal"
+                                    data-bs-target="#gameModal1">
+                                    Game Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Modal -->
+                    <div class="modal fade" id="gameModal1" tabindex="-1"
+                        aria-labelledby="gameModalLabel1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header bg-primary text-white">
+                                    <h5 class="modal-title" id="gameModalLabel1">
+                                        Lahore Lions vs Karachi Kings XI
+                                    </h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                            <div class="text-center mb-4">
+                                                <div class="d-flex justify-content-center align-items-center mb-3">
+                                                    <div class="text-center mx-3">
+                                                        <img src="http://127.0.0.1:8001/images/default-team.png"
+                                                            alt="Lahore Lions" class="img-fluid mb-2"
+                                                            style="height: 80px; width: auto;">
+                                                        <h5>Lahore Lions</h5>
+                                                    </div>
+                                                    <h3 class="mx-2">vs</h3>
+                                                    <div class="text-center mx-3">
+                                                        <img src="http://127.0.0.1:8001/images/default-team.png"
+                                                            alt="Karachi Kings XI" class="img-fluid mb-2"
+                                                            style="height: 80px; width: auto;">
+                                                        <h5>Karachi Kings XI</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="bg-light p-3 rounded-3">
+                                                    <h4 class="mb-0">
+                                                                                                                    Coming Soon
+                                                                                                            </h4>
+                                                </div>
+                                            </div>
+
+                                            <div class="card border-0 shadow-sm mb-3">
+                                                <div class="card-body">
+                                                    <h6 class="card-title text-primary">
+                                                        <i class="bi bi-info-circle me-2"></i>Match Details
+                                                    </h6>
+                                                    <ul class="list-unstyled">
+                                                        <li class="mb-2"><strong>Date:</strong>
+                                                            Sunday, October 11, 2026</li>
+                                                        <li class="mb-2"><strong>Time:</strong>
+                                                            6:00 PM</li>
+                                                        <li class="mb-2"><strong>Venue:</strong>
+                                                            Gaddafi Stadium, Lahore</li>
+                                                        <li class="mb-2"><strong>Referee:</strong>
+                                                            K. Mehmood</li>
+                                                        <li><strong>Competition:</strong>
+                                                            National League</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card border-0 shadow-sm mb-3">
+                                                <div class="card-body">
+                                                    <h6 class="card-title text-primary">
+                                                        <i class="bi bi-calendar-event me-2"></i>Recent Form
+                                                    </h6>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="text-center">
+                                                            <small>Lahore Lions</small>
+                                                            <div class="d-flex mt-2">
+                                                                                                                                    <span
+                                                                        class="badge bg-success mx-1">
+                                                                        W
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-danger mx-1">
+                                                                        L
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-warning mx-1">
+                                                                        D
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-success mx-1">
+                                                                        W
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-success mx-1">
+                                                                        W
+                                                                    </span>
+                                                                                                                            </div>
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <small>Karachi Kings XI</small>
+                                                            <div class="d-flex mt-2">
+                                                                                                                                    <span
+                                                                        class="badge bg-danger mx-1">
+                                                                        L
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-success mx-1">
+                                                                        W
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-warning mx-1">
+                                                                        D
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-danger mx-1">
+                                                                        L
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-success mx-1">
+                                                                        W
+                                                                    </span>
+                                                                                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                                                            <div class="card border-0 shadow-sm">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title text-primary">
+                                                            <i class="bi bi-card-text me-2"></i>Match Preview
+                                                        </h6>
+                                                        <p>Top-of-the-table clash.</p>
+                                                    </div>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <a href="#" class="btn btn-primary">Buy Tickets</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Islamabad United Stars vs Peshawar Panthers</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-calendar-date fs-4 text-primary me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Date & Time</h6>
+                                        <p class="mb-0">
+                                            Oct 12, 2026 at 7:30 PM
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-geo-alt fs-4 text-primary me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Venue</h6>
+                                        <p class="mb-0">Gaddafi Stadium, Lahore</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-trophy fs-4 text-primary me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Competition</h6>
+                                        <p class="mb-0">National League</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <button class="btn btn-outline-primary w-100" data-bs-toggle="modal"
+                                    data-bs-target="#gameModal2">
+                                    Game Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Modal -->
+                    <div class="modal fade" id="gameModal2" tabindex="-1"
+                        aria-labelledby="gameModalLabel2" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header bg-primary text-white">
+                                    <h5 class="modal-title" id="gameModalLabel2">
+                                        Islamabad United Stars vs Peshawar Panthers
+                                    </h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                            <div class="text-center mb-4">
+                                                <div class="d-flex justify-content-center align-items-center mb-3">
+                                                    <div class="text-center mx-3">
+                                                        <img src="http://127.0.0.1:8001/images/default-team.png"
+                                                            alt="Islamabad United Stars" class="img-fluid mb-2"
+                                                            style="height: 80px; width: auto;">
+                                                        <h5>Islamabad United Stars</h5>
+                                                    </div>
+                                                    <h3 class="mx-2">vs</h3>
+                                                    <div class="text-center mx-3">
+                                                        <img src="http://127.0.0.1:8001/images/default-team.png"
+                                                            alt="Peshawar Panthers" class="img-fluid mb-2"
+                                                            style="height: 80px; width: auto;">
+                                                        <h5>Peshawar Panthers</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="bg-light p-3 rounded-3">
+                                                    <h4 class="mb-0">
+                                                                                                                    Coming Soon
+                                                                                                            </h4>
+                                                </div>
+                                            </div>
+
+                                            <div class="card border-0 shadow-sm mb-3">
+                                                <div class="card-body">
+                                                    <h6 class="card-title text-primary">
+                                                        <i class="bi bi-info-circle me-2"></i>Match Details
+                                                    </h6>
+                                                    <ul class="list-unstyled">
+                                                        <li class="mb-2"><strong>Date:</strong>
+                                                            Monday, October 12, 2026</li>
+                                                        <li class="mb-2"><strong>Time:</strong>
+                                                            7:30 PM</li>
+                                                        <li class="mb-2"><strong>Venue:</strong>
+                                                            Gaddafi Stadium, Lahore</li>
+                                                        <li class="mb-2"><strong>Referee:</strong>
+                                                            S. Anwar</li>
+                                                        <li><strong>Competition:</strong>
+                                                            National League</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card border-0 shadow-sm mb-3">
+                                                <div class="card-body">
+                                                    <h6 class="card-title text-primary">
+                                                        <i class="bi bi-calendar-event me-2"></i>Recent Form
+                                                    </h6>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="text-center">
+                                                            <small>Islamabad United Stars</small>
+                                                            <div class="d-flex mt-2">
+                                                                                                                                    <span
+                                                                        class="badge bg-success mx-1">
+                                                                        W
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-danger mx-1">
+                                                                        L
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-warning mx-1">
+                                                                        D
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-success mx-1">
+                                                                        W
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-success mx-1">
+                                                                        W
+                                                                    </span>
+                                                                                                                            </div>
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <small>Peshawar Panthers</small>
+                                                            <div class="d-flex mt-2">
+                                                                                                                                    <span
+                                                                        class="badge bg-danger mx-1">
+                                                                        L
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-success mx-1">
+                                                                        W
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-warning mx-1">
+                                                                        D
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-danger mx-1">
+                                                                        L
+                                                                    </span>
+                                                                                                                                    <span
+                                                                        class="badge bg-success mx-1">
+                                                                        W
+                                                                    </span>
+                                                                                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                                                            <div class="card border-0 shadow-sm">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title text-primary">
+                                                            <i class="bi bi-card-text me-2"></i>Match Preview
+                                                        </h6>
+                                                        <p>Mid-table battle with playoff implications.</p>
+                                                    </div>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <a href="#" class="btn btn-primary">Buy Tickets</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+    <style>
+        .game-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+        </main>
+    </div>
+    <script src="http://127.0.0.1:8001/js/jquery.min.js"></script>
+    <script src="http://127.0.0.1:8001/js/bootstrap.bundle.min.js"></script>
+    <script src="http://127.0.0.1:8001/js/sweetalert2.min.js"></script>
+<script src="demo.js"></script></body>
+
+</html>
