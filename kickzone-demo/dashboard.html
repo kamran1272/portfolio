@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KickZone Admin Panel">
+    <meta name="csrf-token" content="xBItbMEdHCVt0u0Z5WXMwOs8zqYVGWXTbauLcM9J">
+    <title>Admin Panel - KickZone</title>
+
+    
+    <link href="http://127.0.0.1:8001/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    
+    <link rel="preload" as="style" href="http://127.0.0.1:8001/build/assets/app-BTfBdD0h.css" /><link rel="modulepreload" href="http://127.0.0.1:8001/build/assets/app-Bf4POITK.js" /><link rel="stylesheet" href="http://127.0.0.1:8001/build/assets/app-BTfBdD0h.css" /><script type="module" src="http://127.0.0.1:8001/build/assets/app-Bf4POITK.js"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .sidebar {
+            height: 100vh;
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            width: 250px;
+            top: 0;
+            left: 0;
+            z-index: 1040;
+        }
+
+        .sidebar h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+            color: #ffc107;
+        }
+
+        .sidebar .nav-item .dropdown-menu {
+            background-color: #495057;
+            border: none;
+        }
+
+        .sidebar .nav-item .dropdown-menu a {
+            color: white;
+        }
+
+        .sidebar .nav-item .dropdown-menu a:hover {
+            background-color: #6c757d;
+            color: #ffc107;
+        }
+
+        .topbar {
+            background-color: #343a40;
+            color: white;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 250px;
+            right: 0;
+            z-index: 1030;
+        }
+
+        .topbar .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .topbar .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .topbar .navbar-brand span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .content {
+            margin-left: 250px;
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .nav-link.active {
+            background-color: #495057;
+            color: #ffc107 !important;
+        }
+    </style>
+</head>
+
+<body><div style="background:#0d9488;color:#fff;text-align:center;padding:8px 12px;font-family:sans-serif;font-size:14px;position:sticky;top:0;z-index:9999;">Interactive demo preview of KickZone — data is sample data, actions are disabled. <a href="https://github.com/kamran1272/kickzone" style="color:#fff;font-weight:bold;">View source on GitHub</a></div>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <a class="navbar-brand d-flex align-items-center py-3" href="http://127.0.0.1:8001/admin/dashboard">
+            <img src="http://127.0.0.1:8001/images/logo1.png" alt="KickZone Logo" class="rounded-circle me-2"
+                style="width: 60px; height: 60px;">
+            <h4 class="text-warning">KickZone Admin</h4>
+        </a>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/dashboard"
+                    class="nav-link active">
+                    <i class="bi bi-speedometer2 me-2"></i>Dashboard Summary
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/users"
+                    class="nav-link ">
+                    <i class="bi bi-people-fill me-2"></i>Manage Users
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/players"
+                    class="nav-link ">
+                    <i class="bi bi-person-fill me-2"></i>Players
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/teams"
+                    class="nav-link ">
+                    <i class="bi bi-people me-2"></i>Teams
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="sportsDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-trophy me-2"></i>Sports
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="sportsDropdown">
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/sports">View Sports</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/schedules">Schedule</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/fixtures">Fixtures</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/results">Results</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/events"
+                    class="nav-link ">
+                    <i class="bi bi-calendar-event me-2"></i>Events
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/announcements"
+                    class="nav-link ">
+                    <i class="bi bi-megaphone me-2"></i>Announcements
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/registrations"
+                    class="nav-link ">
+                    <i class="bi bi-card-list me-2"></i>Registrations
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/reports"
+                    class="nav-link ">
+                    <i class="bi bi-file-earmark-bar-graph me-2"></i>Reports
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/settings"
+                    class="nav-link ">
+                    <i class="bi bi-gear me-2"></i>Settings
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/profile"
+                    class="nav-link ">
+                    <i class="bi bi-person-circle me-2"></i>Profile
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle me-2"></i>Admin User
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="http://127.0.0.1:8001/admin/profile">
+                                <i class="bi bi-person-lines-fill me-2"></i>Profile
+                            </a>
+                        </li>
+                        <li>
+                            <form method="POST" action="http://127.0.0.1:8001/logout">
+                                <input type="hidden" name="_token" value="demo" autocomplete="off">                                <button type="submit" class="dropdown-item">
+                                    <i class="bi bi-box-arrow-right me-2"></i>Log Out
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                    </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="content">
+            <div class="container-fluid px-4">
+        <!-- Dashboard Header with Breadcrumb -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="fw-bold text-dark mb-1">Dashboard Overview</h1>
+
+            </div>
+            <div class="text-muted bg-light px-3 py-2 rounded-pill">
+                <i class="bi bi-calendar3 me-2"></i>
+                <span class="fw-medium">Tuesday, October 6, 2026</span>
+            </div>
+        </div>
+
+        <!-- Stats Cards with Progress Indicators -->
+        <div class="row g-4 mb-4">
+            <!-- Total Sports -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card border-0 shadow-sm overflow-hidden h-100">
+                    <div class="card-body p-0 d-flex flex-column">
+                        <div class="d-flex p-4 flex-grow-1">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                <i class="bi bi-trophy-fill text-primary fs-3"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="text-muted mb-1">Total Sports</h6>
+                                <h3 class="mb-2">4</h3>
+                                <div class="progress mb-1" style="height: 6px;">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 72%;"
+                                        aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="text-success mb-0 small">
+                                    <i class="bi bi-arrow-up"></i> 12% from last month
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-primary bg-opacity-10 px-4 py-2 d-flex justify-content-between">
+                            <small class="text-primary">
+                                <i class="bi bi-clock-history me-1"></i> Updated just now
+                            </small>
+                            <a href="http://127.0.0.1:8001/admin/sports" class="text-primary small">View Details <i
+                                    class="bi bi-chevron-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Users -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card border-0 shadow-sm overflow-hidden h-100">
+                    <div class="card-body p-0 d-flex flex-column">
+                        <div class="d-flex p-4 flex-grow-1">
+                            <div class="bg-success bg-opacity-10 p-3 rounded me-3">
+                                <i class="bi bi-people-fill text-success fs-3"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="text-muted mb-1">Total Users</h6>
+                                <h3 class="mb-2">2</h3>
+                                <div class="progress mb-1" style="height: 6px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 85%;"
+                                        aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="text-success mb-0 small">
+                                    <i class="bi bi-arrow-up"></i> 24 new this month
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-success bg-opacity-10 px-4 py-2 d-flex justify-content-between">
+                            <small class="text-success">
+                                <i class="bi bi-clock-history me-1"></i> Updated today
+                            </small>
+                            <a href="http://127.0.0.1:8001/admin/users" class="text-success small">View Details <i
+                                    class="bi bi-chevron-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Players -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card border-0 shadow-sm overflow-hidden h-100">
+                    <div class="card-body p-0 d-flex flex-column">
+                        <div class="d-flex p-4 flex-grow-1">
+                            <div class="bg-warning bg-opacity-10 p-3 rounded me-3">
+                                <i class="bi bi-person-badge-fill text-warning fs-3"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="text-muted mb-1">Total Players</h6>
+                                <h3 class="mb-2">6</h3>
+                                <div class="progress mb-1" style="height: 6px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 65%;"
+                                        aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="text-danger mb-0 small">
+                                    <i class="bi bi-arrow-down"></i> 3 inactive
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-warning bg-opacity-10 px-4 py-2 d-flex justify-content-between">
+                            <small class="text-warning">
+                                <i class="bi bi-clock-history me-1"></i> Updated 1 hour ago
+                            </small>
+                            <a href="http://127.0.0.1:8001/admin/players" class="text-warning small">View Details <i
+                                    class="bi bi-chevron-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity Section -->
+        <div class="row g-4">
+            <!-- Recent Registrations with Chart -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-white border-0 py-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0 fw-bold">Recent Registrations</h5>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                                    id="regDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Last 7 Days
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="regDropdown">
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">Last 7 Days</a></li>
+                                    <li><a class="dropdown-item" href="#">Last 30 Days</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                                                    <div class="chart-container mb-3" style="height: 120px;">
+                                <canvas id="registrationsChart"></canvas>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-borderless table-hover mb-0">
+                                    <thead class="bg-light">
+                                        <tr>
+                                            <th class="rounded-start">Name</th>
+                                            <th>Email</th>
+                                            <th class="rounded-end">Registered</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                                                    <tr class="border-bottom">
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-sm me-2">
+                                                            <span class="avatar-title bg-primary rounded-circle">
+                                                                A
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <div class="fw-medium">Admin User</div>
+                                                            <small class="text-muted"></small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>admin123@gmail.com</td>
+                                                <td>
+                                                    <span class="badge bg-light text-dark">
+                                                        1 minute ago
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                                                                    <tr class="border-bottom">
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-sm me-2">
+                                                            <span class="avatar-title bg-primary rounded-circle">
+                                                                T
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <div class="fw-medium">Test User</div>
+                                                            <small class="text-muted"></small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>test@example.com</td>
+                                                <td>
+                                                    <span class="badge bg-light text-dark">
+                                                        1 minute ago
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                                                            </tbody>
+                                </table>
+                            </div>
+                                            </div>
+                    <div class="card-footer bg-white border-0 py-3 text-center">
+                        <a href="http://127.0.0.1:8001/admin/users" class="btn btn-sm btn-outline-primary">
+                            <i class="bi bi-arrow-right me-1"></i> View All Users
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming Fixtures with Calendar -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-white border-0 py-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0 fw-bold">Upcoming Fixtures</h5>
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                                    id="fixtureDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    All Sports
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="fixtureDropdown">
+                                    <li><a class="dropdown-item" href="#">Football</a></li>
+                                    <li><a class="dropdown-item" href="#">Basketball</a></li>
+                                    <li><a class="dropdown-item" href="#">Tennis</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                                                    <div class="table-responsive">
+                                <table class="table table-borderless table-hover mb-0">
+                                    <thead class="bg-light">
+                                        <tr>
+                                            <th class="rounded-start">Match</th>
+                                            <th>Date & Time</th>
+                                            <th class="rounded-end">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                                                    <tr class="border-bottom">
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-sm me-3 text-center">
+                                                            <img src="https://via.placeholder.com/30" alt="team-logo"
+                                                                class="avatar-xs rounded-circle">
+                                                            <div class="text-xs mt-1">Lahore Lions</div>
+                                                        </div>
+                                                        <div class="text-center mx-2 fw-bold text-primary">vs</div>
+                                                        <div class="avatar-sm text-center">
+                                                            <img src="https://via.placeholder.com/30" alt="team-logo"
+                                                                class="avatar-xs rounded-circle">
+                                                            <div class="text-xs mt-1">Karachi Kings XI</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="fw-medium">11 Oct, 2026</div>
+                                                    <small class="text-muted">
+                                                        <i
+                                                            class="bi bi-clock me-1"></i>06:00 PM
+                                                    </small>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-info bg-opacity-10 text-info">
+                                                        <i class="bi bi-calendar-check me-1"></i> Upcoming
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                                                                    <tr class="border-bottom">
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-sm me-3 text-center">
+                                                            <img src="https://via.placeholder.com/30" alt="team-logo"
+                                                                class="avatar-xs rounded-circle">
+                                                            <div class="text-xs mt-1">Islamabad United Stars</div>
+                                                        </div>
+                                                        <div class="text-center mx-2 fw-bold text-primary">vs</div>
+                                                        <div class="avatar-sm text-center">
+                                                            <img src="https://via.placeholder.com/30" alt="team-logo"
+                                                                class="avatar-xs rounded-circle">
+                                                            <div class="text-xs mt-1">Peshawar Panthers</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="fw-medium">12 Oct, 2026</div>
+                                                    <small class="text-muted">
+                                                        <i
+                                                            class="bi bi-clock me-1"></i>07:30 PM
+                                                    </small>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-info bg-opacity-10 text-info">
+                                                        <i class="bi bi-calendar-check me-1"></i> Upcoming
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                                                            </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-3">
+                                <div class="calendar-container">
+                                    <div id="mini-calendar"></div>
+                                </div>
+                            </div>
+                                            </div>
+                    <div class="card-footer bg-white border-0 py-3 text-center">
+                        <a href="fixtures.html" class="btn btn-sm btn-outline-primary me-2">
+                            <i class="bi bi-plus-circle me-1"></i> Add Fixture
+                        </a>
+                        <a href="#" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-calendar-week me-1"></i> Full Calendar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions & Recent Activity -->
+        <div class="row mt-4">
+            <!-- Quick Actions -->
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-white border-0 py-3">
+                        <h5 class="mb-0 fw-bold">Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3 col-6">
+                                <a href="fixtures.html" class="card action-card h-100 text-center border-0 shadow-none">
+                                    <div class="card-body p-3">
+                                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                                            <i class="bi bi-plus-lg text-primary fs-4"></i>
+                                        </div>
+                                        <h6 class="mb-0">Add Fixture</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="players.html" class="card action-card h-100 text-center border-0 shadow-none">
+                                    <div class="card-body p-3">
+                                        <div class="bg-success bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                                            <i class="bi bi-person-plus text-success fs-4"></i>
+                                        </div>
+                                        <h6 class="mb-0">Add Player</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="sports.html" class="card action-card h-100 text-center border-0 shadow-none">
+                                    <div class="card-body p-3">
+                                        <div class="bg-info bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                                            <i class="bi bi-trophy text-info fs-4"></i>
+                                        </div>
+                                        <h6 class="mb-0">Manage Sports</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <a href="/admin/settings" class="card action-card h-100 text-center border-0 shadow-none">
+                                    <div class="card-body p-3">
+                                        <div class="bg-warning bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                                            <i class="bi bi-gear text-warning fs-4"></i>
+                                        </div>
+                                        <h6 class="mb-0">Settings</h6>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Status -->
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-white border-0 py-3">
+                        <h5 class="mb-0 fw-bold">System Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                <i class="bi bi-server text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Server Load</h6>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 35%;"
+                                        aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                                <i class="bi bi-database-check text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Database</h6>
+                                <span class="badge bg-success bg-opacity-10 text-success">
+                                    <i class="bi bi-check-circle me-1"></i> Connected
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="bg-info bg-opacity-10 p-2 rounded me-3">
+                                <i class="bi bi-shield-check text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Security</h6>
+                                <span class="badge bg-info bg-opacity-10 text-info">
+                                    <i class="bi bi-lock me-1"></i> Protected
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0 py-3 text-center">
+                        <small class="text-muted">Last checked: 06:00 PM</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    
+    <script src="http://127.0.0.1:8001/js/jquery.min.js"></script>
+    <script src="http://127.0.0.1:8001/js/bootstrap.bundle.min.js"></script>
+    <script src="http://127.0.0.1:8001/js/sweetalert2.min.js"></script>
+<script src="demo.js"></script></body>
+
+</html>
