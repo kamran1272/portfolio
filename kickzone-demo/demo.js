@@ -53,14 +53,9 @@
   /* ============ Login ============ */
   function wireLogin() {
     if (!location.pathname.includes('login')) return;
-    const form = document.querySelector('form');
+    const form = document.getElementById('demo-login-form') || document.querySelector('form');
     if (!form) return;
-    // prefill hint
-    const hint = document.createElement('div');
-    hint.style.cssText = 'margin-top:10px;font-size:12px;color:#6c757d;text-align:center;';
-    hint.innerHTML = 'Demo login: <code>admin123@gmail.com</code> / <code>admin123</code> ' +
-      '<button type="button" id="demo-autofill" style="margin-left:6px;font-size:11px;">Autofill</button>';
-    form.appendChild(hint);
+    // hint is built into the new login page
     document.getElementById('demo-autofill').addEventListener('click', () => {
       const em = form.querySelector('input[name="email"], input[type="email"]');
       const pw = form.querySelector('input[name="password"], input[type="password"]');

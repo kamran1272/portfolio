@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="xBItbMEdHCVt0u0Z5WXMwOs8zqYVGWXTbauLcM9J">
 
-    <title>Laravel</title>
+    <title>KickZone - Sports Management Platform</title>
 
     <!-- Fonts -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -367,22 +367,18 @@
 
                 counters.forEach(counter => {
                     const target = +counter.getAttribute('data-count');
-                    const count = +counter.innerText;
-                    const increment = target / speed;
-
-                    if (count < target) {
-                        const updateCount = () => {
-                            const newCount = Math.ceil(count + increment);
-                            counter.innerText = newCount.toLocaleString();
-
-                            if (newCount < target) {
-                                setTimeout(updateCount, 1);
-                            } else {
-                                counter.innerText = target.toLocaleString();
-                            }
-                        };
-                        updateCount();
-                    }
+                    let count = 0;
+                    const increment = target / 60;
+                    const updateCount = () => {
+                        count += increment;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count).toLocaleString();
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            counter.innerText = target.toLocaleString();
+                        }
+                    };
+                    updateCount();
                 });
             });
         </script>
