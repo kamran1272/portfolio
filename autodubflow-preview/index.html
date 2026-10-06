@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoDubFlow - AI Video Dubbing Platform</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0a0a1a; color: #fff; }
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%); }
+.badge { display: inline-block; background: #7c3aed; color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; }
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-bottom: 1rem; line-height: 1.1; }
+h1 .accent { background: linear-gradient(90deg, #a78bfa, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.subtitle { font-size: 1.25rem; color: #a1a1aa; max-width: 700px; margin: 0 auto 2.5rem; line-height: 1.6; }
+.cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem; }
+.btn { padding: 1rem 2.5rem; border-radius: 12px; font-weight: 600; font-size: 1.1rem; text-decoration: none; transition: transform 0.2s; }
+.btn-primary { background: #7c3aed; color: white; }
+.btn-primary:hover { transform: translateY(-2px); background: #6d28d9; }
+.btn-secondary { background: transparent; color: white; border: 2px solid #3f3f46; }
+.btn-secondary:hover { border-color: #7c3aed; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+.feature { background: #141428; border: 1px solid #27272a; border-radius: 16px; padding: 2rem; text-align: left; }
+.feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.feature h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+.feature p { color: #a1a1aa; line-height: 1.6; }
+.tech { text-align: center; padding: 3rem 2rem; background: #0d0d20; }
+.tech h2 { margin-bottom: 1.5rem; color: #a1a1aa; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+.tech-stack { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.tech-item { background: #1a1a3a; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; }
+.note { text-align: center; padding: 2rem; color: #71717a; font-size: 0.9rem; max-width: 800px; margin: 0 auto; }
+</style>
+</head>
+<body>
+<div class="hero">
+<div>
+<div class="badge">AI-Powered Platform</div>
+<h1>Auto<span class="accent">DubFlow</span></h1>
+<p class="subtitle">Automated multilingual video dubbing platform. Upload videos, generate AI translations, and produce professional dubbed audio tracks — all in one streamlined workflow.</p>
+<div class="cta-group">
+<a href="https://github.com/kamran1272/autodubflow" class="btn btn-primary">View on GitHub</a>
+<a href="#features" class="btn btn-secondary">Learn More</a>
+</div>
+</div>
+</div>
+
+<div class="features" id="features">
+<div class="feature">
+<div class="feature-icon">🎬</div>
+<h3>Video Processing Pipeline</h3>
+<p>Upload videos and automatically extract audio tracks. The worker service handles time-intensive media operations asynchronously.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">🌍</div>
+<h3>AI Translation</h3>
+<p>Advanced AI models translate dialogue across multiple languages while preserving context, tone, and timing.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">🎙️</div>
+<h3>Voice Synthesis</h3>
+<p>Generate natural-sounding dubbed audio with voice cloning technology that matches the original speaker's characteristics.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">⚡</div>
+<h3>Async Job Processing</h3>
+<p>BullMQ-powered job queues with Redis ensure responsive UI while heavy media tasks run in dedicated workers.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">🔒</div>
+<h3>Secure & Scalable</h3>
+<p>Server-side auth with ownership checks, Prisma ORM, and Docker-ready deployment for production scale.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">📊</div>
+<h3>Review Dashboard</h3>
+<p>Web-based editor for reviewing, editing, and approving dubbed content before final export.</p>
+</div>
+</div>
+
+<div class="tech">
+<h2>Built With</h2>
+<div class="tech-stack">
+<span class="tech-item">Next.js 15</span>
+<span class="tech-item">TypeScript</span>
+<span class="tech-item">NestJS</span>
+<span class="tech-item">Prisma</span>
+<span class="tech-item">Redis</span>
+<span class="tech-item">BullMQ</span>
+<span class="tech-item">Docker</span>
+<span class="tech-item">Turborepo</span>
+</div>
+</div>
+
+<div class="note">
+<p><strong>Note:</strong> This is a static preview. AutoDubFlow is a full-stack application requiring Node.js, PostgreSQL, and Redis. View the complete source code on GitHub.</p>
+</div>
+</body>
+</html>
