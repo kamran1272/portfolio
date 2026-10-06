@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KickZone Admin Panel">
+    <meta name="csrf-token" content="xBItbMEdHCVt0u0Z5WXMwOs8zqYVGWXTbauLcM9J">
+    <title>Admin Panel - KickZone</title>
+
+    
+    <link href="http://127.0.0.1:8001/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    
+    <link rel="preload" as="style" href="http://127.0.0.1:8001/build/assets/app-BTfBdD0h.css" /><link rel="modulepreload" href="http://127.0.0.1:8001/build/assets/app-Bf4POITK.js" /><link rel="stylesheet" href="http://127.0.0.1:8001/build/assets/app-BTfBdD0h.css" /><script type="module" src="http://127.0.0.1:8001/build/assets/app-Bf4POITK.js"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .sidebar {
+            height: 100vh;
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            width: 250px;
+            top: 0;
+            left: 0;
+            z-index: 1040;
+        }
+
+        .sidebar h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+            color: #ffc107;
+        }
+
+        .sidebar .nav-item .dropdown-menu {
+            background-color: #495057;
+            border: none;
+        }
+
+        .sidebar .nav-item .dropdown-menu a {
+            color: white;
+        }
+
+        .sidebar .nav-item .dropdown-menu a:hover {
+            background-color: #6c757d;
+            color: #ffc107;
+        }
+
+        .topbar {
+            background-color: #343a40;
+            color: white;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 250px;
+            right: 0;
+            z-index: 1030;
+        }
+
+        .topbar .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .topbar .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .topbar .navbar-brand span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .content {
+            margin-left: 250px;
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .nav-link.active {
+            background-color: #495057;
+            color: #ffc107 !important;
+        }
+    </style>
+</head>
+
+<body><div style="background:#0d9488;color:#fff;text-align:center;padding:8px 12px;font-family:sans-serif;font-size:14px;position:sticky;top:0;z-index:9999;">Interactive demo preview of KickZone — data is sample data, actions are disabled. <a href="https://github.com/kamran1272/kickzone" style="color:#fff;font-weight:bold;">View source on GitHub</a></div>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <a class="navbar-brand d-flex align-items-center py-3" href="http://127.0.0.1:8001/admin/dashboard">
+            <img src="http://127.0.0.1:8001/images/logo1.png" alt="KickZone Logo" class="rounded-circle me-2"
+                style="width: 60px; height: 60px;">
+            <h4 class="text-warning">KickZone Admin</h4>
+        </a>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/dashboard"
+                    class="nav-link ">
+                    <i class="bi bi-speedometer2 me-2"></i>Dashboard Summary
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/users"
+                    class="nav-link ">
+                    <i class="bi bi-people-fill me-2"></i>Manage Users
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/players"
+                    class="nav-link active">
+                    <i class="bi bi-person-fill me-2"></i>Players
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/teams"
+                    class="nav-link ">
+                    <i class="bi bi-people me-2"></i>Teams
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="sportsDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-trophy me-2"></i>Sports
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="sportsDropdown">
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/sports">View Sports</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/schedules">Schedule</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/fixtures">Fixtures</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/results">Results</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/events"
+                    class="nav-link ">
+                    <i class="bi bi-calendar-event me-2"></i>Events
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/announcements"
+                    class="nav-link ">
+                    <i class="bi bi-megaphone me-2"></i>Announcements
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/registrations"
+                    class="nav-link ">
+                    <i class="bi bi-card-list me-2"></i>Registrations
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/reports"
+                    class="nav-link ">
+                    <i class="bi bi-file-earmark-bar-graph me-2"></i>Reports
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/settings"
+                    class="nav-link ">
+                    <i class="bi bi-gear me-2"></i>Settings
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/profile"
+                    class="nav-link ">
+                    <i class="bi bi-person-circle me-2"></i>Profile
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle me-2"></i>Admin User
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="http://127.0.0.1:8001/admin/profile">
+                                <i class="bi bi-person-lines-fill me-2"></i>Profile
+                            </a>
+                        </li>
+                        <li>
+                            <form method="POST" action="http://127.0.0.1:8001/logout">
+                                <input type="hidden" name="_token" value="demo" autocomplete="off">                                <button type="submit" class="dropdown-item">
+                                    <i class="bi bi-box-arrow-right me-2"></i>Log Out
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                    </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="content">
+            <div class="container-fluid py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold text-dark">Manage Players</h2>
+            <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addPlayerModal">
+                <i class="bi bi-plus-circle me-1"></i>Add Player
+            </button>
+        </div>
+        <div class="card shadow rounded-4 mb-4">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-people-fill me-2"></i>Players</h5>
+            </div>
+
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Photo</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Jersey #</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Position</th>
+                                <th scope="col">Team</th>
+                                <th scope="col">Nationality</th>
+                                <th scope="col">Height</th>
+                                <th scope="col">Weight</th>
+                                <th scope="col" class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td>1</td>
+                                    <td>
+                                                                                    <img src="http://127.0.0.1:8001/images/default-avatar.png" alt="Photo"
+                                                width="40" height="40" class="rounded-circle">
+                                                                            </td>
+                                    <td>Ahmed Raza</td>
+                                    <td>9</td>
+                                    <td>24</td>
+                                    <td>Striker</td>
+                                    <td>Lahore Lions</td>
+                                    <td>Pakistan</td>
+                                    <td>182 cm</td>
+                                    <td>76 kg</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-outline-warning btn-sm me-1" title="Edit Player"
+                                            data-bs-toggle="modal" data-bs-target="#editPlayerModal1">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+                                        <form action="http://127.0.0.1:8001/admin/players/1" method="POST"
+                                            class="d-inline delete-player-form">
+                                            <input type="hidden" name="_token" value="demo" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="btn btn-outline-danger btn-sm delete-btn"
+                                                title="Delete Player">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td>2</td>
+                                    <td>
+                                                                                    <img src="http://127.0.0.1:8001/images/default-avatar.png" alt="Photo"
+                                                width="40" height="40" class="rounded-circle">
+                                                                            </td>
+                                    <td>Bilal Ahmed</td>
+                                    <td>8</td>
+                                    <td>27</td>
+                                    <td>Midfielder</td>
+                                    <td>Lahore Lions</td>
+                                    <td>Pakistan</td>
+                                    <td>178 cm</td>
+                                    <td>72 kg</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-outline-warning btn-sm me-1" title="Edit Player"
+                                            data-bs-toggle="modal" data-bs-target="#editPlayerModal2">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+                                        <form action="http://127.0.0.1:8001/admin/players/2" method="POST"
+                                            class="d-inline delete-player-form">
+                                            <input type="hidden" name="_token" value="demo" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="btn btn-outline-danger btn-sm delete-btn"
+                                                title="Delete Player">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td>3</td>
+                                    <td>
+                                                                                    <img src="http://127.0.0.1:8001/images/default-avatar.png" alt="Photo"
+                                                width="40" height="40" class="rounded-circle">
+                                                                            </td>
+                                    <td>Usman Tariq</td>
+                                    <td>1</td>
+                                    <td>22</td>
+                                    <td>Goalkeeper</td>
+                                    <td>Karachi Kings XI</td>
+                                    <td>Pakistan</td>
+                                    <td>188 cm</td>
+                                    <td>82 kg</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-outline-warning btn-sm me-1" title="Edit Player"
+                                            data-bs-toggle="modal" data-bs-target="#editPlayerModal3">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+                                        <form action="http://127.0.0.1:8001/admin/players/3" method="POST"
+                                            class="d-inline delete-player-form">
+                                            <input type="hidden" name="_token" value="demo" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="btn btn-outline-danger btn-sm delete-btn"
+                                                title="Delete Player">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td>4</td>
+                                    <td>
+                                                                                    <img src="http://127.0.0.1:8001/images/default-avatar.png" alt="Photo"
+                                                width="40" height="40" class="rounded-circle">
+                                                                            </td>
+                                    <td>Danish Ali</td>
+                                    <td>4</td>
+                                    <td>25</td>
+                                    <td>Defender</td>
+                                    <td>Karachi Kings XI</td>
+                                    <td>Pakistan</td>
+                                    <td>184 cm</td>
+                                    <td>79 kg</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-outline-warning btn-sm me-1" title="Edit Player"
+                                            data-bs-toggle="modal" data-bs-target="#editPlayerModal4">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+                                        <form action="http://127.0.0.1:8001/admin/players/4" method="POST"
+                                            class="d-inline delete-player-form">
+                                            <input type="hidden" name="_token" value="demo" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="btn btn-outline-danger btn-sm delete-btn"
+                                                title="Delete Player">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td>5</td>
+                                    <td>
+                                                                                    <img src="http://127.0.0.1:8001/images/default-avatar.png" alt="Photo"
+                                                width="40" height="40" class="rounded-circle">
+                                                                            </td>
+                                    <td>Fahad Khan</td>
+                                    <td>11</td>
+                                    <td>23</td>
+                                    <td>Winger</td>
+                                    <td>Islamabad United Stars</td>
+                                    <td>Pakistan</td>
+                                    <td>176 cm</td>
+                                    <td>70 kg</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-outline-warning btn-sm me-1" title="Edit Player"
+                                            data-bs-toggle="modal" data-bs-target="#editPlayerModal5">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+                                        <form action="http://127.0.0.1:8001/admin/players/5" method="POST"
+                                            class="d-inline delete-player-form">
+                                            <input type="hidden" name="_token" value="demo" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="btn btn-outline-danger btn-sm delete-btn"
+                                                title="Delete Player">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td>6</td>
+                                    <td>
+                                                                                    <img src="http://127.0.0.1:8001/images/default-avatar.png" alt="Photo"
+                                                width="40" height="40" class="rounded-circle">
+                                                                            </td>
+                                    <td>Imran Sheikh</td>
+                                    <td>10</td>
+                                    <td>29</td>
+                                    <td>Striker</td>
+                                    <td>Peshawar Panthers</td>
+                                    <td>Pakistan</td>
+                                    <td>180 cm</td>
+                                    <td>75 kg</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-outline-warning btn-sm me-1" title="Edit Player"
+                                            data-bs-toggle="modal" data-bs-target="#editPlayerModal6">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+                                        <form action="http://127.0.0.1:8001/admin/players/6" method="POST"
+                                            class="d-inline delete-player-form">
+                                            <input type="hidden" name="_token" value="demo" autocomplete="off">                                            <input type="hidden" name="_method" value="DELETE">                                            <button type="submit" class="btn btn-outline-danger btn-sm delete-btn"
+                                                title="Delete Player">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Player Modal -->
+    <div class="modal fade" id="addPlayerModal" tabindex="-1" aria-labelledby="addPlayerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title" id="addPlayerModalLabel"><i class="bi bi-person-plus-fill me-2"></i>Add New
+                        Player</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="http://127.0.0.1:8001/admin/players" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="demo" autocomplete="off">                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                                <input type="text" name="name" class="form-control" placeholder="Enter player name"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Jersey Number</label>
+                            <input type="number" name="jersey_number" class="form-control" placeholder="Jersey #"
+                                min="0">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Age</label>
+                            <input type="number" name="age" class="form-control" placeholder="Enter player age"
+                                min="1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Position</label>
+                            <input type="text" name="position" class="form-control" placeholder="Enter player position"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Team</label>
+                            <select name="team_id" class="form-select">
+                                <option value="">-- Select Team --</option>
+                                                                    <option value="1">Lahore Lions</option>
+                                                                    <option value="2">Karachi Kings XI</option>
+                                                                    <option value="3">Islamabad United Stars</option>
+                                                                    <option value="4">Peshawar Panthers</option>
+                                                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nationality</label>
+                            <input type="text" name="nationality" class="form-control" placeholder="Nationality">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Height</label>
+                            <input type="text" name="height" class="form-control" placeholder="Height (e.g. 6ft)">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Weight</label>
+                            <input type="text" name="weight" class="form-control" placeholder="Weight (e.g. 75kg)">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Photo</label>
+                            <input type="file" name="photo_url" class="form-control" accept="image/*">
+                        </div>
+                        <div class="modal-footer justify-content-end">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                <i class="bi bi-x-circle me-1"></i> Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save me-2"></i> Save Player
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Player Modals -->
+            <div class="modal fade" id="editPlayerModal1" tabindex="-1"
+            aria-labelledby="editPlayerModalLabel1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content border-0 shadow">
+                    <div class="modal-header bg-warning text-white">
+                        <h5 class="modal-title" id="editPlayerModalLabel1">
+                            <i class="bi bi-pencil-square me-2"></i>Edit Player
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form action="http://127.0.0.1:8001/admin/players/1" method="POST"
+                        enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="demo" autocomplete="off">                        <input type="hidden" name="_method" value="PUT">                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="name" class="form-control" value="Ahmed Raza"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jersey Number</label>
+                                <input type="number" name="jersey_number" class="form-control"
+                                    value="9">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Age</label>
+                                <input type="number" name="age" class="form-control" value="24"
+                                    min="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Position</label>
+                                <input type="text" name="position" class="form-control"
+                                    value="Striker" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Team</label>
+                                <select name="team_id" class="form-select" required>
+                                    <option value="">Select Team</option>
+                                                                            <option value="1"
+                                            selected>
+                                            Lahore Lions
+                                        </option>
+                                                                            <option value="2"
+                                            >
+                                            Karachi Kings XI
+                                        </option>
+                                                                            <option value="3"
+                                            >
+                                            Islamabad United Stars
+                                        </option>
+                                                                            <option value="4"
+                                            >
+                                            Peshawar Panthers
+                                        </option>
+                                                                    </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nationality</label>
+                                <input type="text" name="nationality" class="form-control"
+                                    value="Pakistan">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Height</label>
+                                <input type="text" name="height" class="form-control"
+                                    value="182 cm">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Weight</label>
+                                <input type="text" name="weight" class="form-control"
+                                    value="76 kg">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Photo</label>
+                                <input type="file" name="photo_url" class="form-control" accept="image/*">
+                                                            </div>
+                        </div>
+                        <div class="modal-footer bg-light">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-save me-1"></i> Update
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+            <div class="modal fade" id="editPlayerModal2" tabindex="-1"
+            aria-labelledby="editPlayerModalLabel2" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content border-0 shadow">
+                    <div class="modal-header bg-warning text-white">
+                        <h5 class="modal-title" id="editPlayerModalLabel2">
+                            <i class="bi bi-pencil-square me-2"></i>Edit Player
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form action="http://127.0.0.1:8001/admin/players/2" method="POST"
+                        enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="demo" autocomplete="off">                        <input type="hidden" name="_method" value="PUT">                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="name" class="form-control" value="Bilal Ahmed"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jersey Number</label>
+                                <input type="number" name="jersey_number" class="form-control"
+                                    value="8">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Age</label>
+                                <input type="number" name="age" class="form-control" value="27"
+                                    min="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Position</label>
+                                <input type="text" name="position" class="form-control"
+                                    value="Midfielder" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Team</label>
+                                <select name="team_id" class="form-select" required>
+                                    <option value="">Select Team</option>
+                                                                            <option value="1"
+                                            selected>
+                                            Lahore Lions
+                                        </option>
+                                                                            <option value="2"
+                                            >
+                                            Karachi Kings XI
+                                        </option>
+                                                                            <option value="3"
+                                            >
+                                            Islamabad United Stars
+                                        </option>
+                                                                            <option value="4"
+                                            >
+                                            Peshawar Panthers
+                                        </option>
+                                                                    </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nationality</label>
+                                <input type="text" name="nationality" class="form-control"
+                                    value="Pakistan">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Height</label>
+                                <input type="text" name="height" class="form-control"
+                                    value="178 cm">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Weight</label>
+                                <input type="text" name="weight" class="form-control"
+                                    value="72 kg">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Photo</label>
+                                <input type="file" name="photo_url" class="form-control" accept="image/*">
+                                                            </div>
+                        </div>
+                        <div class="modal-footer bg-light">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-save me-1"></i> Update
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+            <div class="modal fade" id="editPlayerModal3" tabindex="-1"
+            aria-labelledby="editPlayerModalLabel3" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content border-0 shadow">
+                    <div class="modal-header bg-warning text-white">
+                        <h5 class="modal-title" id="editPlayerModalLabel3">
+                            <i class="bi bi-pencil-square me-2"></i>Edit Player
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form action="http://127.0.0.1:8001/admin/players/3" method="POST"
+                        enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="demo" autocomplete="off">                        <input type="hidden" name="_method" value="PUT">                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="name" class="form-control" value="Usman Tariq"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jersey Number</label>
+                                <input type="number" name="jersey_number" class="form-control"
+                                    value="1">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Age</label>
+                                <input type="number" name="age" class="form-control" value="22"
+                                    min="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Position</label>
+                                <input type="text" name="position" class="form-control"
+                                    value="Goalkeeper" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Team</label>
+                                <select name="team_id" class="form-select" required>
+                                    <option value="">Select Team</option>
+                                                                            <option value="1"
+                                            >
+                                            Lahore Lions
+                                        </option>
+                                                                            <option value="2"
+                                            selected>
+                                            Karachi Kings XI
+                                        </option>
+                                                                            <option value="3"
+                                            >
+                                            Islamabad United Stars
+                                        </option>
+                                                                            <option value="4"
+                                            >
+                                            Peshawar Panthers
+                                        </option>
+                                                                    </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nationality</label>
+                                <input type="text" name="nationality" class="form-control"
+                                    value="Pakistan">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Height</label>
+                                <input type="text" name="height" class="form-control"
+                                    value="188 cm">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Weight</label>
+                                <input type="text" name="weight" class="form-control"
+                                    value="82 kg">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Photo</label>
+                                <input type="file" name="photo_url" class="form-control" accept="image/*">
+                                                            </div>
+                        </div>
+                        <div class="modal-footer bg-light">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-save me-1"></i> Update
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+            <div class="modal fade" id="editPlayerModal4" tabindex="-1"
+            aria-labelledby="editPlayerModalLabel4" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content border-0 shadow">
+                    <div class="modal-header bg-warning text-white">
+                        <h5 class="modal-title" id="editPlayerModalLabel4">
+                            <i class="bi bi-pencil-square me-2"></i>Edit Player
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form action="http://127.0.0.1:8001/admin/players/4" method="POST"
+                        enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="demo" autocomplete="off">                        <input type="hidden" name="_method" value="PUT">                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="name" class="form-control" value="Danish Ali"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jersey Number</label>
+                                <input type="number" name="jersey_number" class="form-control"
+                                    value="4">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Age</label>
+                                <input type="number" name="age" class="form-control" value="25"
+                                    min="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Position</label>
+                                <input type="text" name="position" class="form-control"
+                                    value="Defender" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Team</label>
+                                <select name="team_id" class="form-select" required>
+                                    <option value="">Select Team</option>
+                                                                            <option value="1"
+                                            >
+                                            Lahore Lions
+                                        </option>
+                                                                            <option value="2"
+                                            selected>
+                                            Karachi Kings XI
+                                        </option>
+                                                                            <option value="3"
+                                            >
+                                            Islamabad United Stars
+                                        </option>
+                                                                            <option value="4"
+                                            >
+                                            Peshawar Panthers
+                                        </option>
+                                                                    </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nationality</label>
+                                <input type="text" name="nationality" class="form-control"
+                                    value="Pakistan">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Height</label>
+                                <input type="text" name="height" class="form-control"
+                                    value="184 cm">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Weight</label>
+                                <input type="text" name="weight" class="form-control"
+                                    value="79 kg">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Photo</label>
+                                <input type="file" name="photo_url" class="form-control" accept="image/*">
+                                                            </div>
+                        </div>
+                        <div class="modal-footer bg-light">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-save me-1"></i> Update
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+            <div class="modal fade" id="editPlayerModal5" tabindex="-1"
+            aria-labelledby="editPlayerModalLabel5" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content border-0 shadow">
+                    <div class="modal-header bg-warning text-white">
+                        <h5 class="modal-title" id="editPlayerModalLabel5">
+                            <i class="bi bi-pencil-square me-2"></i>Edit Player
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form action="http://127.0.0.1:8001/admin/players/5" method="POST"
+                        enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="demo" autocomplete="off">                        <input type="hidden" name="_method" value="PUT">                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="name" class="form-control" value="Fahad Khan"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jersey Number</label>
+                                <input type="number" name="jersey_number" class="form-control"
+                                    value="11">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Age</label>
+                                <input type="number" name="age" class="form-control" value="23"
+                                    min="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Position</label>
+                                <input type="text" name="position" class="form-control"
+                                    value="Winger" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Team</label>
+                                <select name="team_id" class="form-select" required>
+                                    <option value="">Select Team</option>
+                                                                            <option value="1"
+                                            >
+                                            Lahore Lions
+                                        </option>
+                                                                            <option value="2"
+                                            >
+                                            Karachi Kings XI
+                                        </option>
+                                                                            <option value="3"
+                                            selected>
+                                            Islamabad United Stars
+                                        </option>
+                                                                            <option value="4"
+                                            >
+                                            Peshawar Panthers
+                                        </option>
+                                                                    </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nationality</label>
+                                <input type="text" name="nationality" class="form-control"
+                                    value="Pakistan">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Height</label>
+                                <input type="text" name="height" class="form-control"
+                                    value="176 cm">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Weight</label>
+                                <input type="text" name="weight" class="form-control"
+                                    value="70 kg">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Photo</label>
+                                <input type="file" name="photo_url" class="form-control" accept="image/*">
+                                                            </div>
+                        </div>
+                        <div class="modal-footer bg-light">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-save me-1"></i> Update
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+            <div class="modal fade" id="editPlayerModal6" tabindex="-1"
+            aria-labelledby="editPlayerModalLabel6" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content border-0 shadow">
+                    <div class="modal-header bg-warning text-white">
+                        <h5 class="modal-title" id="editPlayerModalLabel6">
+                            <i class="bi bi-pencil-square me-2"></i>Edit Player
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form action="http://127.0.0.1:8001/admin/players/6" method="POST"
+                        enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="demo" autocomplete="off">                        <input type="hidden" name="_method" value="PUT">                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="name" class="form-control" value="Imran Sheikh"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Jersey Number</label>
+                                <input type="number" name="jersey_number" class="form-control"
+                                    value="10">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Age</label>
+                                <input type="number" name="age" class="form-control" value="29"
+                                    min="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Position</label>
+                                <input type="text" name="position" class="form-control"
+                                    value="Striker" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Team</label>
+                                <select name="team_id" class="form-select" required>
+                                    <option value="">Select Team</option>
+                                                                            <option value="1"
+                                            >
+                                            Lahore Lions
+                                        </option>
+                                                                            <option value="2"
+                                            >
+                                            Karachi Kings XI
+                                        </option>
+                                                                            <option value="3"
+                                            >
+                                            Islamabad United Stars
+                                        </option>
+                                                                            <option value="4"
+                                            selected>
+                                            Peshawar Panthers
+                                        </option>
+                                                                    </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nationality</label>
+                                <input type="text" name="nationality" class="form-control"
+                                    value="Pakistan">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Height</label>
+                                <input type="text" name="height" class="form-control"
+                                    value="180 cm">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Weight</label>
+                                <input type="text" name="weight" class="form-control"
+                                    value="75 kg">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Photo</label>
+                                <input type="file" name="photo_url" class="form-control" accept="image/*">
+                                                            </div>
+                        </div>
+                        <div class="modal-footer bg-light">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-save me-1"></i> Update
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </main>
+
+    
+    <script src="http://127.0.0.1:8001/js/jquery.min.js"></script>
+    <script src="http://127.0.0.1:8001/js/bootstrap.bundle.min.js"></script>
+    <script src="http://127.0.0.1:8001/js/sweetalert2.min.js"></script>
+<script src="demo.js"></script></body>
+
+</html>

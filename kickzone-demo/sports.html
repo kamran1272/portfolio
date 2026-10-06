@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KickZone Admin Panel">
+    <meta name="csrf-token" content="xBItbMEdHCVt0u0Z5WXMwOs8zqYVGWXTbauLcM9J">
+    <title>Admin Panel - KickZone</title>
+
+    
+    <link href="http://127.0.0.1:8001/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    
+    <link rel="preload" as="style" href="http://127.0.0.1:8001/build/assets/app-BTfBdD0h.css" /><link rel="modulepreload" href="http://127.0.0.1:8001/build/assets/app-Bf4POITK.js" /><link rel="stylesheet" href="http://127.0.0.1:8001/build/assets/app-BTfBdD0h.css" /><script type="module" src="http://127.0.0.1:8001/build/assets/app-Bf4POITK.js"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .sidebar {
+            height: 100vh;
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            width: 250px;
+            top: 0;
+            left: 0;
+            z-index: 1040;
+        }
+
+        .sidebar h4 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+            color: #ffc107;
+        }
+
+        .sidebar .nav-item .dropdown-menu {
+            background-color: #495057;
+            border: none;
+        }
+
+        .sidebar .nav-item .dropdown-menu a {
+            color: white;
+        }
+
+        .sidebar .nav-item .dropdown-menu a:hover {
+            background-color: #6c757d;
+            color: #ffc107;
+        }
+
+        .topbar {
+            background-color: #343a40;
+            color: white;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 250px;
+            right: 0;
+            z-index: 1030;
+        }
+
+        .topbar .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .topbar .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .topbar .navbar-brand span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .content {
+            margin-left: 250px;
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .nav-link.active {
+            background-color: #495057;
+            color: #ffc107 !important;
+        }
+    </style>
+</head>
+
+<body><div style="background:#0d9488;color:#fff;text-align:center;padding:8px 12px;font-family:sans-serif;font-size:14px;position:sticky;top:0;z-index:9999;">Interactive demo preview of KickZone — data is sample data, actions are disabled. <a href="https://github.com/kamran1272/kickzone" style="color:#fff;font-weight:bold;">View source on GitHub</a></div>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <a class="navbar-brand d-flex align-items-center py-3" href="http://127.0.0.1:8001/admin/dashboard">
+            <img src="http://127.0.0.1:8001/images/logo1.png" alt="KickZone Logo" class="rounded-circle me-2"
+                style="width: 60px; height: 60px;">
+            <h4 class="text-warning">KickZone Admin</h4>
+        </a>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/dashboard"
+                    class="nav-link ">
+                    <i class="bi bi-speedometer2 me-2"></i>Dashboard Summary
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/users"
+                    class="nav-link ">
+                    <i class="bi bi-people-fill me-2"></i>Manage Users
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/players"
+                    class="nav-link ">
+                    <i class="bi bi-person-fill me-2"></i>Players
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/teams"
+                    class="nav-link ">
+                    <i class="bi bi-people me-2"></i>Teams
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="sportsDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-trophy me-2"></i>Sports
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="sportsDropdown">
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/sports">View Sports</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/schedules">Schedule</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/fixtures">Fixtures</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8001/admin/results">Results</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/events"
+                    class="nav-link ">
+                    <i class="bi bi-calendar-event me-2"></i>Events
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/announcements"
+                    class="nav-link ">
+                    <i class="bi bi-megaphone me-2"></i>Announcements
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/registrations"
+                    class="nav-link ">
+                    <i class="bi bi-card-list me-2"></i>Registrations
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/reports"
+                    class="nav-link ">
+                    <i class="bi bi-file-earmark-bar-graph me-2"></i>Reports
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/settings"
+                    class="nav-link ">
+                    <i class="bi bi-gear me-2"></i>Settings
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://127.0.0.1:8001/admin/profile"
+                    class="nav-link ">
+                    <i class="bi bi-person-circle me-2"></i>Profile
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle me-2"></i>Admin User
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="http://127.0.0.1:8001/admin/profile">
+                                <i class="bi bi-person-lines-fill me-2"></i>Profile
+                            </a>
+                        </li>
+                        <li>
+                            <form method="POST" action="http://127.0.0.1:8001/logout">
+                                <input type="hidden" name="_token" value="demo" autocomplete="off">                                <button type="submit" class="dropdown-item">
+                                    <i class="bi bi-box-arrow-right me-2"></i>Log Out
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                    </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="content">
+            <div class="container py-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <!-- Add Sport Form -->
+                <div class="card glass-card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Add New Sport</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="http://127.0.0.1:8001/admin/sports" method="POST">
+                            <input type="hidden" name="_token" value="demo" autocomplete="off">                            <div class="mb-3">
+                                <label for="sportName" class="form-label">Sport Name</label>
+                                <input type="text" id="sportName" name="name" placeholder="Enter Sport Name"
+                                    class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-check-circle me-2"></i>Add Sport
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Sports List -->
+                <div class="card glass-card">
+                    <div class="card-header bg-dark text-white">
+                        <h4 class="mb-0"><i class="bi bi-list-ul me-2"></i>Sports List</h4>
+                    </div>
+                    <div class="card-body">
+                                                    <table class="table table-hover table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Sport Name</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                                                            <tr>
+                                            <td>1</td>
+                                            <td>Football</td>
+                                            <td class="text-center">
+                                                <form action="http://127.0.0.1:8001/admin/sports/1" method="POST"
+                                                    style="display:inline;">
+                                                    <input type="hidden" name="_token" value="demo" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="bi bi-trash-fill"></i> Delete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>2</td>
+                                            <td>Cricket</td>
+                                            <td class="text-center">
+                                                <form action="http://127.0.0.1:8001/admin/sports/2" method="POST"
+                                                    style="display:inline;">
+                                                    <input type="hidden" name="_token" value="demo" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="bi bi-trash-fill"></i> Delete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>3</td>
+                                            <td>Basketball</td>
+                                            <td class="text-center">
+                                                <form action="http://127.0.0.1:8001/admin/sports/3" method="POST"
+                                                    style="display:inline;">
+                                                    <input type="hidden" name="_token" value="demo" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="bi bi-trash-fill"></i> Delete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>4</td>
+                                            <td>Tennis</td>
+                                            <td class="text-center">
+                                                <form action="http://127.0.0.1:8001/admin/sports/4" method="POST"
+                                                    style="display:inline;">
+                                                    <input type="hidden" name="_token" value="demo" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="bi bi-trash-fill"></i> Delete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                                                    </tbody>
+                            </table>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    
+    <script src="http://127.0.0.1:8001/js/jquery.min.js"></script>
+    <script src="http://127.0.0.1:8001/js/bootstrap.bundle.min.js"></script>
+    <script src="http://127.0.0.1:8001/js/sweetalert2.min.js"></script>
+<script src="demo.js"></script></body>
+
+</html>
