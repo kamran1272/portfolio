@@ -1,15 +1,6 @@
 /**
- * Project catalogue.
- *
- * Visuals: every project renders a code-preview panel by default. Projects
- * with a real `screenshot` file in `public/images/projects/` show that
- * screenshot instead (with an automatic fallback to the code preview if the
- * file is missing), so the cards never show misleading stock imagery.
- *
- * Links are always honest:
- *  - liveUrl  → a real, working live demo or client site
- *  - codeUrl  → a real public repository
- *  - neither  → the card opens a case-study modal with a "discuss" action
+ * Project catalogue — only real projects with actual GitHub repositories.
+ * Every entry has a verified repo and (where possible) a live demo.
  */
 export const projects = [
   {
@@ -46,24 +37,87 @@ export const projects = [
   },
   {
     id: 2,
+    title: "Hospital Management Dashboard",
+    type: "Personal project",
+    category: "Laravel / Full-Stack",
+    filters: ["Full-Stack"],
+    description:
+      "A complete hospital management system with patient records, appointments, staff management, and pharmacy inventory — built with Laravel and MySQL.",
+    details:
+      "A full-stack Laravel application for hospital operations: patient registration, appointment scheduling, doctor/staff management, and medicine inventory. Includes role-based access, dashboard analytics, and a live interactive demo.",
+    highlights: [
+      "Patient, appointment & staff management",
+      "Pharmacy inventory with stock tracking",
+      "Dashboard with analytics & reports",
+      "Live interactive demo on GitHub Pages",
+    ],
+    tech: ["Laravel", "MySQL", "Eloquent", "Blade", "Bootstrap"],
+    liveUrl: "https://kamran1272.github.io/portfolio/hms-demo/",
+    codeUrl: "https://github.com/kamran1272/hospital-management-dashboard",
+    screenshot: "hospital.png",
+    codeFile: "app/Http/Controllers/PatientController.php",
+    codeLines: [
+      "public function index()",
+      "{",
+      "    $patients = Patient::with('appointments')",
+      "        ->latest()->paginate(15);",
+      "    return view('patients.index', compact('patients'));",
+      "}",
+    ],
+  },
+  {
+    id: 3,
+    title: "Surfside E-Commerce Platform",
+    type: "Personal project",
+    category: "Laravel / E-Commerce",
+    filters: ["Full-Stack", "Business"],
+    description:
+      "A complete Laravel e-commerce platform with product catalog, shopping cart, order management, and admin dashboard.",
+    details:
+      "A full-stack Laravel 12 e-commerce application: product catalog with categories and brands, shopping cart, checkout flow, order tracking, and a comprehensive admin panel for managing products, orders, and customers. Includes a live interactive demo.",
+    highlights: [
+      "Product catalog with categories & brands",
+      "Shopping cart and order management",
+      "Admin dashboard with sales analytics",
+      "Live interactive demo on GitHub Pages",
+    ],
+    tech: ["Laravel 12", "MySQL", "Blade", "Bootstrap", "Eloquent"],
+    liveUrl: "https://kamran1272.github.io/portfolio/surfside-demo/",
+    codeUrl: "https://github.com/kamran1272/Surfside",
+    screenshot: "surfside.png",
+    codeFile: "app/Http/Controllers/ProductController.php",
+    codeLines: [
+      "public function index(Request $request)",
+      "{",
+      "    $products = Product::with(['category', 'brand'])",
+      "        ->when($request->category, fn($q) =>",
+      "            $q->where('category_id', $request->category))",
+      "        ->paginate(12);",
+      "    return view('products.index', compact('products'));",
+      "}",
+    ],
+  },
+  {
+    id: 4,
     title: "Ecommerce Frontend Experience",
     type: "Personal project",
     category: "React / Frontend",
     filters: ["Frontend"],
     description:
-      "A modern ecommerce interface built to make browsing, discovery, and shopping interactions feel fast and intuitive.",
+      "A modern ecommerce interface built with React — product browsing, cart management, and a smooth shopping experience.",
     details:
-      "A React storefront with product browsing, category filtering, cart state managed with React context, and a checkout flow. Built mobile-first with reusable components so new product types and pages can be added without rework.",
+      "A React storefront with product browsing, category filtering, cart state managed with React context, and a checkout flow. Built mobile-first with reusable components. Live on GitHub Pages.",
     highlights: [
       "Product listing, filtering, and detail views",
       "Cart state managed with React context",
       "Mobile-first responsive layouts",
+      "Live on GitHub Pages",
     ],
-    tech: ["React", "Responsive UI", "Product flows"],
+    tech: ["React", "JavaScript", "CSS", "Responsive UI"],
     liveUrl: "https://kamran1272.github.io/my-ecommerce-app/",
     codeUrl: "https://github.com/kamran1272/my-ecommerce-app",
     screenshot: "ecommerce.png",
-    codeFile: "components/ProductCard.jsx",
+    codeFile: "src/components/ProductCard.jsx",
     codeLines: [
       "export default function ProductCard({ product }) {",
       "  const { addItem } = useCart();",
@@ -79,49 +133,126 @@ export const projects = [
     ],
   },
   {
-    id: 3,
+    id: 5,
     title: "Baloch Restaurant",
     type: "Personal project",
-    category: "Restaurant / Business Website",
-    filters: ["Business"],
+    category: "React / Business Website",
+    filters: ["Frontend", "Business"],
     description:
-      "A restaurant platform built around menu browsing, delivery orders, table reservations, and a polished customer-facing experience.",
+      "A restaurant website with menu browsing, online ordering, and table reservations. Live on GitHub Pages.",
     details:
-      "A complete restaurant website with a menu system, online ordering and table reservation forms, and clear calls to action designed to convert visitors into orders — with a fast mobile experience.",
+      "A complete restaurant website built with React: interactive menu system, online ordering flow, table reservation forms, and clear calls to action designed to convert visitors into customers.",
     highlights: [
       "Menu browsing with categories",
-      "Ordering and table reservation forms",
-      "Conversion-focused, mobile-first design",
+      "Online ordering interface",
+      "Table reservation system",
+      "Live on GitHub Pages",
     ],
-    tech: ["Online ordering", "Table reservations", "Responsive UI"],
+    tech: ["React", "JavaScript", "CSS", "Responsive UI"],
     liveUrl: "https://kamran1272.github.io/restaurant-website/",
     codeUrl: "https://github.com/kamran1272/restaurant-website",
     screenshot: "restaurant.png",
-    codeFile: "lib/reservations.js",
+    codeFile: "src/components/MenuSection.jsx",
     codeLines: [
-      "async function bookTable(data) {",
-      "  const res = await fetch('/api/reservations', {",
-      "    method: 'POST',",
-      "    body: JSON.stringify(data),",
-      "  });",
-      "  return res.ok ? 'confirmed' : 'unavailable';",
+      "export default function MenuSection({ items }) {",
+      "  const [category, setCategory] = useState('all');",
+      "  const filtered = items.filter((i) =>",
+      "    category === 'all' || i.category === category",
+      "  );",
+      "  return (",
+      "    <section className=\"menu\">",
+      "      {filtered.map((item) => (",
+      "        <MenuItem key={item.id} {...item} />",
+      "      ))}",
+      "    </section>",
+      "  );",
       "}",
     ],
   },
   {
-    id: 4,
+    id: 6,
+    title: "Vendora Marketplace",
+    type: "Personal project",
+    category: "React / Marketplace",
+    filters: ["Frontend", "Business"],
+    description:
+      "A modern multi-vendor marketplace frontend with product discovery, cart, and seller dashboards. Live on GitHub Pages.",
+    details:
+      "A React-based marketplace application with product browsing, search and filtering, shopping cart, wishlist, and vendor/seller panels. Built with Vite and Tailwind CSS for a fast, responsive shopping experience.",
+    highlights: [
+      "Product discovery with search & filters",
+      "Cart, wishlist & checkout flows",
+      "Seller and admin panel interfaces",
+      "Live on GitHub Pages",
+    ],
+    tech: ["React", "Vite", "Tailwind CSS", "JavaScript"],
+    liveUrl: "https://kamran1272.github.io/Vendora_ecom/",
+    codeUrl: "https://github.com/kamran1272/Vendora_ecom",
+    screenshot: "vendora.png",
+    codeFile: "src/components/ProductCard.jsx",
+    codeLines: [
+      "export default function ProductCard({ product }) {",
+      "  const { addToCart } = useCart();",
+      "  const { toggleWishlist } = useWishlist();",
+      "  return (",
+      "    <article className=\"product-card\">",
+      "      <img src={product.image} alt={product.name} />",
+      "      <button onClick={() => addToCart(product)}>",
+      "        Add to Cart",
+      "      </button>",
+      "    </article>",
+      "  );",
+      "}",
+    ],
+  },
+  {
+    id: 7,
+    title: "AutoDubFlow",
+    type: "Personal project",
+    category: "Next.js / Full-Stack",
+    filters: ["Full-Stack"],
+    description:
+      "An AI-powered video dubbing platform — upload videos, generate translations, and produce dubbed audio tracks.",
+    details:
+      "A Next.js full-stack application for automated video dubbing: video upload and processing, AI translation pipeline, voice synthesis, and a web-based editor for reviewing dubbed content. Monorepo with API, worker, and web apps.",
+    highlights: [
+      "Video upload & processing pipeline",
+      "AI translation and voice dubbing",
+      "Web-based review editor",
+      "Monorepo: API, worker, browser-agent, web",
+    ],
+    tech: ["Next.js", "TypeScript", "Node.js", "AI/ML"],
+    liveUrl: null,
+    codeUrl: "https://github.com/kamran1272/autodubflow",
+    screenshot: null,
+    codeFile: "apps/web/src/app/page.tsx",
+    codeLines: [
+      "export default function Home() {",
+      "  return (",
+      "    <main>",
+      "      <Hero />",
+      "      <UploadZone onUpload={handleUpload} />",
+      "      <DubbingQueue />",
+      "    </main>",
+      "  );",
+      "}",
+    ],
+  },
+  {
+    id: 8,
     title: "Spotless Gutter Care",
     type: "Client project",
     category: "WordPress / Local SEO",
     filters: ["Business", "SEO"],
     description:
-      "A Canadian client project delivered through Upwork, focused on a clean WordPress build, local SEO targeting Kelowna, BC, and strong quote-driven service pages.",
+      "A Canadian client project — clean WordPress build with local SEO targeting Kelowna, BC, and quote-driven service pages.",
     details:
-      "Delivered for a Canadian client via Upwork. A clean WordPress build with service pages written around local search intent for Kelowna, BC — clear service content and quote forms placed to turn visitors into leads.",
+      "Delivered for a Canadian client. A clean WordPress build with service pages written around local search intent for Kelowna, BC — clear service content and quote forms placed to turn visitors into leads. Live on real hosting.",
     highlights: [
       "Local SEO targeting Kelowna, BC service searches",
       "Service pages structured for local search",
       "Quote forms placed to turn visitors into leads",
+      "Live on production hosting",
     ],
     tech: ["WordPress", "Local SEO", "Lead generation"],
     liveUrl: "https://spotlessguttercare.com/",
@@ -138,157 +269,8 @@ export const projects = [
       "</script>",
     ],
   },
-  {
-    id: 5,
-    title: "Hospital Management Dashboard",
-    type: "Practice project",
-    category: "React / Single-Page App",
-    filters: ["Full-Stack"],
-    description:
-      "A healthcare management interface for appointments, records, and staff workflows built with reusable React patterns.",
-    details:
-      "A practice build exploring how a hospital dashboard could work: appointment slots, patient records, and staff views composed from reusable React components, custom hooks, and client-side routing.",
-    highlights: [
-      "Appointment slot management with custom hooks",
-      "Reusable table, modal, and form components",
-      "Client-side routing for dashboard sections",
-    ],
-    tech: ["React", "Routing", "Hooks"],
-    liveUrl: null,
-    codeUrl: null,
-    screenshot: null,
-    codeFile: "hooks/useAppointments.js",
-    codeLines: [
-      "export function useAppointments() {",
-      "  const [slots, setSlots] = useState([]);",
-      "  useEffect(() => {",
-      "    fetch('/api/appointments')",
-      "      .then((r) => r.json())",
-      "      .then(setSlots);",
-      "  }, []);",
-      "  return { slots };",
-      "}",
-    ],
-  },
-  {
-    id: 6,
-    title: "Pharmacy Management System",
-    type: "Practice project",
-    category: "Laravel / Business System",
-    filters: ["Full-Stack", "Business"],
-    description:
-      "A business operations tool for inventory, sales, authentication, and daily store management in one secure workflow.",
-    details:
-      "A Laravel practice system for running a pharmacy: medicine inventory, stock dispensing, sales records, and authenticated staff access — all validated server-side with a MySQL backend.",
-    highlights: [
-      "Inventory tracking with stock decrement on sale",
-      "Server-side validation for every mutation",
-      "Authenticated staff workflows",
-    ],
-    tech: ["Laravel", "CRUD", "Database queries"],
-    liveUrl: null,
-    codeUrl: null,
-    screenshot: null,
-    codeFile: "app/Http/Controllers/InventoryController.php",
-    codeLines: [
-      "public function dispense(Request $request, Medicine $medicine)",
-      "{",
-      "    $request->validate(['quantity' => 'required|integer|min:1']);",
-      "    $medicine->decrement('stock', $request->quantity);",
-      "    return back()->with('status', 'Stock updated');",
-      "}",
-    ],
-  },
-  {
-    id: 7,
-    title: "SEO-Focused Portfolio Refresh",
-    type: "Practice project",
-    category: "Website Optimization",
-    filters: ["SEO"],
-    description:
-      "An example of improving a portfolio through better metadata, semantic structure, user clarity, and stronger calls to action.",
-    details:
-      "A before/after style exercise in technical SEO: semantic HTML, descriptive metadata, Open Graph tags, structured data, and clearer calls to action — the same foundations applied to client sites.",
-    highlights: [
-      "Semantic HTML with proper heading hierarchy",
-      "Meta, Open Graph, and JSON-LD structured data",
-      "Accessibility and call-to-action improvements",
-    ],
-    tech: ["SEO", "Content strategy", "Accessibility"],
-    liveUrl: null,
-    codeUrl: null,
-    screenshot: null,
-    codeFile: "seo-checklist.html",
-    codeLines: [
-      "<!-- before → after -->",
-      "- <div class=\"title\">Welcome</div>",
-      "+ <h1>Full-Stack Web Developer in Lahore</h1>",
-      "+ <meta name=\"description\" content=\"...\" />",
-      "+ <html lang=\"en\">",
-      "+ <script type=\"application/ld+json\">...</script>",
-    ],
-  },
-  {
-    id: 8,
-    title: "Responsive UI Components Library",
-    type: "Practice project",
-    category: "Frontend Systems",
-    filters: ["Frontend"],
-    description:
-      "A reusable collection of interface patterns designed to keep dashboards and business pages consistent and easier to scale.",
-    details:
-      "A small design system of reusable React + Tailwind components — buttons, cards, modals, form fields — with variant props so dashboards and business pages stay visually consistent as they grow.",
-    highlights: [
-      "Variant-driven components (primary, secondary, ghost)",
-      "Consistent spacing and typography tokens",
-      "Built mobile-first with Tailwind CSS",
-    ],
-    tech: ["Design systems", "Tailwind CSS", "Reusable UI"],
-    liveUrl: null,
-    codeUrl: null,
-    screenshot: null,
-    codeFile: "ui/Button.jsx",
-    codeLines: [
-      "export function Button({ variant = 'primary', ...props }) {",
-      "  return <button className={styles[variant]} {...props} />;",
-      "}",
-      "",
-      "// variants: primary | secondary | ghost",
-      "// sizes: sm | md | lg",
-    ],
-  },
-  {
-    id: 9,
-    title: "Custom Business Website Builds",
-    type: "Client project",
-    category: "Freelance Delivery",
-    filters: ["Business"],
-    description:
-      "Client-ready website delivery focused on clarity, speed, mobile responsiveness, and a professional online presence.",
-    details:
-      "Freelance website delivery for small businesses: clear messaging, fast load times, mobile-responsive layouts, and on-page SEO basics — everything a business needs to look credible online and convert visitors.",
-    highlights: [
-      "Performance budgets and fast mobile loads",
-      "Mobile-responsive, conversion-focused layouts",
-      "On-page SEO and analytics wiring included",
-    ],
-    tech: ["Business websites", "Performance", "UI polish"],
-    liveUrl: null,
-    codeUrl: null,
-    screenshot: null,
-    codeFile: "performance-budget.css",
-    codeLines: [
-      "/* performance budget */",
-      "img { loading: lazy; }",
-      "",
-      "/* targets per build */",
-      "/* LCP  < 2.0s on 4G      */",
-      "/* CLS  < 0.1             */",
-      "/* PageSpeed ≥ 90 mobile  */",
-    ],
-  },
 ];
 
-export const featuredProjects = [1, 3, 4]
+export const featuredProjects = [1, 2, 3]
   .map((projectId) => projects.find((project) => project.id === projectId))
   .filter(Boolean);
