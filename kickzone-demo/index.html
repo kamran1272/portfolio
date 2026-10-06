@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="xBItbMEdHCVt0u0Z5WXMwOs8zqYVGWXTbauLcM9J">
+
+    <title>Laravel</title>
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1:8001/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://127.0.0.1:8001/css/custom.css">
+
+    <!-- Scripts -->
+    <link rel="preload" as="style" href="http://127.0.0.1:8001/build/assets/app-BTfBdD0h.css" /><link rel="modulepreload" href="http://127.0.0.1:8001/build/assets/app-Bf4POITK.js" /><link rel="stylesheet" href="http://127.0.0.1:8001/build/assets/app-BTfBdD0h.css" /><script type="module" src="http://127.0.0.1:8001/build/assets/app-Bf4POITK.js"></script>
+
+    <style>
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+            <div class="container-fluid px-4">
+                <!-- Logo -->
+                <a class="navbar-brand py-2" href="#">
+                    <img src="http://127.0.0.1:8001/images/logo1.png" alt="KickZone Logo" class="rounded-circle me-2"
+                        style="width: 40px; height: 40px;">
+                    <span class="align-middle">KickZone</span>
+                </a>
+
+                <!-- Hamburger Menu for Mobile -->
+                <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-1">
+                            <a class="nav-link px-3 py-2 "
+                                href="http://127.0.0.1:8001/about">
+                                <i class="bi bi-info-circle me-2"></i>About
+                            </a>
+                        </li>
+
+                        <li class="nav-item mx-1">
+                            <a class="nav-link px-3 py-2 "
+                                href="http://127.0.0.1:8001/contact">
+                                <i class="bi bi-envelope me-2"></i>Contact
+                            </a>
+                        </li>
+
+                        <!-- Admin Links -->
+                                                    <li class="nav-item mx-1">
+                                <a class="nav-link px-3 py-2 "
+                                    href="http://127.0.0.1:8001/admin/dashboard">
+                                    <i class="bi bi-shield-lock me-2"></i>Admin Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item mx-1">
+                                <a class="nav-link px-3 py-2 "
+                                    href="http://127.0.0.1:8001/admin/sports">
+                                    <i class="bi bi-trophy me-2"></i>Manage Sports
+                                </a>
+                            </li>
+                        
+                        <!-- Profile Dropdown -->
+                                                    <li class="nav-item dropdown mx-1">
+                                <a class="nav-link px-3 py-2 dropdown-toggle" href="#" id="navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle me-2"></i>Admin User
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item px-3 py-2" href="http://127.0.0.1:8001/user/profile">
+                                            <i class="bi bi-person-lines-fill me-2"></i>Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <form method="POST" action="http://127.0.0.1:8001/logout">
+                                            <input type="hidden" name="_token" value="demo" autocomplete="off">                                            <button type="submit" class="dropdown-item px-3 py-2 w-100 text-start">
+                                                <i class="bi bi-box-arrow-right me-2"></i>Log Out
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Heading -->
+        
+        <!-- Page Content -->
+        <main>
+                <div class="kickzone-dashboard">
+        <!-- Enhanced Hero Section -->
+        <section class="hero-section position-relative overflow-hidden py-5 py-lg-7">
+            <!-- Background elements -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-light" style="z-index: -2;"></div>
+            <div class="position-absolute bottom-0 end-0"
+                style="width: 800px; height: 800px; background: radial-gradient(circle, rgba(var(--bs-primary-rgb), 0.1) 0%, rgba(var(--bs-primary-rgb), 0) 70%); z-index: -1;">
+            </div>
+
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <!-- Text content -->
+                    <div class="col-lg-6 order-lg-1 order-2">
+                        <div class="pe-lg-5">
+                            <span class="badge bg-primary bg-opacity-10 text-primary mb-3">SPORTS MANAGEMENT PLATFORM</span>
+                            <h1 class="display-4 fw-bold mb-4">Revolutionize Your <span class="text-primary">Sports
+                                    Organization</span></h1>
+                            <p class="lead text-muted mb-5">KickZone provides everything you need to manage teams,
+                                schedules, and performance analytics in one powerful platform.</p>
+
+                            <div class="d-flex flex-wrap gap-3 mb-5 mb-lg-0">
+                                <a href="http://127.0.0.1:8001/register"
+                                    class="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-bold shadow-sm hover-lift">
+                                    <i class="bi bi-rocket me-2"></i>Get Started Free
+                                </a>
+                            </div>
+
+                            <!-- Trust indicators -->
+                            <div class="mt-4 pt-2">
+                                <p class="small text-muted mb-2">TRUSTED BY COACHES WORLDWIDE</p>
+                                <div class="d-flex flex-wrap align-items-center gap-4">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span>500+ Teams</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span>25+ Sports</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <span>24/7 Support</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero image -->
+                    <div class="col-lg-6 order-lg-2 order-1">
+                        <div class="hero-image position-relative">
+                            <img src="http://127.0.0.1:8001/images/img3.jpg" alt="KickZone Dashboard"
+                                class="img-fluid rounded-4 shadow-lg">
+
+
+
+
+                            <!-- Floating card element -->
+                            <div class="position-absolute top-0 end-0 translate-middle bg-white rounded-3 shadow-sm p-3 d-none d-md-block"
+                                style="width: 200px;">
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="bg-success bg-opacity-10 rounded-circle p-2 me-2">
+                                        <i class="bi bi-graph-up text-success"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 small text-muted">Performance</p>
+                                        <p class="mb-0 fw-bold">+32% Improved</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Features Section -->
+        <div class="features-section py-5 bg-light">
+            <div class="container">
+                <div class="section-header text-center mb-5">
+                    <span class="badge bg-primary bg-opacity-10 text-primary mb-3">Why Choose Us</span>
+                    <h2 class="display-5 fw-bold mb-3">Powerful Sports Management Features</h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                        Streamline your sports organization with our comprehensive suite of tools designed for teams,
+                        leagues, and clubs of all sizes
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Feature 1 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card feature-card h-100 border-0 shadow-sm overflow-hidden">
+                            <div class="feature-icon-wrapper bg-primary bg-opacity-10 text-center py-4">
+                                <div class="icon-circle bg-primary mx-auto mb-3">
+                                    <i class="bi bi-calendar-event fs-3 text-white"></i>
+                                </div>
+                                <h3 class="h4 mb-0">Event Management</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Easily schedule, organize, and track all your sports events with our
+                                    intuitive calendar system and automated reminders.</p>
+                                <ul class="feature-list list-unstyled">
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Drag-and-drop scheduling
+                                    </li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic conflict
+                                        detection</li>
+                                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Customizable event
+                                        templates</li>
+                                </ul>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0">
+                                <img src="http://127.0.0.1:8001/images/event-mng.jpg" alt="Event Management"
+                                    class="img-fluid rounded-3 shadow-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card feature-card h-100 border-0 shadow-sm overflow-hidden">
+                            <div class="feature-icon-wrapper bg-success bg-opacity-10 text-center py-4">
+                                <div class="icon-circle bg-success mx-auto mb-3">
+                                    <i class="bi bi-people-fill fs-3 text-white"></i>
+                                </div>
+                                <h3 class="h4 mb-0">Team Management</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Manage players, staff, and team information with our comprehensive
+                                    roster system and communication tools.</p>
+                                <ul class="feature-list list-unstyled">
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Player profile management
+                                    </li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Attendance tracking</li>
+                                    <li><i class="bi bi-check-circle-fill text-success me-2"></i>Team communication hub</li>
+                                </ul>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0">
+                                <img src="http://127.0.0.1:8001/images/team-mng.jpg" alt="Team Management"
+                                    class="img-fluid rounded-3 shadow-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card feature-card h-100 border-0 shadow-sm overflow-hidden">
+                            <div class="feature-icon-wrapper bg-warning bg-opacity-10 text-center py-4">
+                                <div class="icon-circle bg-warning mx-auto mb-3">
+                                    <i class="bi bi-bar-chart-line fs-3 text-white"></i>
+                                </div>
+                                <h3 class="h4 mb-0">Performance Analytics</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Gain actionable insights with detailed statistics, customizable
+                                    reports, and performance tracking.</p>
+                                <ul class="feature-list list-unstyled">
+                                    <li><i class="bi bi-check-circle-fill text-warning me-2"></i>Real-time stats tracking
+                                    </li>
+                                    <li><i class="bi bi-check-circle-fill text-warning me-2"></i>Custom report generation
+                                    </li>
+                                    <li><i class="bi bi-check-circle-fill text-warning me-2"></i>Player comparison tools
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0">
+                                <img src="http://127.0.0.1:8001/images/analytics.jpg" alt="Performance Analytics"
+                                    class="img-fluid rounded-3 shadow-sm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Stats Section -->
+        <div class="stats-section py-6 bg-dark text-white position-relative overflow-hidden">
+            <!-- Background pattern (optional) -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10"
+                style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')">
+            </div>
+
+            <div class="container position-relative">
+                <div class="row g-4 g-lg-5">
+                    <!-- Stat 1 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="stat-card text-center p-4 h-100 bg-dark bg-opacity-50 rounded-4 border border-light border-opacity-10 transition-all hover-scale">
+                            <div class="stat-icon mb-3">
+                                <div class="icon-wrapper bg-primary bg-opacity-20 rounded-circle d-inline-flex align-items-center justify-content-center"
+                                    style="width: 70px; height: 70px;">
+                                    <i class="bi bi-people-fill fs-3 text-primary"></i>
+                                </div>
+                            </div>
+                            <h3 class="stat-number display-5 fw-bold mb-2" data-count="1250">0</h3>
+                            <p class="stat-label text-uppercase text-light opacity-75 mb-0 letter-spacing-1">Active Users
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="stat-card text-center p-4 h-100 bg-dark bg-opacity-50 rounded-4 border border-light border-opacity-10 transition-all hover-scale">
+                            <div class="stat-icon mb-3">
+                                <div class="icon-wrapper bg-success bg-opacity-20 rounded-circle d-inline-flex align-items-center justify-content-center"
+                                    style="width: 70px; height: 70px;">
+                                    <i class="bi bi-trophy-fill fs-3 text-success"></i>
+                                </div>
+                            </div>
+                            <h3 class="stat-number display-5 fw-bold mb-2" data-count="500">0</h3>
+                            <p class="stat-label text-uppercase text-light opacity-75 mb-0 letter-spacing-1">Teams Managed
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="stat-card text-center p-4 h-100 bg-dark bg-opacity-50 rounded-4 border border-light border-opacity-10 transition-all hover-scale">
+                            <div class="stat-icon mb-3">
+                                <div class="icon-wrapper bg-warning bg-opacity-20 rounded-circle d-inline-flex align-items-center justify-content-center"
+                                    style="width: 70px; height: 70px;">
+                                    <i class="bi bi-calendar2-check-fill fs-3 text-warning"></i>
+                                </div>
+                            </div>
+                            <h3 class="stat-number display-5 fw-bold mb-2" data-count="2000">0</h3>
+                            <p class="stat-label text-uppercase text-light opacity-75 mb-0 letter-spacing-1">Events Created
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Stat 4 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div
+                            class="stat-card text-center p-4 h-100 bg-dark bg-opacity-50 rounded-4 border border-light border-opacity-10 transition-all hover-scale">
+                            <div class="stat-icon mb-3">
+                                <div class="icon-wrapper bg-info bg-opacity-20 rounded-circle d-inline-flex align-items-center justify-content-center"
+                                    style="width: 70px; height: 70px;">
+                                    <i class="bi bi-headset fs-3 text-info"></i>
+                                </div>
+                            </div>
+                            <h3 class="stat-number display-5 fw-bold mb-2">24/7</h3>
+                            <p class="stat-label text-uppercase text-light opacity-75 mb-0 letter-spacing-1">Support
+                                Available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Count-up animation
+            document.addEventListener('DOMContentLoaded', function() {
+                const counters = document.querySelectorAll('.stat-number[data-count]');
+                const speed = 200;
+
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-count');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        const updateCount = () => {
+                            const newCount = Math.ceil(count + increment);
+                            counter.innerText = newCount.toLocaleString();
+
+                            if (newCount < target) {
+                                setTimeout(updateCount, 1);
+                            } else {
+                                counter.innerText = target.toLocaleString();
+                            }
+                        };
+                        updateCount();
+                    }
+                });
+            });
+        </script>
+
+        <!-- Enhanced Testimonials Section -->
+        <div class="testimonials-section py-6 bg-light position-relative">
+            <div class="container position-relative">
+                <div class="section-header text-center mb-5">
+                    <span class="badge bg-primary bg-opacity-10 text-primary mb-3">Testimonials</span>
+                    <h2 class="display-5 fw-bold mb-3">What Our Users Say</h2>
+                    <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                        Trusted by sports organizations, teams, and coaches worldwide
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Testimonial 1 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card testimonial-card h-100 border-0 shadow-sm overflow-hidden hover-scale">
+                            <div class="card-body p-4">
+                                <div class="testimonial-rating text-warning mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text fs-5 mb-4">"KickZone has transformed how we manage our soccer
+                                    academy. The platform is intuitive and packed with exactly the features we need to
+                                    streamline our operations."</p>
+                                <div class="testimonial-author d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <img src="http://127.0.0.1:8001/images/kami1.jpg" alt="John D." class="rounded-circle"
+                                            width="60" height="60">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="mb-1 fw-bold">John D.</h5>
+                                        <p class="text-muted mb-0">Academy Director</p>
+                                        <small class="text-primary">Elite Soccer Academy</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card testimonial-card h-100 border-0 shadow-sm overflow-hidden hover-scale">
+                            <div class="card-body p-4">
+                                <div class="testimonial-rating text-warning mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="testimonial-text fs-5 mb-4">"The analytics tools have given us insights we never
+                                    had before. Our team performance has improved dramatically since we started using
+                                    KickZone's data-driven approach."</p>
+                                <div class="testimonial-author d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <img src="http://127.0.0.1:8001/images/kami2.jpg" alt="Sarah M." class="rounded-circle"
+                                            width="60" height="60">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="mb-1 fw-bold">Sarah M.</h5>
+                                        <p class="text-muted mb-0">Head Coach</p>
+                                        <small class="text-primary">Champions Basketball Club</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card testimonial-card h-100 border-0 shadow-sm overflow-hidden hover-scale">
+                            <div class="card-body p-4">
+                                <div class="testimonial-rating text-warning mb-3">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
+                                <p class="testimonial-text fs-5 mb-4">"Scheduling used to be a nightmare. Now with
+                                    KickZone, we save hours every week on organization and can focus more on player
+                                    development."</p>
+                                <div class="testimonial-author d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <img src="http://127.0.0.1:8001/images/kami3.jpg" alt="Michael T."
+                                            class="rounded-circle" width="60" height="60">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="mb-1 fw-bold">Michael T.</h5>
+                                        <p class="text-muted mb-0">League Administrator</p>
+                                        <small class="text-primary">City Youth Sports League</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Navigation -->
+                <div class="text-center mt-5">
+                    <button class="btn btn-outline-primary rounded-circle mx-1 testimonial-nav"
+                        data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="btn btn-outline-primary rounded-circle mx-1 testimonial-nav"
+                        data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Optional: Add carousel functionality if you want to rotate testimonials
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize testimonial carousel if needed
+                // This would require adding carousel markup if you want sliding testimonials
+            });
+        </script>
+
+        <!-- Enhanced CTA Section -->
+        <div class="cta-section position-relative py-6 bg-primary text-white overflow-hidden">
+            <!-- Decorative elements -->
+            <div class="position-absolute top-0 end-0 w-100 h-100 opacity-10"
+                style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')">
+            </div>
+            <div class="position-absolute bottom-0 start-0"
+                style="width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);">
+            </div>
+
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="display-4 fw-bold mb-4">Ready to Transform Your Sports Management?</h2>
+                        <p class="lead mb-5 opacity-85" style="max-width: 600px; margin: 0 auto;">
+                            Join thousands of sports organizations using KickZone to streamline operations, enhance
+                            performance, and connect their teams
+                        </p>
+
+                        <div class="d-flex flex-wrap justify-content-center gap-3">
+                            <a href="http://127.0.0.1:8001/register"
+                                class="btn btn-light btn-lg px-5 py-3 rounded-pill fw-bold shadow-sm hover-lift">
+                                <i class="bi bi-rocket me-2"></i>Start Free Trial
+                            </a>
+                            <a href="http://127.0.0.1:8001/contact"
+                                class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill fw-bold hover-lift">
+                                <i class="bi bi-chat-left-text me-2"></i>Contact Our Team
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </main>
+    </div>
+    <script src="http://127.0.0.1:8001/js/jquery.min.js"></script>
+    <script src="http://127.0.0.1:8001/js/bootstrap.bundle.min.js"></script>
+    <script src="http://127.0.0.1:8001/js/sweetalert2.min.js"></script>
+<script src="demo.js"></script></body>
+
+</html>
