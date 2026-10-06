@@ -31,7 +31,7 @@ export const projects = [
     tech: ["Laravel 12", "MySQL", "Blade", "Tailwind CSS", "Breeze"],
     liveUrl: "https://kamran1272.github.io/portfolio/kickzone-demo/",
     codeUrl: "https://github.com/kamran1272/kickzone",
-    screenshot: "kickzone.png",
+    screenshot: "kickzone-portfolio.png",
     codeFile: "routes/web.php",
     codeLines: [
       "// Admin routes — protected by auth + is_admin",
