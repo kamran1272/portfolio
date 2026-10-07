@@ -222,9 +222,9 @@ export const projects = [
       "Monorepo: API, worker, browser-agent, web",
     ],
     tech: ["Next.js", "TypeScript", "Node.js", "AI/ML"],
-    liveUrl: null,
+    liveUrl: "https://kamran1272.github.io/portfolio/autodubflow-preview/",
     codeUrl: "https://github.com/kamran1272/autodubflow",
-    screenshot: null,
+    screenshot: "autodubflow.png",
     codeFile: "apps/web/src/app/page.tsx",
     codeLines: [
       "export default function Home() {",
