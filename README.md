@@ -21,6 +21,17 @@ This portfolio highlights:
 - Technical SEO basics such as metadata, structured data, sitemap, and robots rules
 - Live GitHub activity pulled from the GitHub API
 
+## Connect With Me
+
+- 💼 Upwork: https://www.upwork.com/freelancers/~01cb7445d5ef7df0ae?mp_source=share
+- 💻 LinkedIn: https://www.linkedin.com/in/kamran-khan-dev
+- 🐙 GitHub: https://github.com/kamran1272
+- 📧 Email: kamranofficial7212@gmail.com
+- 📱 WhatsApp: https://wa.me/923307162505
+- 📘 Facebook: https://www.facebook.com/profile.php?id=61594851942990
+- 🎵 TikTok: https://www.tiktok.com/@minutosecreto.tv
+- 🎬 YouTube: https://www.youtube.com/@BloxversoTV
+
 ## Tech stack
 
 - React 19 + Vite
