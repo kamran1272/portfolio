@@ -4,6 +4,36 @@
  */
 export const projects = [
   {
+    id: 9,
+    title: "Laravel + React SaaS Starter Kit",
+    type: "Digital product",
+    category: "Laravel / React",
+    filters: ["Full-Stack"],
+    description:
+      "Production-ready SaaS boilerplate: Laravel 11 API with Sanctum token auth, role-based access, users CRUD, and dashboard stats — plus a React 18 / Vite / Tailwind admin dashboard. MIT licensed, sold as a digital product on Gumroad.",
+    details:
+      "A ship-ready SaaS foundation: Laravel 11 API with Sanctum token authentication, role-based access control, users CRUD, and dashboard stats endpoints, paired with a React 18 / Vite / Tailwind admin dashboard. The frontend UI preview is currently being deployed to GitHub Pages. MIT licensed and sold as a digital product on Gumroad.",
+    highlights: [
+      "Sanctum token auth + role-based access control",
+      "Users CRUD and dashboard stats endpoints",
+      "React 18 / Vite / Tailwind admin dashboard",
+      "MIT licensed — sold as a digital product on Gumroad",
+    ],
+    tech: ["Laravel 11", "React 18", "Tailwind CSS"],
+    liveUrl: "https://kamran1272.github.io/laravel-react-saas-starter-kit/",
+    codeUrl: "https://github.com/kamran1272/laravel-react-saas-starter-kit",
+    screenshot: null,
+    codeFile: "routes/api.php",
+    codeLines: [
+      "// protected SaaS routes",
+      "Route::middleware(['auth:sanctum'])->group(function () {",
+      "    Route::apiResource('users', UserController::class);",
+      "    Route::get('/dashboard/stats', [DashboardController::class, 'stats']);",
+      "    Route::get('/user', fn (Request $request) => $request->user());",
+      "});",
+    ],
+  },
+  {
     id: 1,
     title: "KickZone Sports Management System",
     type: "Personal project",
@@ -271,6 +301,6 @@ export const projects = [
   },
 ];
 
-export const featuredProjects = [1, 2, 3]
+export const featuredProjects = [9, 1, 2, 3]
   .map((projectId) => projects.find((project) => project.id === projectId))
   .filter(Boolean);
