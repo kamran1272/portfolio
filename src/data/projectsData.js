@@ -1,5 +1,11 @@
-/**
- * Project catalogue — only real projects with actual GitHub repositories.
+successfully downloaded text file (SHA: 57ff42c412140fafbb7e10cdac134c202ac4153f)",
+        "type": "text"
+      },
+      {
+        "resource": {
+          "mimeType": "text/plain; charset=utf-8",
+          "text": "/**
+ * Project catalogue â only real projects with actual GitHub repositories.
  * Every entry has a verified repo and (where possible) a live demo.
  */
 export const projects = [
@@ -10,17 +16,19 @@ export const projects = [
     category: "Laravel / React",
     filters: ["Full-Stack"],
     description:
-      "Production-ready SaaS boilerplate: Laravel 11 API with Sanctum token auth, role-based access, users CRUD, and dashboard stats — plus a React 18 / Vite / Tailwind admin dashboard. MIT licensed, sold as a digital product on Gumroad.",
+      "Production-ready SaaS boilerplate: Laravel 11 API with Sanctum token auth, role-based access, users CRUD, and dashboard stats â plus a React 18 / Vite / Tailwind admin dashboard. MIT licensed, sold as a digital product on Gumroad.",
     details:
-      "A ship-ready SaaS foundation: Laravel 11 API with Sanctum token authentication, role-based access control, users CRUD, and dashboard stats endpoints, paired with a React 18 / Vite / Tailwind admin dashboard. The frontend UI preview is currently being deployed to GitHub Pages. MIT licensed and sold as a digital product on Gumroad.",
+      "A ship-ready SaaS foundation: Laravel 11 API with Sanctum token authentication, role-based access control, users CRUD, and dashboard stats endpoints, paired with a React 18 / Vite / Tailwind admin dashboard. Try the interactive demo (sign in with admin@demo.io / password) or read the full product page. MIT licensed and sold as a digital product on Gumroad.",
     highlights: [
       "Sanctum token auth + role-based access control",
       "Users CRUD and dashboard stats endpoints",
       "React 18 / Vite / Tailwind admin dashboard",
-      "MIT licensed — sold as a digital product on Gumroad",
+      "MIT licensed â sold as a digital product on Gumroad",
     ],
     tech: ["Laravel 11", "React 18", "Tailwind CSS"],
-    liveUrl: "https://kamran1272.github.io/laravel-react-saas-starter-kit/",
+    liveUrl: "https://kamran1272.github.io/portfolio/saas-starter-kit/",
+    demoUrl: "https://kamran1272.github.io/laravel-react-saas-starter-kit/demo/",
+    buyUrl: "https://kamranofficial.gumroad.com/l/mhekoig",
     codeUrl: "https://github.com/kamran1272/laravel-react-saas-starter-kit",
     screenshot: null,
     codeFile: "routes/api.php",
@@ -40,7 +48,7 @@ export const projects = [
     category: "Laravel / Full-Stack",
     filters: ["Full-Stack"],
     description:
-      "A complete Laravel sports management platform — teams, players, fixtures, events, and results — with a full admin panel and role-based access. Final-year university project.",
+      "A complete Laravel sports management platform â teams, players, fixtures, events, and results â with a full admin panel and role-based access. Final-year university project.",
     details:
       "KickZone is a full-stack Laravel 12 application with Breeze authentication, a dedicated admin section guarded by custom middleware, and 15+ controllers covering sports, teams, players, fixtures, games, events, announcements, results, schedules, and registrations. Includes a live interactive demo.",
     highlights: [
@@ -55,7 +63,7 @@ export const projects = [
     screenshot: "kickzone-portfolio.png",
     codeFile: "routes/web.php",
     codeLines: [
-      "// Admin routes — protected by auth + is_admin",
+      "// Admin routes â protected by auth + is_admin",
       "Route::middleware(['auth', 'is_admin'])->prefix('admin')",
       "    ->name('admin.')->group(function () {",
       "    Route::get('/dashboard',",
@@ -72,7 +80,7 @@ export const projects = [
     category: "Laravel / Full-Stack",
     filters: ["Full-Stack"],
     description:
-      "A complete hospital management system with patient records, appointments, staff management, and pharmacy inventory — built with Laravel and MySQL.",
+      "A complete hospital management system with patient records, appointments, staff management, and pharmacy inventory â built with Laravel and MySQL.",
     details:
       "A full-stack Laravel application for hospital operations: patient registration, appointment scheduling, doctor/staff management, and medicine inventory. Includes role-based access, dashboard analytics, and a live interactive demo.",
     highlights: [
@@ -134,7 +142,7 @@ export const projects = [
     category: "React / Frontend",
     filters: ["Frontend"],
     description:
-      "A modern ecommerce interface built with React — product browsing, cart management, and a smooth shopping experience.",
+      "A modern ecommerce interface built with React â product browsing, cart management, and a smooth shopping experience.",
     details:
       "A React storefront with product browsing, category filtering, cart state managed with React context, and a checkout flow. Built mobile-first with reusable components. Live on GitHub Pages.",
     highlights: [
@@ -242,7 +250,7 @@ export const projects = [
     category: "Next.js / Full-Stack",
     filters: ["Full-Stack"],
     description:
-      "An AI-powered video dubbing platform — upload videos, generate translations, and produce dubbed audio tracks.",
+      "An AI-powered video dubbing platform â upload videos, generate translations, and produce dubbed audio tracks.",
     details:
       "A Next.js full-stack application for automated video dubbing: video upload and processing, AI translation pipeline, voice synthesis, and a web-based editor for reviewing dubbed content. Monorepo with API, worker, and web apps.",
     highlights: [
@@ -275,9 +283,9 @@ export const projects = [
     category: "WordPress / Local SEO",
     filters: ["Business", "SEO"],
     description:
-      "A Canadian client project — clean WordPress build with local SEO targeting Kelowna, BC, and quote-driven service pages.",
+      "A Canadian client project â clean WordPress build with local SEO targeting Kelowna, BC, and quote-driven service pages.",
     details:
-      "Delivered for a Canadian client. A clean WordPress build with service pages written around local search intent for Kelowna, BC — clear service content and quote forms placed to turn visitors into leads. Live on real hosting.",
+      "Delivered for a Canadian client. A clean WordPress build with service pages written around local search intent for Kelowna, BC â clear service content and quote forms placed to turn visitors into leads. Live on real hosting.",
     highlights: [
       "Local SEO targeting Kelowna, BC service searches",
       "Service pages structured for local search",
