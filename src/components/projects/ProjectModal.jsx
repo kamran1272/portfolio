@@ -1,10 +1,17 @@
-import { useEffect } from "react";
+successfully downloaded text file (SHA: d467be59143a38765b3cfa73a7e4a83affac670b)",
+        "type": "text"
+      },
+      {
+        "resource": {
+          "mimeType": "text/plain; charset=utf-8",
+          "text": "import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXmark,
   faArrowUpRightFromSquare,
   faCode,
   faEnvelope,
+  faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import TechBadge from "../common/TechBadge";
 import { ProjectVisual } from "./ProjectVisual";
@@ -50,7 +57,7 @@ const ProjectModal = ({ project, onClose }) => {
         <div className="flex items-center justify-between gap-4 border-b border-slate-700/60 px-5 py-4 sm:px-7">
           <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em]">
             <span className="text-primary">{project.type}</span>
-            <span className="text-slate-500" aria-hidden="true">·</span>
+            <span className="text-slate-500" aria-hidden="true">Â·</span>
             <span className="text-muted-text">{project.category}</span>
           </div>
           <button
@@ -122,6 +129,31 @@ const ProjectModal = ({ project, onClose }) => {
               >
                 <FontAwesomeIcon icon={faCode} className="text-xs" />
                 View source code
+              </a>
+            )}
+            {project.demoUrl && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-slate-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-primary hover:text-primary"
+              >
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="text-xs"
+                />
+                Try the live demo
+              </a>
+            )}
+            {project.buyUrl && (
+              <a
+                href={project.buyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-[#07111F] transition-colors hover:bg-primary/85"
+              >
+                <FontAwesomeIcon icon={faCartShopping} className="text-xs" />
+                Buy — $19
               </a>
             )}
             <button
