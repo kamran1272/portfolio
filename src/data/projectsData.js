@@ -20,7 +20,7 @@ export const projects = [
       "MIT licensed — sold as a digital product on Gumroad",
     ],
     tech: ["Laravel 11", "React 18", "Tailwind CSS"],
-    liveUrl: "https://kamran1272.github.io/portfolio/saas-starter-kit/",
+    liveUrl: "https://kamran1272.github.io/laravel-react-saas-starter-kit/",
     demoUrl: "https://kamran1272.github.io/laravel-react-saas-starter-kit/demo/",
     buyUrl: "https://kamranofficial.gumroad.com/l/mhekoig",
     codeUrl: "https://github.com/kamran1272/laravel-react-saas-starter-kit",
