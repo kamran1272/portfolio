@@ -1,10 +1,4 @@
-successfully downloaded text file (SHA: d467be59143a38765b3cfa73a7e4a83affac670b)",
-        "type": "text"
-      },
-      {
-        "resource": {
-          "mimeType": "text/plain; charset=utf-8",
-          "text": "import { useEffect } from "react";
+import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXmark,
