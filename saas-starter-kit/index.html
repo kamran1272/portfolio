@@ -10,11 +10,13 @@
   <meta property="og:title" content="Laravel + React SaaS Starter Kit — Launch Your SaaS in Days, Not Weeks">
   <meta property="og:description" content="Production-ready Laravel 11 API (Sanctum auth, roles, users CRUD) + React 18 dashboard. Real shipped code, tested and documented. $19 launch price.">
   <meta property="og:url" content="https://kamran1272.github.io/portfolio/saas-starter-kit/">
-  <meta property="og:image" content="https://kamran1272.github.io/portfolio/saas-starter-kit/assets/og-cover.webp">
+  <meta property="og:image" content="https://kamran1272.github.io/portfolio/saas-starter-kit/assets/og-poster.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Laravel + React SaaS Starter Kit — Launch Your SaaS in Days, Not Weeks">
   <meta name="twitter:description" content="Production-ready Laravel 11 + React 18 SaaS boilerplate with auth, roles, and dashboard. $19 launch price.">
-  <meta name="twitter:image" content="https://kamran1272.github.io/portfolio/saas-starter-kit/assets/og-cover.webp">
+  <meta name="twitter:image" content="https://kamran1272.github.io/portfolio/saas-starter-kit/assets/og-poster.webp">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ff4d4d'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3ES%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -49,7 +51,10 @@
         <div class="stat"><b>2</b><span>full apps: API + frontend</span></div>
       </div>
       <div class="hero-img">
-        <img src="assets/cover.webp" alt="Laravel + React SaaS Starter Kit — dashboard and code preview" width="1280" height="720" loading="eager">
+        <picture>
+          <source srcset="assets/poster-hero.webp" type="image/webp">
+          <img src="assets/poster-hero.png" alt="Laravel + React SaaS Starter Kit — launch your SaaS in days, not weeks. $19 launch price." width="1280" height="720" loading="eager" fetchpriority="high">
+        </picture>
       </div>
       <p class="demo-link">Try it live before you buy: sign in to the demo with <code>admin@demo.io</code> / <code>password</code> — it runs against a real Laravel API, not a mock.</p>
     </div>
@@ -93,7 +98,10 @@
         <p class="desc">Step-by-step setup guides for the backend and frontend, a folder map, a complete feature list, and a live-demo walkthrough — so a developer with basic Laravel and React familiarity can be running in minutes, not hours.</p>
       </div>
       <div class="feature-img">
-        <img src="assets/features.webp" alt="Feature highlights of the Laravel + React SaaS Starter Kit" width="1280" height="720" loading="lazy">
+        <picture>
+          <source srcset="assets/poster-features.webp" type="image/webp">
+          <img src="assets/poster-features.png" alt="Everything you need, already built — Sanctum auth, roles, users CRUD, dashboard stats, 10 passing tests, MIT licensed" width="1280" height="720" loading="lazy">
+        </picture>
       </div>
     </div>
   </section>
@@ -126,6 +134,12 @@
       <div class="sec-head">
         <h2>Tech stack</h2>
         <p>Modern, mainstream, hireable technology — nothing exotic, nothing locked-in.</p>
+      </div>
+      <div class="feature-img stack-poster">
+        <picture>
+          <source srcset="assets/poster-stack.webp" type="image/webp">
+          <img src="assets/poster-stack.png" alt="Modern stack, zero lock-in — Laravel 11, React 18, Vite, Tailwind CSS, Sanctum, Axios, SQLite and MySQL" width="1280" height="720" loading="lazy">
+        </picture>
       </div>
       <div class="stack">
         <span class="badge">Laravel 11 <small>API backend</small></span>
