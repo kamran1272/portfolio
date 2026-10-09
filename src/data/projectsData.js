@@ -24,7 +24,7 @@ export const projects = [
     demoUrl: "https://kamran1272.github.io/laravel-react-saas-starter-kit/demo/",
     buyUrl: "https://kamranofficial.gumroad.com/l/mhekoig",
     codeUrl: "https://github.com/kamran1272/laravel-react-saas-starter-kit",
-    screenshot: null,
+    screenshot: "saas-kit.png",
     codeFile: "routes/api.php",
     codeLines: [
       "// protected SaaS routes",
