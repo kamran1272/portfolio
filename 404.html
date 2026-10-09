@@ -1,1 +1,28 @@
-PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KICA8aGVhZD4KICAgIDxtZXRhIGNoYXJzZXQ9IlVURi04IiAvPgogICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLjAiIC8+CiAgICA8dGl0bGU+UmVkaXJlY3RpbmfigKY8L3RpdGxlPgogICAgPHNjcmlwdD4KICAgICAgLy8gR2l0SHViIFBhZ2VzIHNlcnZlcyB0aGlzIGZpbGUgZm9yIHVua25vd24gcm91dGVzIChlLmcuIGEgcmVmcmVzaCBvbgogICAgICAvLyAvcG9ydGZvbGlvL3Byb2plY3RzKS4gUmVtZW1iZXIgdGhlIHJlcXVlc3RlZCBwYXRoIGFuZCBoYW5kIGNvbnRyb2wKICAgICAgLy8gYmFjayB0byBpbmRleC5odG1sLCB3aGljaCByZXN0b3JlcyBpdCBiZWZvcmUgdGhlIHJvdXRlciBzdGFydHMuCiAgICAgIChmdW5jdGlvbiAoKSB7CiAgICAgICAgdmFyIHNlZ21lbnRzID0gbG9jYXRpb24ucGF0aG5hbWUuc3BsaXQoIi8iKS5maWx0ZXIoQm9vbGVhbik7CiAgICAgICAgdmFyIGFwcFJvb3QgPSBzZWdtZW50cy5sZW5ndGggPiAwID8gIi8iICsgc2VnbWVudHNbMF0gKyAiLyIgOiAiLyI7CiAgICAgICAgdHJ5IHsKICAgICAgICAgIC8vIFN0b3JlIHRoZSBmdWxsIHJlcXVlc3RlZCBwYXRoOyBpbmRleC5odG1sIHJlc3RvcmVzIGl0IHZlcmJhdGltLgogICAgICAgICAgc2Vzc2lvblN0b3JhZ2Uuc2V0SXRlbSgKICAgICAgICAgICAgInNwYS1yZWRpcmVjdCIsCiAgICAgICAgICAgIGxvY2F0aW9uLnBhdGhuYW1lICsgbG9jYXRpb24uc2VhcmNoICsgbG9jYXRpb24uaGFzaAogICAgICAgICAgKTsKICAgICAgICB9IGNhdGNoIChlKSB7CiAgICAgICAgICAvKiBzdG9yYWdlIHVuYXZhaWxhYmxlIOKAlCBmYWxsIHRocm91Z2ggdG8gdGhlIGFwcCByb290ICovCiAgICAgICAgfQogICAgICAgIGxvY2F0aW9uLnJlcGxhY2UoYXBwUm9vdCk7CiAgICAgIH0pKCk7CiAgICA8L3NjcmlwdD4KICA8L2hlYWQ+CiAgPGJvZHk+PC9ib2R5Pgo8L2h0bWw+Cg==
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+    <script>
+      // GitHub Pages serves this file for unknown routes (e.g. a refresh on
+      // /portfolio/projects). Remember the requested path and hand control
+      // back to index.html, which restores it before the router starts.
+      (function () {
+        var segments = location.pathname.split("/").filter(Boolean);
+        var appRoot = segments.length > 0 ? "/" + segments[0] + "/" : "/";
+        try {
+          // Store the full requested path; index.html restores it verbatim.
+          sessionStorage.setItem(
+            "spa-redirect",
+            location.pathname + location.search + location.hash
+          );
+        } catch (e) {
+          /* storage unavailable — fall through to the app root */
+        }
+        location.replace(appRoot);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
