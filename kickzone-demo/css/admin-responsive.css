@@ -1,0 +1,95 @@
+/* KickZone Admin — responsive layer.
+   Desktop (>=992px): unchanged (fixed 250px sidebar).
+   Tablet & phone (<992px): sidebar becomes an off-canvas drawer
+   opened by the hamburger button that admin-responsive.js injects
+   into the topbar.
+   NOTE: rules are prefixed with `body` because each page also has
+   an inline <style> block later in <head> with equal-specificity
+   rules — `body x` (0,1,1) wins over plain `x` (0,1,0). */
+
+@media (max-width: 991.98px) {
+    body .sidebar {
+        transform: translateX(-105%);
+        transition: transform 0.3s ease;
+        width: 260px;
+        max-width: 82vw;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+    }
+
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    body .topbar {
+        left: 0;
+    }
+
+    body .content {
+        margin-left: 0;
+    }
+
+    body .sidebar-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1035;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    body.sidebar-open .sidebar-backdrop {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+/* Phones: tighten spacing and stop text overlaps. */
+@media (max-width: 575.98px) {
+    body .content {
+        padding: 12px;
+    }
+
+    body .content h1 {
+        font-size: 1.35rem;
+    }
+
+    /* Any space-between row (page header, stat-card footer,
+       card header with dropdown) wraps instead of overlapping. */
+    body .content .d-flex.justify-content-between {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    /* Stat cards: reduce padding, let the text column shrink. */
+    body .content .card .d-flex.p-4 {
+        padding: 1rem !important;
+    }
+
+    body .content .card .flex-grow-1 {
+        min-width: 0;
+    }
+
+    body .content .card h3 {
+        font-size: 1.4rem;
+    }
+
+    body .content .card h6 {
+        font-size: 0.85rem;
+    }
+
+    /* Keep table text from forcing horizontal squeeze. */
+    body .content .table {
+        font-size: 0.85rem;
+    }
+
+    /* Topbar dropdown label stays compact. */
+    body .topbar .nav-link {
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+}
