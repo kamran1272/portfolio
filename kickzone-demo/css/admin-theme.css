@@ -1,0 +1,151 @@
+/* KickZone Admin — professional theme polish.
+   Modernizes the dated flat-Bootstrap look: gradient sidebar,
+   refined cards, softer shadows, consistent radius.
+   NOTE: `body`-prefixed selectors beat the per-page inline
+   <style> blocks on equal specificity (see admin-responsive.css). */
+
+/* ---------- Sidebar ---------- */
+body .sidebar {
+    background: linear-gradient(180deg, #1b2340 0%, #12172a 100%);
+}
+
+body .sidebar .navbar-brand h4 {
+    letter-spacing: 0.02em;
+}
+
+body .sidebar .nav-link {
+    border-radius: 0.6rem;
+    margin: 2px 12px;
+    padding: 10px 14px;
+    color: #c3cad9;
+    font-weight: 500;
+}
+
+body .sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+body .sidebar .nav-link.active {
+    background: linear-gradient(90deg, #3b5bff 0%, #2f4ae0 100%);
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(59, 91, 255, 0.35);
+}
+
+body .sidebar .nav-link.active i {
+    color: #ffffff;
+}
+
+/* ---------- Topbar ---------- */
+body .topbar {
+    background: linear-gradient(180deg, #1b2340 0%, #161c33 100%);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+body .topbar .nav-link {
+    color: #e8ebf3;
+}
+
+body .topbar .dropdown-menu {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
+    padding: 0.5rem;
+}
+
+/* ---------- Page ---------- */
+body .content {
+    background-color: #f3f5fa;
+    min-height: calc(100vh - 60px);
+}
+
+body .content h1,
+body .content h2 {
+    letter-spacing: -0.01em;
+}
+
+/* ---------- Cards ---------- */
+body .content .card {
+    border-radius: 1rem;
+    box-shadow: 0 2px 14px rgba(23, 32, 68, 0.07);
+    border: 1px solid rgba(23, 32, 68, 0.05);
+}
+
+body .content .card-header {
+    border-radius: 1rem 1rem 0 0 !important;
+}
+
+body .content .card-footer {
+    border-radius: 0 0 1rem 1rem !important;
+}
+
+/* Stat-card icon tiles: soft gradient wash */
+body .content .card .bg-primary.bg-opacity-10 {
+    background: linear-gradient(135deg, rgba(59, 91, 255, 0.16), rgba(59, 91, 255, 0.06)) !important;
+}
+
+body .content .card .bg-success.bg-opacity-10 {
+    background: linear-gradient(135deg, rgba(25, 135, 84, 0.16), rgba(25, 135, 84, 0.06)) !important;
+}
+
+body .content .card .bg-warning.bg-opacity-10 {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 193, 7, 0.07)) !important;
+}
+
+body .content .card .bg-info.bg-opacity-10 {
+    background: linear-gradient(135deg, rgba(13, 202, 240, 0.16), rgba(13, 202, 240, 0.06)) !important;
+}
+
+/* Action cards: gentle hover lift */
+body .content .action-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body .content .action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(23, 32, 68, 0.1);
+}
+
+/* ---------- Tables ---------- */
+body .content .table thead th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6b7690;
+    border-bottom: 2px solid #eef1f7;
+    padding: 0.85rem 0.75rem;
+}
+
+body .content .table tbody td {
+    padding: 0.85rem 0.75rem;
+    vertical-align: middle;
+}
+
+body .content .table-hover tbody tr:hover {
+    background-color: #f6f8fd;
+}
+
+/* ---------- Buttons & forms ---------- */
+body .content .btn {
+    border-radius: 0.6rem;
+    font-weight: 600;
+}
+
+body .content .form-control,
+body .content .form-select {
+    border-radius: 0.6rem;
+    border-color: #dfe4f0;
+}
+
+body .content .form-control:focus,
+body .content .form-select:focus {
+    border-color: #3b5bff;
+    box-shadow: 0 0 0 0.2rem rgba(59, 91, 255, 0.12);
+}
+
+/* ---------- Badges ---------- */
+body .content .badge {
+    border-radius: 0.5rem;
+    font-weight: 600;
+    padding: 0.35em 0.7em;
+}

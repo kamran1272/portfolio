@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="KickZone Admin Panel">
     <meta name="csrf-token" content="ZQnaqnqRgoJ3OiALRj3tbn6IZNy7JdqlKPDqI0KR">
-    <title>Admin Panel - KickZone</title>
+    <title>Settings - KickZone</title>
 
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -185,7 +185,7 @@
             </li>
             <li class="nav-item">
                 <a href="settings.html"
-                    class="nav-link ">
+                    class="nav-link active">
                     <i class="bi bi-gear me-2"></i>Settings
                 </a>
             </li>
@@ -221,104 +221,41 @@
                         </li>
                     </ul>
                 </li>
-</ul>
+                    </ul>
     </div>
 
     <!-- Main Content -->
     <main class="content">
-            <div class="container py-4">
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <!-- Add Sport Form -->
-                <div class="card glass-card mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Add New Sport</h4>
-                    </div>
+            <div class="container-fluid px-4">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <h1 class="fw-bold text-dark mb-0">Settings</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-white border-0 py-3"><h5 class="mb-0 fw-bold">General</h5></div>
                     <div class="card-body">
-                        <form action="admin/sports" method="POST">
-                            <input type="hidden" name="_token" value="demo" autocomplete="off">                            <div class="mb-3">
-                                <label for="sportName" class="form-label">Sport Name</label>
-                                <input type="text" id="sportName" name="name" placeholder="Enter Sport Name"
-                                    class="form-control" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">
-                                <i class="bi bi-check-circle me-2"></i>Add Sport
-                            </button>
-                        </form>
+                        <div class="mb-3"><label class="form-label">Site Name</label><input type="text" class="form-control" value="KickZone"></div>
+                        <div class="mb-3"><label class="form-label">Contact Email</label><input type="email" class="form-control" value="admin123@gmail.com"></div>
+                        <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" checked><label class="form-check-label">Email notifications</label></div>
+                        <div class="form-check form-switch mb-3"><input class="form-check-input" type="checkbox" checked><label class="form-check-label">New registration alerts</label></div>
+                        <button class="btn btn-primary" onclick="return false;"><i class="bi bi-check-lg me-1"></i> Save Settings</button>
                     </div>
                 </div>
-
-                <!-- Sports List -->
-                <div class="card glass-card">
-                    <div class="card-header bg-dark text-white">
-                        <h4 class="mb-0"><i class="bi bi-list-ul me-2"></i>Sports List</h4>
-                    </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-white border-0 py-3"><h5 class="mb-0 fw-bold">Security</h5></div>
                     <div class="card-body">
-                                                    <table class="table table-hover table-bordered">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Sport Name</th>
-                                        <th class="text-center">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                                                            <tr>
-                                            <td>1</td>
-                                            <td>Football</td>
-                                            <td class="text-center">
-                                                <form action="admin/sports/1" method="POST"
-                                                    style="display:inline;">
-                                                    <input type="hidden" name="_token" value="demo" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                        <i class="bi bi-trash-fill"></i> Delete
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                                                            <tr>
-                                            <td>2</td>
-                                            <td>Cricket</td>
-                                            <td class="text-center">
-                                                <form action="admin/sports/2" method="POST"
-                                                    style="display:inline;">
-                                                    <input type="hidden" name="_token" value="demo" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                        <i class="bi bi-trash-fill"></i> Delete
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                                                            <tr>
-                                            <td>3</td>
-                                            <td>Basketball</td>
-                                            <td class="text-center">
-                                                <form action="admin/sports/3" method="POST"
-                                                    style="display:inline;">
-                                                    <input type="hidden" name="_token" value="demo" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                        <i class="bi bi-trash-fill"></i> Delete
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                                                            <tr>
-                                            <td>4</td>
-                                            <td>Tennis</td>
-                                            <td class="text-center">
-                                                <form action="admin/sports/4" method="POST"
-                                                    style="display:inline;">
-                                                    <input type="hidden" name="_token" value="demo" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                        <i class="bi bi-trash-fill"></i> Delete
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                                                    </tbody>
-                            </table>
-                                            </div>
+                        <div class="mb-3"><label class="form-label">Current Password</label><input type="password" class="form-control" placeholder="••••••••"></div>
+                        <div class="mb-3"><label class="form-label">New Password</label><input type="password" class="form-control" placeholder="••••••••"></div>
+                        <button class="btn btn-outline-primary" onclick="return false;">Update Password</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </main>
+
 
     
     <script src="js/jquery.min.js"></script>
