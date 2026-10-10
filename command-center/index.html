@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b1e">
+<title>Magsi Digital — Command Center</title>
+<link rel="icon" href="img/logo-icon.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/desktop.css">
+</head><body>
+<aside id="mtabs">
+  <div class="side-brand">
+    <img src="img/logo-icon.png" alt="Magsi Digital" onerror="this.style.display='none'">
+    <div><b>MAGSi DIGITAL</b><span>COMMAND CENTER</span></div>
+  </div>
+  <nav class="side-nav">
+    <a data-k="dashboard" class="on"><span class="ti">📊</span><span class="tl">Dashboard</span></a>
+    <a data-k="agents"><span class="ti">🤖</span><span class="tl">Agents</span></a>
+    <a data-k="leads"><span class="ti">🎯</span><span class="tl">Leads</span></a>
+    <a data-k="alerts"><span class="ti">🔔</span><span class="tl">Alerts</span><span class="nbadge side-badge" id="nbadge-side" style="display:none"></span></a>
+    <a data-k="more"><span class="ti">☰</span><span class="tl">More</span></a>
+  </nav>
+  <div class="side-foot">
+    <span id="mrefresh">⟳ 30s</span>
+    <span class="ver">Web v1.0</span>
+  </div>
+</aside>
+<div id="dmain">
+  <header id="mhead">
+    <div class="mh-brand"><img src="img/logo-icon.png" alt="" onerror="this.style.display='none'"><div><b>MAGSi DIGITAL</b><span>COMMAND CENTER</span></div></div>
+    <div class="mh-right">
+      <span id="masof">CONNECTING…</span>
+      <span id="mhealth" class="mdot" title="Feed status"></span>
+      <div class="mbell" id="mbell" onclick="MApp.toggleAlerts()" title="Notifications"><span style="font-size:19px">🔔</span><span class="nbadge" id="nbadge" style="display:none"></span></div>
+    </div>
+  </header>
+  <div id="msubhead"><span>LIVE OPERATIONS FEED</span><span id="msubver">feed v1.3.2</span></div>
+  <div id="mview"></div>
+  <footer id="dfoot">Magsi Digital Command Center — data refreshes every 30 seconds from the live feed.</footer>
+</div>
+<script src="js/m-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/m-store.js"></script>
+<script src="js/m-notify.js"></script>
+<script src="js/m-feed.js"></script>
+<script src="js/views/m-dashboard.js"></script>
+<script src="js/views/m-agents.js"></script>
+<script src="js/views/m-leads.js"></script>
+<script src="js/views/m-alerts.js"></script>
+<script src="js/views/m-more.js"></script>
+<script src="js/m-app.js"></script>
+<script>
+/* Web-only glue: mirror the header bell badge onto the sidebar Alerts badge.
+   (m-app.js and m-store.js are shared verbatim with the mobile app.) */
+(function(){
+  function sync(){
+    var a = document.getElementById('nbadge'), b = document.getElementById('nbadge-side');
+    if (a && b){ b.style.display = a.style.display; b.textContent = a.textContent; }
+  }
+  new MutationObserver(sync).observe(document.getElementById('nbadge'),
+    { attributes: true, childList: true, subtree: true });
+  setInterval(sync, 2000);
+})();
+</script>
+</body></html>

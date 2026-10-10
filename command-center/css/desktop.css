@@ -1,0 +1,88 @@
+/* Magsi Digital Command Center — desktop website layout overrides.
+   base.css (the mobile app theme) is loaded first and provides every
+   component class the shared views use; this file only re-lays-out the
+   shell for a wide PC monitor. */
+:root{ --side-w:228px; }
+
+body{ padding-bottom:0; }
+
+/* ---- sidebar replaces the mobile bottom tab bar ---- */
+#mtabs{
+  position:fixed; top:0; left:0; right:auto; bottom:0; z-index:60;
+  width:var(--side-w);
+  display:flex; flex-direction:column;
+  background:rgba(13,13,32,.98);
+  border-top:none; border-right:1px solid var(--border);
+  padding:0;
+}
+.side-brand{ display:flex; align-items:center; gap:11px; padding:18px 18px 14px;
+  border-bottom:1px solid var(--border); }
+.side-brand img{ width:40px; height:40px; border-radius:11px; }
+.side-brand b{ display:block; font-size:14px; letter-spacing:1.5px; }
+.side-brand span{ display:block; font-size:10px; letter-spacing:3px; color:var(--dim); }
+.side-nav{ display:flex; flex-direction:column; gap:4px; padding:14px 12px; flex:1; }
+#mtabs a{
+  flex:none; flex-direction:row; align-items:center; gap:12px;
+  padding:11px 14px; border-radius:12px;
+  font-size:13.5px; letter-spacing:.4px;
+  color:var(--dim); text-decoration:none; cursor:pointer;
+  border:1px solid transparent;
+}
+#mtabs a .ti{ font-size:19px; }
+#mtabs a .tl{ font-size:13.5px; }
+#mtabs a:hover{ background:rgba(255,255,255,.04); color:var(--ink); }
+#mtabs a.on{ color:var(--ink); background:rgba(108,123,255,.13); border-color:rgba(108,123,255,.35); }
+#mtabs a.on .ti{ filter:drop-shadow(0 0 6px rgba(108,123,255,.7)); }
+.side-badge{ position:static; margin-left:auto; }
+.side-foot{ display:flex; justify-content:space-between; align-items:center;
+  padding:14px 18px; border-top:1px solid var(--border);
+  font-size:11.5px; color:var(--faint); letter-spacing:.6px; }
+.side-foot .ver{ color:var(--dim); }
+
+/* ---- main content area ---- */
+#dmain{ margin-left:var(--side-w); min-height:100vh; display:flex; flex-direction:column; }
+#mhead{ padding:12px 26px; }
+#mhead .mh-brand{ display:none; } /* brand lives in the sidebar on desktop */
+#masof{ font-size:12px; color:var(--dim); letter-spacing:1px; margin-right:4px; }
+#msubhead{ padding:8px 28px; }
+#mview{ padding:6px 28px 26px; max-width:1460px; margin:0 auto; width:100%; flex:1; }
+#dfoot{ padding:16px 28px 22px; font-size:11.5px; color:var(--faint);
+  letter-spacing:.4px; border-top:1px solid var(--border); }
+
+/* ---- desktop grids ---- */
+@media (min-width:1100px){
+  .kgrid{ grid-template-columns:repeat(4,1fr); }
+  #mag-list, #mld-list{ display:grid; grid-template-columns:repeat(2,1fr); gap:0 14px; align-items:start; }
+  #mag-list .card, #mld-list .card{ margin-bottom:14px; }
+  .chart-box canvas{ max-height:260px; }
+}
+@media (min-width:1500px){
+  #mag-list, #mld-list{ grid-template-columns:repeat(3,1fr); }
+}
+@media (min-width:700px){
+  #mview{ max-width:1460px; } /* widen the base.css 640px cap */
+}
+
+/* ---- notification modal: centred dialog on desktop (not a bottom sheet) ---- */
+.noverlay{ align-items:center; padding:24px; }
+.nmodal{ border-radius:18px; max-width:560px; max-height:86vh;
+  padding:20px 22px; }
+
+/* ---- toast: docked top-right on desktop ---- */
+.mtoast{ left:auto; right:22px; width:380px; top:76px; }
+
+/* ---- narrow screens: sidebar collapses to an icon rail ---- */
+@media (max-width:900px){
+  :root{ --side-w:74px; }
+  .side-brand{ padding:16px 0 12px; justify-content:center; }
+  .side-brand div{ display:none; }
+  .side-brand img{ width:36px; height:36px; }
+  #mtabs a{ justify-content:center; padding:12px 0; }
+  #mtabs a .tl{ display:none; }
+  .side-badge{ position:absolute; margin:0; top:6px; right:8px; }
+  #mtabs a{ position:relative; }
+  .side-foot{ flex-direction:column; gap:6px; padding:12px 4px; }
+  #mview{ padding:6px 16px 22px; }
+  #msubhead{ padding:8px 18px; }
+  #mhead{ padding:12px 16px; }
+}
