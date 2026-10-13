@@ -4,6 +4,7 @@ import Seo from "../components/seo/Seo";
 import Hero from "../components/hero/Hero";
 import Projects from "../components/projects/Projects";
 import Capabilities from "../components/capabilities/Capabilities";
+import NicheServices from "../components/niche/NicheServices";
 import TechStack from "../components/tech/TechStack";
 import About from "../components/about/About";
 import GitHubActivity from "../components/github/GitHubActivity";
@@ -39,6 +40,7 @@ const Home = () => {
         <Hero />
         <Projects />
         <Capabilities />
+        <NicheServices />
         <TechStack />
         <About />
         <GitHubActivity />

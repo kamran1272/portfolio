@@ -13,53 +13,62 @@
 <meta property="og:url" content="https://kamran1272.github.io/portfolio/services/restaurant-website-developer/">
 <meta property="og:image" content="https://kamran1272.github.io/portfolio/images/og/kamran-professional.webp">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+:root{--bg:#07111F;--surface:#0B1626;--border:rgba(148,163,184,.16);--primary:#2DD4BF;--secondary:#818CF8;--text:#F8FAFC;--muted:#94A3B8}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#07111F;color:#E8EEF6;line-height:1.7}
-a{color:#F5A623}
-.wrap{max-width:960px;margin:0 auto;padding:0 20px}
-header.top{padding:18px 0;border-bottom:1px solid #16283F}
+body{font-family:"Work Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 12% 0%,rgba(45,212,191,.12),transparent 32%),radial-gradient(circle at 95% 10%,rgba(129,140,248,.12),transparent 35%)}
+a{color:var(--primary);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+header.top{padding:20px 0;border-bottom:1px solid var(--border)}
 header.top .wrap{display:flex;justify-content:space-between;align-items:center}
-.brand{font-weight:800;font-size:20px;color:#fff;text-decoration:none}
-.brand span{color:#F5A623}
-.nav-cta{background:#F5A623;color:#07111F!important;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none}
-.hero{padding:70px 0 50px;text-align:center}
-.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.2;color:#fff;margin-bottom:18px}
-.hero h1 span{color:#F5A623}
-.hero p.sub{font-size:19px;color:#A9Bcd4;max-width:680px;margin:0 auto 30px}
+.brand{font-weight:800;font-size:20px;color:#fff;letter-spacing:.06em}
+.brand span{color:var(--primary)}
+.btn{display:inline-block;padding:13px 28px;border-radius:10px;font-weight:700;font-size:16px;transition:all .2s}
+.btn-primary{background:var(--primary);color:#07111F;border:1px solid var(--primary)}
+.btn-primary:hover{background:rgba(45,212,191,.85)}
+.btn-ghost{border:1px solid var(--primary);color:var(--primary);background:transparent}
+.btn-ghost:hover{background:rgba(45,212,191,.08)}
+.hero{padding:88px 0 60px;text-align:center}
+.eyebrow{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.22em;color:var(--primary);margin-bottom:16px}
+.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.15;font-weight:700;color:#fff;margin-bottom:20px;letter-spacing:-.01em}
+.hero p.sub{font-size:18px;color:var(--muted);max-width:680px;margin:0 auto 34px;line-height:1.7}
 .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-block;padding:14px 30px;border-radius:10px;font-weight:700;text-decoration:none;font-size:17px}
-.btn-gold{background:#F5A623;color:#07111F}
-.btn-ghost{border:2px solid #F5A623;color:#F5A623}
-.trust{margin-top:26px;color:#7C93B2;font-size:14px}
-section{padding:46px 0}
-h2{font-size:clamp(24px,3.6vw,34px);color:#fff;margin-bottom:20px}
-h2 span{color:#F5A623}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:24px}
-.card{background:#0C1B30;border:1px solid #16283F;border-radius:14px;padding:26px}
-.card h3{color:#F5A623;font-size:19px;margin-bottom:10px}
-.card p{color:#B9C9E0;font-size:15.5px}
-.case{background:#0C1B30;border:1px solid #1E3A5F;border-radius:16px;padding:32px;margin-top:10px}
-.case h3{color:#fff;font-size:22px;margin-bottom:12px}
-.case p{color:#B9C9E0;margin-bottom:14px}
-.steps{counter-reset:step;margin-top:20px}
-.step{display:flex;gap:16px;margin-bottom:22px}
-.step-num{flex:0 0 44px;height:44px;border-radius:50%;background:#F5A623;color:#07111F;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:19px}
-.step h3{color:#fff;font-size:18px;margin-bottom:6px}
-.step p{color:#B9C9E0;font-size:15.5px}
-.faq-item{background:#0C1B30;border:1px solid #16283F;border-radius:12px;padding:20px 22px;margin-bottom:14px}
-.faq-item h3{color:#fff;font-size:17.5px;margin-bottom:8px}
-.faq-item p{color:#B9C9E0;font-size:15.5px}
-.cta-band{background:linear-gradient(135deg,#F5A623,#E8890B);border-radius:18px;padding:44px 32px;text-align:center;margin:20px 0 40px}
-.cta-band h2{color:#07111F;margin-bottom:12px}
-.cta-band p{color:#3A2A08;margin-bottom:24px;font-size:17px}
-.cta-band .btn{background:#07111F;color:#fff}
-footer{border-top:1px solid #16283F;padding:26px 0;color:#7C93B2;font-size:14px;text-align:center}
-footer a{color:#F5A623;text-decoration:none}
-.sticky-wa{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;font-weight:700;padding:14px 22px;border-radius:50px;text-decoration:none;box-shadow:0 6px 24px rgba(0,0,0,.4);z-index:50}
-ul.tick{list-style:none;margin-top:14px}
-ul.tick li{padding:8px 0 8px 34px;position:relative;color:#B9C9E0}
-ul.tick li:before{content:"✓";position:absolute;left:0;color:#F5A623;font-weight:800}
+.trust{margin-top:28px;color:var(--muted);font-size:14px}
+section{padding:52px 0}
+h2.sec{font-size:clamp(26px,3.6vw,36px);font-weight:600;color:#fff;margin-bottom:14px;letter-spacing:-.01em}
+.sec-sub{color:var(--muted);max-width:720px;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:28px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px;transition:all .3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(45,212,191,.5);box-shadow:0 12px 40px rgba(45,212,191,.06)}
+.icon-chip{display:inline-flex;height:48px;width:48px;align-items:center;justify-content:center;border-radius:8px;background:rgba(45,212,191,.1);color:var(--primary);margin-bottom:20px}
+.icon-chip svg{width:24px;height:24px}
+.card h3{color:#fff;font-size:20px;font-weight:600;margin-bottom:10px}
+.card p{color:var(--muted);font-size:15px;line-height:1.7}
+.case{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;margin-top:20px}
+.case h3{color:#fff;font-size:22px;font-weight:600;margin-bottom:12px}
+.case p{color:var(--muted);margin-bottom:12px;font-size:15.5px}
+ul.tick{list-style:none;margin:14px 0}
+ul.tick li{padding:7px 0 7px 32px;position:relative;color:var(--muted);font-size:15px}
+ul.tick li::before{content:"✓";position:absolute;left:0;color:var(--primary);font-weight:800}
+.step{display:flex;gap:18px;margin-bottom:26px}
+.step-num{flex:0 0 46px;height:46px;border-radius:50%;background:rgba(45,212,191,.12);color:var(--primary);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:18px;border:1px solid rgba(45,212,191,.3)}
+.step h3{color:#fff;font-size:18px;font-weight:600;margin-bottom:6px}
+.step p{color:var(--muted);font-size:15px}
+.faq{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:14px}
+.faq h3{color:#fff;font-size:17px;font-weight:600;margin-bottom:8px}
+.faq p{color:var(--muted);font-size:15px}
+.cta-band{background:var(--surface);border:1px solid rgba(45,212,191,.35);border-radius:16px;padding:52px 32px;text-align:center;margin:24px 0 48px;box-shadow:0 0 60px rgba(45,212,191,.07)}
+.cta-band h2{color:#fff;font-size:clamp(24px,3.4vw,34px);font-weight:700;margin-bottom:12px}
+.cta-band p{color:var(--muted);margin-bottom:28px;font-size:17px}
+footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font-size:14px;text-align:center;position:relative;z-index:1}
+.sticky-wa{position:fixed;bottom:22px;right:22px;z-index:50;display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#07111F;font-weight:700;padding:13px 22px;border-radius:50px;box-shadow:0 8px 28px rgba(45,212,191,.35);font-size:15px}
+.sticky-wa:hover{background:rgba(45,212,191,.9)}
+.sticky-wa svg{width:20px;height:20px}
+::selection{background:rgba(45,212,191,.28);color:#F8FAFC}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Kamran Khan - Restaurant Website Developer","url":"https://kamran1272.github.io/portfolio/services/restaurant-website-developer/","description":"Custom restaurant websites with online menus, table reservations and online ordering.","provider":{"@type":"Person","name":"Kamran Khan","jobTitle":"Full-Stack Web Developer"},"areaServed":"Worldwide","telephone":"+92 330 7162505"}
@@ -76,51 +85,55 @@ ul.tick li:before{content:"✓";position:absolute;left:0;color:#F5A623;font-weig
 </head>
 <body>
 <header class="top"><div class="wrap">
-<a class="brand" href="https://kamran1272.github.io/portfolio/">Kamran<span>Khan</span></a>
-<a class="nav-cta" href="https://wa.me/923307162505?text=Hi%20Kamran%2C%20I%20need%20a%20website%20for%20my%20restaurant">Free Quote</a>
+<a class="brand" href="https://kamran1272.github.io/portfolio/">&lt;/&gt; KAMRAN</a>
+<a class="btn btn-primary" style="padding:10px 22px" href="https://wa.me/923307162505?text=Hi%20Kamran%2C%20I%20need%20a%20website%20for%20my%20restaurant">Free Quote</a>
 </div></header>
 
 <div class="hero"><div class="wrap">
-<h1>Restaurant Website <span>Developer</span></h1>
+<p class="eyebrow">Restaurant Websites</p>
+<h1>Restaurant Website Developer</h1>
 <p class="sub">I build fast, mobile-friendly restaurant websites with online menus, table reservations and online ordering, so more of your Google visitors turn into paying customers.</p>
 <div class="btn-row">
-<a class="btn btn-gold" href="https://wa.me/923307162505?text=Hi%20Kamran%2C%20I%20need%20a%20website%20for%20my%20restaurant">Get a Free Quote</a>
+<a class="btn btn-primary" href="https://wa.me/923307162505?text=Hi%20Kamran%2C%20I%20need%20a%20website%20for%20my%20restaurant">Get a Free Quote</a>
 <a class="btn btn-ghost" href="#work">See Real Work</a>
 </div>
-<p class="trust">Full-stack developer (React, Next.js, Laravel) - real projects, no templates</p>
+<p class="trust">Full-stack developer (React, Next.js, Laravel) &middot; Real projects, no templates</p>
 </div></div>
 
 <div class="wrap">
 <section>
-<h2>Your restaurant is <span>losing customers</span> without the right website</h2>
-<p style="color:#B9C9E0;max-width:720px">When someone searches for food near them, they decide in seconds. A slow site, no online menu, or no way to book a table sends them straight to your competitor. Here is what a proper restaurant website does for you:</p>
-<div class="card-grid">
-<div class="card"><h3>Online Menu That Sells</h3><p>A beautiful, photo-rich menu that works perfectly on phones, where most of your customers find you.</p></div>
-<div class="card"><h3>Table Reservations</h3><p>Let guests book a table in under a minute, with instant confirmation. No phone tag, no lost bookings.</p></div>
-<div class="card"><h3>Online Ordering</h3><p>Take direct orders with zero commission. Every order through your own site is money the delivery apps do not take.</p></div>
-<div class="card"><h3>Google-Ready</h3><p>Built for local search: fast loading, proper structure, and location pages so nearby customers actually find you.</p></div>
-<div class="card"><h3>Easy Menu Updates</h3><p>Change dishes, prices and timings yourself from a simple admin panel. No developer needed for daily updates.</p></div>
-<div class="card"><h3>Reviews & Trust</h3><p>Show off your best reviews and food photos right where new visitors decide whether to trust you.</p></div>
+<p class="eyebrow">Why it matters</p>
+<h2 class="sec">Your restaurant is losing customers without the right website</h2>
+<p class="sec-sub">When someone searches for food near them, they decide in seconds. A slow site, no online menu, or no way to book a table sends them straight to your competitor.</p>
+<div class="grid">
+<div class="card"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 2v7a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V2M6 2v20M18 2c-1.7 0-3 2.2-3 5v4h3v11"/></svg></span><h3>Online Menu That Sells</h3><p>A beautiful, photo-rich menu that works perfectly on phones, where most of your customers find you.</p></div>
+<div class="card"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><h3>Table Reservations</h3><p>Let guests book a table in under a minute, with instant confirmation. No phone tag, no lost bookings.</p></div>
+<div class="card"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></span><h3>Online Ordering</h3><p>Take direct orders with zero commission. Every order through your own site is money the delivery apps don't take.</p></div>
+<div class="card"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg></span><h3>Google-Ready</h3><p>Built for local search: fast loading, proper structure, and location pages so nearby customers actually find you.</p></div>
+<div class="card"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><h3>Easy Menu Updates</h3><p>Change dishes, prices and timings yourself from a simple admin panel. No developer needed for daily updates.</p></div>
+<div class="card"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></span><h3>Reviews &amp; Trust</h3><p>Show off your best reviews and food photos right where new visitors decide whether to trust you.</p></div>
 </div>
 </section>
 
 <section id="work">
-<h2>Real work, <span>not mockups</span></h2>
+<p class="eyebrow">Proof of work</p>
+<h2 class="sec">Real work, not mockups</h2>
 <div class="case">
-<h3>Baloch Restaurant, full website</h3>
+<h3>Baloch Restaurant &mdash; full website</h3>
 <p>A complete restaurant website I designed and built: striking food-first design, full menu sections, gallery, location and contact, fully responsive from mobile to desktop.</p>
 <ul class="tick">
 <li>Custom design, no template</li>
 <li>Mobile-first, fast loading</li>
 <li>Menu, gallery, location and contact sections</li>
 </ul>
-<p style="margin-top:16px"><a href="https://kamran1272.github.io/restaurant-website/" target="_blank" rel="noopener">View the live site</a></p>
+<p style="margin-top:16px"><a href="https://kamran1272.github.io/restaurant-website/" target="_blank" rel="noopener">View the live site &rarr;</a></p>
 </div>
 </section>
 
 <section>
-<h2>How we will <span>work together</span></h2>
-<div class="steps">
+<p class="eyebrow">Process</p>
+<h2 class="sec">How we will work together</h2>
+<div style="margin-top:24px">
 <div class="step"><div class="step-num">1</div><div><h3>You message me</h3><p>Tell me about your restaurant on WhatsApp. I reply fast and ask the right questions.</p></div></div>
 <div class="step"><div class="step-num">2</div><div><h3>Fixed quote, no surprises</h3><p>You get a clear price and timeline before anything starts. No hourly meter running.</p></div></div>
 <div class="step"><div class="step-num">3</div><div><h3>Design and build</h3><p>I design and build your site, sharing progress so you can give feedback along the way.</p></div></div>
@@ -129,24 +142,28 @@ ul.tick li:before{content:"✓";position:absolute;left:0;color:#F5A623;font-weig
 </section>
 
 <section>
-<h2>Common <span>questions</span></h2>
-<div class="faq-item"><h3>How much does a restaurant website cost?</h3><p>It depends on features. A clean site with menu and reservations starts lower; full online ordering with payments costs more. Message me on WhatsApp and I will give you an honest fixed quote.</p></div>
-<div class="faq-item"><h3>Can customers order food online through the website?</h3><p>Yes. I build online ordering with cart, checkout and order notifications, so you stop paying commission to delivery apps on every order.</p></div>
-<div class="faq-item"><h3>Will the website work on mobile phones?</h3><p>Absolutely. Most restaurant visitors come from phones, so every site I build is mobile-first and loads fast.</p></div>
-<div class="faq-item"><h3>Can I update the menu myself?</h3><p>Yes, I can include a simple admin panel where you add dishes, change prices and update timings yourself, no coding needed.</p></div>
-<div class="faq-item"><h3>How long does it take to build?</h3><p>A standard restaurant site takes 1 to 2 weeks. Sites with online ordering and custom features take 2 to 4 weeks.</p></div>
+<p class="eyebrow">FAQ</p>
+<h2 class="sec">Common questions</h2>
+<div style="margin-top:20px">
+<div class="faq"><h3>How much does a restaurant website cost?</h3><p>It depends on features. A clean site with menu and reservations starts lower; full online ordering with payments costs more. Message me on WhatsApp and I will give you an honest fixed quote.</p></div>
+<div class="faq"><h3>Can customers order food online through the website?</h3><p>Yes. I build online ordering with cart, checkout and order notifications, so you stop paying commission to delivery apps on every order.</p></div>
+<div class="faq"><h3>Will the website work on mobile phones?</h3><p>Absolutely. Most restaurant visitors come from phones, so every site I build is mobile-first and loads fast.</p></div>
+<div class="faq"><h3>Can I update the menu myself?</h3><p>Yes, I can include a simple admin panel where you add dishes, change prices and update timings yourself, no coding needed.</p></div>
+<div class="faq"><h3>How long does it take to build?</h3><p>A standard restaurant site takes 1 to 2 weeks. Sites with online ordering and custom features take 2 to 4 weeks.</p></div>
+</div>
 </section>
 
 <div class="cta-band">
+<p class="eyebrow">Let's talk</p>
 <h2>Ready for a website that brings you customers?</h2>
 <p>Message me now, tell me about your restaurant, and get a free honest quote.</p>
-<a class="btn" href="https://wa.me/923307162505?text=Hi%20Kamran%2C%20I%20need%20a%20website%20for%20my%20restaurant">Chat on WhatsApp</a>
+<a class="btn btn-primary" href="https://wa.me/923307162505?text=Hi%20Kamran%2C%20I%20need%20a%20website%20for%20my%20restaurant">Chat on WhatsApp</a>
 </div>
 </div>
 
 <footer><div class="wrap">
-<p>Kamran Khan, Full-Stack Web Developer (React, Next.js, Laravel) - <a href="https://kamran1272.github.io/portfolio/">Portfolio</a> - <a href="mailto:kamranofficial7212@gmail.com">kamranofficial7212@gmail.com</a></p>
+<p>Kamran Khan &middot; Full-Stack Web Developer (React, Next.js, Laravel) &middot; <a href="https://kamran1272.github.io/portfolio/">Portfolio</a> &middot; <a href="mailto:kamranofficial7212@gmail.com">kamranofficial7212@gmail.com</a></p>
 </div></footer>
-<a class="sticky-wa" href="https://wa.me/923307162505?text=Hi%20Kamran%2C%20I%20need%20a%20website%20for%20my%20restaurant">WhatsApp Me</a>
+<a class="sticky-wa" href="https://wa.me/923307162505?text=Hi%20Kamran%2C%20I%20need%20a%20website%20for%20my%20restaurant"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.7.3-.9.9-1.1 2.2-.2 3.9a11.6 11.6 0 0 0 4.5 4.2c1.7.8 2.4.9 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.1-.5-.2z"/></svg>WhatsApp Me</a>
 </body>
 </html>
