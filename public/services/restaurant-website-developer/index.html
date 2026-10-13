@@ -23,9 +23,6 @@ body{font-family:"Work Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 12% 0%,rgba(45,212,191,.12),transparent 32%),radial-gradient(circle at 95% 10%,rgba(129,140,248,.12),transparent 35%)}
 a{color:var(--primary);text-decoration:none}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
-header.top{padding:20px 0;border-bottom:1px solid var(--border)}
-header.top .wrap{display:flex;justify-content:space-between;align-items:center}
-.brand{font-weight:800;font-size:20px;color:#fff;letter-spacing:.06em}
 .brand span{color:var(--primary)}
 .btn{display:inline-block;padding:13px 28px;border-radius:10px;font-weight:700;font-size:16px;transition:all .2s}
 .btn-primary{background:var(--primary);color:#07111F;border:1px solid var(--primary)}
@@ -64,10 +61,70 @@ ul.tick li::before{content:"✓";position:absolute;left:0;color:var(--primary);f
 .cta-band{background:var(--surface);border:1px solid rgba(45,212,191,.35);border-radius:16px;padding:52px 32px;text-align:center;margin:24px 0 48px;box-shadow:0 0 60px rgba(45,212,191,.07)}
 .cta-band h2{color:#fff;font-size:clamp(24px,3.4vw,34px);font-weight:700;margin-bottom:12px}
 .cta-band p{color:var(--muted);margin-bottom:28px;font-size:17px}
-footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font-size:14px;text-align:center;position:relative;z-index:1}
 .sticky-wa{position:fixed;bottom:22px;right:22px;z-index:50;display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#07111F;font-weight:700;padding:13px 22px;border-radius:50px;box-shadow:0 8px 28px rgba(45,212,191,.35);font-size:15px}
 .sticky-wa:hover{background:rgba(45,212,191,.9)}
 .sticky-wa svg{width:20px;height:20px}
+
+/* ---- portfolio header (Navbar replica) ---- */
+#site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+#site-header.scrolled{border-bottom-color:rgba(51,65,85,.5);background:rgba(7,17,31,.8);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.nav-inner{max-width:1320px;margin:0 auto;min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 16px}
+@media(min-width:1024px){.nav-inner{padding-left:32px;padding-right:32px}}
+.brand{display:inline-flex;align-items:center;gap:8px;color:#fff}
+.brand .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:20px;font-weight:700;color:var(--primary)}
+.brand .bname{font-size:14px;font-weight:700;letter-spacing:.24em;color:#fff}
+.desk-nav{display:none}
+@media(min-width:1024px){.desk-nav{display:block}}
+.desk-nav ul{display:flex;align-items:center;gap:8px;list-style:none;margin:0;padding:0}
+.desk-nav a{display:inline-block;padding:8px 12px;font-size:14px;font-weight:500;color:#cbd5e1;border-radius:6px;transition:color .2s}
+.desk-nav a:hover{color:#fff}
+.nav-actions{display:flex;align-items:center;gap:12px}
+#theme-toggle{width:40px;height:40px;border-radius:50%;border:1px solid rgba(148,163,184,.3);background:transparent;color:#e2e8f0;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,color .2s}
+#theme-toggle:hover{border-color:var(--primary);color:var(--primary)}
+#theme-toggle svg{width:18px;height:18px}
+.resume-btn{display:none;align-items:center;gap:8px;border:1px solid rgba(45,212,191,.5);color:var(--primary);font-size:14px;font-weight:600;padding:8px 16px;border-radius:6px;transition:background .2s}
+@media(min-width:640px){.resume-btn{display:inline-flex}}
+.resume-btn:hover{background:rgba(45,212,191,.1)}
+#menu-btn{border:1px solid #334155;background:transparent;color:#e2e8f0;border-radius:6px;padding:8px 10px;font-size:18px;line-height:1;cursor:pointer}
+@media(min-width:1024px){#menu-btn{display:none}}
+#menu-btn:hover{border-color:var(--primary);color:var(--primary)}
+#mobile-menu{border-top:1px solid rgba(51,65,85,.5);padding:8px 16px 16px;background:rgba(7,17,31,.95)}
+#mobile-menu a{display:block;padding:10px 4px;color:#cbd5e1;font-size:15px;font-weight:500}
+#mobile-menu a:hover{color:var(--primary)}
+/* ---- portfolio footer (Footer replica) ---- */
+.site-footer{border-top:1px solid rgba(30,41,59,.8);background:var(--surface);color:#cbd5e1;padding:48px 0;position:relative;z-index:1}
+.foot-grid{display:flex;flex-direction:column;gap:40px}
+@media(min-width:1024px){.foot-grid{flex-direction:row;align-items:flex-start;justify-content:space-between}}
+.foot-brand{max-width:24rem}
+.foot-desc{margin-top:16px;font-size:14px;line-height:1.7;color:var(--muted)}
+.socials{display:flex;gap:16px;margin-top:20px}
+.socials a{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--primary);border-radius:50%;box-shadow:0 4px 10px rgba(0,0,0,.25);transition:all .3s}
+@media(min-width:640px){.socials a{width:44px;height:44px}}
+.socials a:hover{background:var(--primary);color:#fff}
+.foot-side{display:flex;flex-direction:column;gap:32px}
+@media(min-width:640px){.foot-side{flex-direction:row;gap:64px}}
+.foot-h{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:#64748b;margin-bottom:16px}
+.foot-nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px}
+.foot-nav-grid a,.foot-mail{font-size:14px;color:#cbd5e1;transition:color .2s}
+.foot-nav-grid a:hover,.foot-mail:hover{color:var(--primary)}
+.foot-mail{word-break:break-all}
+.foot-loc{margin-top:12px;font-size:14px;color:var(--muted)}
+.foot-bottom{margin-top:40px;border-top:1px solid rgba(30,41,59,.8);padding-top:24px;font-size:12px;color:#64748b}
+/* ---- light theme (mirrors portfolio html.light remap) ---- */
+html.light{--bg:#edf1f7;--surface:#ffffff;--text:#0f172a;--muted:#475569;--border:rgba(15,23,42,.14)}
+html.light body{color:var(--text)}
+html.light .hero h1,html.light h2.sec,html.light .card h3,html.light .case h3,html.light .step h3,html.light .faq h3,html.light .cta-band h2,html.light .brand .bname{color:#0f172a}
+html.light #site-header.scrolled{background:rgba(237,241,247,.85);border-bottom-color:rgba(15,23,42,.1)}
+html.light .desk-nav a{color:#475569}
+html.light .desk-nav a:hover{color:#0f172a}
+html.light #theme-toggle{color:#475569;border-color:rgba(15,23,42,.25)}
+html.light #menu-btn{color:#475569;border-color:rgba(15,23,42,.25)}
+html.light #mobile-menu{background:rgba(237,241,247,.97)}
+html.light #mobile-menu a{color:#475569}
+html.light .site-footer{color:#475569}
+html.light .foot-nav-grid a,html.light .foot-mail{color:#334155}
+html.light body::before{background:radial-gradient(circle at 12% 0%,rgba(45,212,191,.14),transparent 32%),radial-gradient(circle at 95% 10%,rgba(129,140,248,.14),transparent 35%)}
+
 ::selection{background:rgba(45,212,191,.28);color:#F8FAFC}
 </style>
 <script type="application/ld+json">
@@ -84,10 +141,36 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
 </script>
 </head>
 <body>
-<header class="top"><div class="wrap">
-<a class="brand" href="https://kamran1272.github.io/portfolio/">&lt;/&gt; KAMRAN</a>
-<a class="btn btn-primary" style="padding:10px 22px" href="https://wa.me/923307162505?text=Hi%20Kamran%2C%20I%20need%20a%20website%20for%20my%20restaurant">Free Quote</a>
-</div></header>
+<header id="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="https://kamran1272.github.io/portfolio/" aria-label="Go to homepage"><span class="code">&lt;/&gt;</span><span class="bname">KAMRAN</span></a>
+    <nav class="desk-nav" aria-label="Primary navigation">
+      <ul>
+              <li><a href="https://kamran1272.github.io/portfolio/#introduction">Home</a></li>
+              <li><a href="https://kamran1272.github.io/portfolio/#portfolio">Work</a></li>
+              <li><a href="https://kamran1272.github.io/portfolio/#services">Services</a></li>
+              <li><a href="https://kamran1272.github.io/portfolio/#skills">Skills</a></li>
+              <li><a href="https://kamran1272.github.io/portfolio/#about">About</a></li>
+              <li><a href="https://kamran1272.github.io/portfolio/#github">GitHub</a></li>
+              <li><a href="https://kamran1272.github.io/portfolio/#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button type="button" id="theme-toggle" aria-label="Toggle light and dark theme"><span id="theme-icon"></span></button>
+      <a class="resume-btn" href="https://kamran1272.github.io/portfolio/Kamran_Khan_CV.pdf" download="Kamran_Khan_CV.pdf"><span aria-hidden="true">&darr;</span> Download Resume</a>
+      <button type="button" id="menu-btn" aria-label="Open navigation menu" aria-expanded="false"><span aria-hidden="true">&#9776;</span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" hidden>
+            <a href="https://kamran1272.github.io/portfolio/#introduction">Home</a>
+            <a href="https://kamran1272.github.io/portfolio/#portfolio">Work</a>
+            <a href="https://kamran1272.github.io/portfolio/#services">Services</a>
+            <a href="https://kamran1272.github.io/portfolio/#skills">Skills</a>
+            <a href="https://kamran1272.github.io/portfolio/#about">About</a>
+            <a href="https://kamran1272.github.io/portfolio/#github">GitHub</a>
+            <a href="https://kamran1272.github.io/portfolio/#contact">Contact</a>
+  </div>
+</header>
 
 <div class="hero"><div class="wrap">
 <p class="eyebrow">Restaurant Websites</p>
@@ -161,9 +244,63 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
 </div>
 </div>
 
-<footer><div class="wrap">
-<p>Kamran Khan &middot; Full-Stack Web Developer (React, Next.js, Laravel) &middot; <a href="https://kamran1272.github.io/portfolio/">Portfolio</a> &middot; <a href="mailto:kamranofficial7212@gmail.com">kamranofficial7212@gmail.com</a></p>
-</div></footer>
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="https://kamran1272.github.io/portfolio/" aria-label="Back to top"><span class="code">&lt;/&gt;</span><span class="bname">KAMRAN</span></a>
+      <p class="foot-desc">Full-stack developer building practical React, Laravel, and SEO-focused digital experiences.</p>
+      <div class="socials">
+            <a href="https://github.com/kamran1272" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub"><svg width="18" height="18" viewBox="0 0 496 512" fill="currentColor" aria-hidden="true"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></a>
+            <a href="https://www.linkedin.com/in/kamran-khan-4477a3383" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn"><svg width="18" height="18" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+            <a href="https://www.instagram.com/kamran_khan728?igsh=MXA2MWJlaTRsbHJpZQ==" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram"><svg width="18" height="18" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+            <a href="https://www.facebook.com/share/1CXiXJKDm5/" target="_blank" rel="noopener noreferrer" aria-label="Visit Facebook"><svg width="18" height="18" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true"><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></svg></a>
+            <a href="https://wa.me/923307162505?text=Hi%2C%20I%20want%20to%20discuss%20a%20project%20with%20you." target="_blank" rel="noopener noreferrer" aria-label="Visit WhatsApp"><svg width="18" height="18" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+            <a href="https://www.tiktok.com/@kamran_magsi12?_t=ZS-8zqoE9Zq4X3&_r=1" target="_blank" rel="noopener noreferrer" aria-label="Visit TikTok"><svg width="18" height="18" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-side">
+      <nav aria-label="Footer navigation">
+        <p class="foot-h">Navigate</p>
+        <div class="foot-nav-grid">
+                <a href="https://kamran1272.github.io/portfolio/#introduction">Home</a>
+                <a href="https://kamran1272.github.io/portfolio/#portfolio">Work</a>
+                <a href="https://kamran1272.github.io/portfolio/#services">Services</a>
+                <a href="https://kamran1272.github.io/portfolio/#skills">Skills</a>
+                <a href="https://kamran1272.github.io/portfolio/#about">About</a>
+                <a href="https://kamran1272.github.io/portfolio/#github">GitHub</a>
+                <a href="https://kamran1272.github.io/portfolio/#contact">Contact</a>
+        </div>
+      </nav>
+      <div>
+        <p class="foot-h">Contact</p>
+        <a class="foot-mail" href="mailto:kamranofficial7212@gmail.com">kamranofficial7212@gmail.com</a>
+        <p class="foot-loc">Lahore, Pakistan</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap foot-bottom"><p>&copy; 2026 Kamran Khan. All rights reserved.</p></div>
+</footer>
 <a class="sticky-wa" href="https://wa.me/923307162505?text=Hi%20Kamran%2C%20I%20need%20a%20website%20for%20my%20restaurant"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.7.3-.9.9-1.1 2.2-.2 3.9a11.6 11.6 0 0 0 4.5 4.2c1.7.8 2.4.9 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.1-.5-.2z"/></svg>WhatsApp Me</a>
+<script>
+(function(){
+var header=document.getElementById('site-header');
+function onScroll(){header.classList.toggle('scrolled',window.scrollY>24);}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+var menuBtn=document.getElementById('menu-btn'),mobileMenu=document.getElementById('mobile-menu');
+menuBtn.addEventListener('click',function(){
+  var open=mobileMenu.hasAttribute('hidden');
+  if(open){mobileMenu.removeAttribute('hidden');menuBtn.setAttribute('aria-expanded','true');menuBtn.setAttribute('aria-label','Close navigation menu');}
+  else{mobileMenu.setAttribute('hidden','');menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Open navigation menu');}
+});
+var MOON='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',icon=document.getElementById('theme-icon'),toggle=document.getElementById('theme-toggle');
+function apply(light){document.documentElement.classList.toggle('light',light);icon.innerHTML=light?SUN:MOON;}
+var saved=null;try{saved=localStorage.getItem('kk-theme');}catch(e){}
+apply(saved==='light');
+toggle.addEventListener('click',function(){
+  var light=!document.documentElement.classList.contains('light');
+  apply(light);try{localStorage.setItem('kk-theme',light?'light':'dark');}catch(e){}
+});
+})();
+</script>
 </body>
 </html>
