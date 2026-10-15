@@ -7,13 +7,17 @@
   const log = (s) => { out.textContent += '\n' + s; };
   const API = 'https://laravel-react-salon-booking-production.up.railway.app';
   log('origin: ' + location.origin);
-  // 1. simple GET
+  // A: simple POST, NO preflight (text/plain is CORS-safelisted)
   try {
-    const r = await fetch(API + '/api/services', { headers: { 'Accept': 'application/json' } });
+    const r = await fetch(API + '/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ email: 'admin@demo.io', password: 'password' })
+    });
     const t = await r.text();
-    log('GET /api/services => ' + r.status + ' len=' + t.length);
-  } catch (e) { log('GET /api/services FAIL: ' + e.name + ' :: ' + String(e.message).slice(0,200)); }
-  // 2. preflight + POST login (exactly what the app does)
+    log('A plain-POST (no preflight) => ' + r.status + ' body=' + t.slice(0, 200));
+  } catch (e) { log('A plain-POST FAIL: ' + e.name + ' :: ' + String(e.message).slice(0,150)); }
+  // B: JSON POST, needs CORS preflight (exactly what the app does)
   try {
     const r = await fetch(API + '/api/auth/login', {
       method: 'POST',
@@ -21,9 +25,8 @@
       body: JSON.stringify({ email: 'admin@demo.io', password: 'password' })
     });
     const t = await r.text();
-    log('POST /api/auth/login => ' + r.status + ' body=' + t.slice(0, 300));
-  } catch (e) { log('POST /api/auth/login FAIL: ' + e.name + ' :: ' + String(e.message).slice(0,200)); }
-  // 3. explicit OPTIONS preflight visibility via a no-cors probe is not possible; report done
+    log('B json-POST (preflight) => ' + r.status + ' body=' + t.slice(0, 200));
+  } catch (e) { log('B json-POST FAIL: ' + e.name + ' :: ' + String(e.message).slice(0,150)); }
   log('done');
 })();
 </script></body></html>
