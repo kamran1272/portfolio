@@ -1,5 +1,7 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>Salon API diag</title></head>
+<html><head><meta charset="utf-8"><title>Salon API diag</title>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+</head>
 <body><pre id="out">running…</pre>
 <script>
 (async () => {
@@ -7,26 +9,27 @@
   const log = (s) => { out.textContent += '\n' + s; };
   const API = 'https://laravel-react-salon-booking-production.up.railway.app';
   log('origin: ' + location.origin);
-  // A: simple POST, NO preflight (text/plain is CORS-safelisted)
+  log('axios loaded: ' + (typeof axios !== 'undefined'));
+  // Exact replica of the demo app's client
+  const client = axios.create({
+    baseURL: API + '/api',
+    headers: { Accept: 'application/json' },
+  });
+  const token = localStorage.getItem('salon_token');
+  log('stored salon_token: ' + (token ? token.slice(0, 12) + '...' : '(none)'));
+  client.interceptors.request.use((config) => {
+    const t = localStorage.getItem('salon_token');
+    if (t) config.headers.Authorization = 'Bearer ' + t;
+    return config;
+  });
   try {
-    const r = await fetch(API + '/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify({ email: 'admin@demo.io', password: 'password' })
-    });
-    const t = await r.text();
-    log('A plain-POST (no preflight) => ' + r.status + ' body=' + t.slice(0, 200));
-  } catch (e) { log('A plain-POST FAIL: ' + e.name + ' :: ' + String(e.message).slice(0,150)); }
-  // B: JSON POST, needs CORS preflight (exactly what the app does)
-  try {
-    const r = await fetch(API + '/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: 'admin@demo.io', password: 'password' })
-    });
-    const t = await r.text();
-    log('B json-POST (preflight) => ' + r.status + ' body=' + t.slice(0, 200));
-  } catch (e) { log('B json-POST FAIL: ' + e.name + ' :: ' + String(e.message).slice(0,150)); }
+    const res = await client.post('/auth/login', { email: 'admin@demo.io', password: 'password' });
+    log('AXIOS login => ' + res.status + ' user=' + (res.data.user && res.data.user.email));
+  } catch (err) {
+    log('AXIOS login FAIL: status=' + (err.response && err.response.status) +
+        ' msg=' + ((err.response && err.response.data && err.response.data.message) || '(no response/message)') +
+        ' err=' + err.message);
+  }
   log('done');
 })();
 </script></body></html>
