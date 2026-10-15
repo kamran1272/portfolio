@@ -301,6 +301,37 @@ export const projects = [
       "</script>",
     ],
   },
+  {
+    id: 10,
+    title: "Salon Booking System",
+    type: "Personal project",
+    category: "Laravel / React",
+    filters: ["Full-Stack", "Business"],
+    description:
+      "A complete salon booking platform — services catalog, real-time slot booking, staff schedules, and an admin dashboard — with a Laravel 11 API and React 18 frontend. Live demo backed by a real Railway backend.",
+    details:
+      "A full booking flow for a fictional Glow & Grace Salon: customers browse treatments, pick a stylist and time slot, and manage their bookings, while staff and admins get schedules, booking lifecycle controls, and dashboard stats. Sanctum authentication with admin, staff, and customer roles. The public demo runs against a live Laravel + MySQL backend on Railway — sign in with admin@demo.io and password.",
+    highlights: [
+      "Real-time slot engine with staff availability",
+      "Booking lifecycle: pending, confirmed, completed, cancelled",
+      "Admin dashboard with stats and staff scheduling",
+      "Live demo on a real Railway Laravel + MySQL backend",
+    ],
+    tech: ["Laravel 11", "React 18", "Tailwind CSS", "Sanctum", "MySQL"],
+    liveUrl: "https://kamran1272.github.io/laravel-react-salon-booking/demo/",
+    codeUrl: "https://github.com/kamran1272/laravel-react-salon-booking",
+    screenshot: "salon-booking.png",
+    codeFile: "routes/api.php",
+    codeLines: [
+      "// salon booking endpoints",
+      "Route::middleware(['auth:sanctum'])->group(function () {",
+      "    Route::get('/availability', [SlotController::class, 'index']);",
+      "    Route::apiResource('bookings', BookingController::class);",
+      "    Route::post('/bookings/{booking}/confirm',",
+      "        [BookingController::class, 'confirm']);",
+      "});",
+    ],
+  },
 ];
 
 export const featuredProjects = [9, 1, 2]
